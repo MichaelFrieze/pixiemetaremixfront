@@ -3,8 +3,13 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
-    "dev": "remix dev",
+    "build": "run-s build:*",
+    "build:css": "npm run generate:css -- --minify",
+    "build:remix": "remix build",
+    "dev": "run-p dev:*",
+    "dev:css": "npm run generate:css -- --watch",
+    "dev:remix": "remix dev",
+    "generate:css": "npx tailwindcss -o ./app/styles/tailwind.css",
     "start": "remix-serve build"
   },
   "dependencies": {
@@ -17,7 +22,9 @@
   "devDependencies": {
     "@remix-run/dev": "^1.5.1",
     "@remix-run/eslint-config": "^1.5.1",
-    "eslint": "^8.15.0"
+    "eslint": "^8.15.0",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.0.24"
   },
   "engines": {
     "node": ">=14"

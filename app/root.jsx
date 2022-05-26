@@ -13,6 +13,7 @@ export const links = () => [
     rel: 'stylesheet',
     href: styles,
   },
+  { rel: 'icon', href: '/favicon.png' },
 ];
 
 export const meta = () => ({

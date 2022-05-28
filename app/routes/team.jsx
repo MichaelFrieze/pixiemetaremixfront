@@ -27,7 +27,6 @@ export const loader = async ({ request }) => {
 
 export default function Team() {
   const loaderData = useLoaderData();
-  console.log(loaderData);
 
   return (
     <>
@@ -45,11 +44,9 @@ export default function Team() {
                 </p>
               </div>
               <ul className="mx-auto space-y-16 sm:grid sm:grid-cols-2 sm:gap-16 sm:space-y-0 lg:grid-cols-3 lg:max-w-5xl">
-                <TeamMember />
-                <TeamMember />
-                <TeamMember />
-                <TeamMember />
-                <TeamMember />
+                {loaderData.map((teamMember) => (
+                  <TeamMember key={teamMember.id} teamMember={teamMember} />
+                ))}
               </ul>
             </div>
           </div>

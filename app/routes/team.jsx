@@ -1,7 +1,11 @@
+import { Layout } from '~/components/layout';
+
 export default function Team() {
   return (
-    <div>
-      <h1>Team Route</h1>
-    </div>
+    <>
+      <Layout>
+        <h1>Team Route</h1>
+      </Layout>
+    </>
   );
 }

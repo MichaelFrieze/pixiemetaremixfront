@@ -1,7 +1,11 @@
+import { Layout } from '~/components/layout';
+
 export default function BlogIndex() {
   return (
-    <div>
-      <h1>Blog Index Route</h1>
-    </div>
+    <>
+      <Layout>
+        <h1>Blog Index Route</h1>
+      </Layout>
+    </>
   );
 }

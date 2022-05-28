@@ -1,7 +1,11 @@
+import { Layout } from '~/components/layout';
+
 export default function BlogPost() {
   return (
-    <div>
-      <h1>Blog post dynamic route.</h1>
-    </div>
+    <>
+      <Layout>
+        <h1>Blog Post Route</h1>
+      </Layout>
+    </>
   );
 }

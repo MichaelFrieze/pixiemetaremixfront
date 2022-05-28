@@ -1,7 +1,11 @@
+import { Layout } from '~/components/layout';
+
 export default function Index() {
   return (
-    <div>
-      <h1 className="bg-red-500">Tailwind Works.</h1>
-    </div>
+    <>
+      <Layout>
+        <h1>Index Route</h1>
+      </Layout>
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from '@remix-run/react';
 import { Layout } from '~/components/layout';
 
 export default function BlogIndex() {
@@ -30,11 +31,11 @@ export default function BlogIndex() {
                 <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-600">
-                      <a href="#" className="hover:underline">
+                      <Link to="/blog/dynamicroute" className="hover:underline">
                         Article
-                      </a>
+                      </Link>
                     </p>
-                    <a href="#" className="block mt-2">
+                    <Link to="/blog/dynamicroute" className="block mt-2">
                       <p className="text-xl font-semibold text-gray-900">
                         Boost your conversion rate
                       </p>
@@ -43,7 +44,7 @@ export default function BlogIndex() {
                         Architecto accusantium praesentium eius, ut atque fuga
                         culpa, similique sequi cum eos quis dolorum.
                       </p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -59,11 +60,11 @@ export default function BlogIndex() {
                 <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-600">
-                      <a href="#" className="hover:underline">
+                      <Link to="/blog/dynamicroute" className="hover:underline">
                         Video
-                      </a>
+                      </Link>
                     </p>
-                    <a href="#" className="block mt-2">
+                    <Link to="/blog/dynamicroute" className="block mt-2">
                       <p className="text-xl font-semibold text-gray-900">
                         How to use search engine optimization to drive sales
                       </p>
@@ -73,7 +74,7 @@ export default function BlogIndex() {
                         eveniet dolore. Adipisci tempora aut inventore optio
                         animi., tempore temporibus quo laudantium.
                       </p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -89,11 +90,11 @@ export default function BlogIndex() {
                 <div className="flex-1 bg-white p-6 flex flex-col justify-between">
                   <div className="flex-1">
                     <p className="text-sm font-medium text-indigo-600">
-                      <a href="#" className="hover:underline">
+                      <Link to="/blog/dynamicroute" className="hover:underline">
                         Case Study
-                      </a>
+                      </Link>
                     </p>
-                    <a href="#" className="block mt-2">
+                    <Link to="/blog/dynamicroute" className="block mt-2">
                       <p className="text-xl font-semibold text-gray-900">
                         Improve your customer experience
                       </p>
@@ -103,7 +104,7 @@ export default function BlogIndex() {
                         saepe molestiae, sed excepturi cumque corporis
                         perferendis hic.
                       </p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

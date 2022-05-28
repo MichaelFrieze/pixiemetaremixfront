@@ -3,7 +3,7 @@ import { Layout } from '~/components/layout';
 import { TeamMember } from '~/components/team-member';
 
 export const loader = async ({ request }) => {
-  // Fetch events
+  // Fetch team members
   const res = await fetch(
     `${process.env.API_URL}/api/team-members?populate=image`
   );

@@ -2,7 +2,7 @@ import { useLoaderData, Link } from '@remix-run/react';
 import { Layout } from '~/components/layout';
 
 export const loader = async ({ request }) => {
-  // Fetch events
+  // Fetch blog posts
   const res = await fetch(
     `${process.env.API_URL}/api/blog-posts?populate=image`
   );

@@ -2,7 +2,27 @@ import { useLoaderData } from '@remix-run/react';
 import { Layout } from '~/components/layout';
 import { BlogPostCard } from '~/components/blog-post-card';
 
-export const loader = async ({ request }) => {
+export const loader = async () => {
+  const cacheKey = `remix-blog-posts`;
+
+  const cacheResponse = await fetch(
+    `${process.env.UPSTASH_URL}/get/${cacheKey}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.UPSTASH_TOKEN}`,
+      },
+    }
+  );
+  const cached =
+    cacheResponse.status === 200
+      ? await cacheResponse.json()
+      : { result: null };
+
+  // if the cache is valid, return it
+  if (cached.result) return JSON.parse(cached.result);
+
+  console.log('Cache miss, fetching from API');
+
   // Fetch blog posts
   const res = await fetch(
     `${process.env.API_URL}/api/blog-posts?populate=image`
@@ -21,6 +41,16 @@ export const loader = async ({ request }) => {
 
   const resObj = await res.json();
   const loaderData = resObj.data;
+
+  // cache the result
+  // result will be cahced for 5 minutes (300 seconds)
+  await fetch(`${process.env.UPSTASH_URL}/set/${cacheKey}?EX=300`, {
+    headers: {
+      Authorization: `Bearer ${process.env.UPSTASH_TOKEN}`,
+    },
+    method: 'post',
+    body: JSON.stringify(loaderData),
+  });
 
   return loaderData;
 };

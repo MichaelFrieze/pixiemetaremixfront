@@ -1,6 +1,33 @@
+import { useLoaderData } from '@remix-run/react';
 import { Layout } from '~/components/layout';
 
+export const loader = async ({ params: { slug } }) => {
+  // Fetch blog post
+  const res = await fetch(
+    `${process.env.API_URL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=image`
+  );
+
+  if (!res.ok) {
+    console.error(res);
+
+    const resObj = await res.json();
+    throw new Error(
+      `${resObj.error.status} | ${resObj.error.name} | Message: ${
+        resObj.error.message
+      } | Details: ${JSON.stringify(resObj.error.details)}`
+    );
+  }
+
+  const resObj = await res.json();
+  const loaderData = resObj.data;
+
+  return loaderData;
+};
+
 export default function BlogPost() {
+  const loaderData = useLoaderData();
+  console.log(loaderData);
+
   return (
     <>
       <Layout>

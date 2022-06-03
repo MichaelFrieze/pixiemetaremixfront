@@ -1,7 +1,33 @@
-import { Link } from '@remix-run/react';
+import { useLoaderData } from '@remix-run/react';
 import { Layout } from '~/components/layout';
+import { BlogPostCard } from '~/components/blog-post-card';
+
+export const loader = async ({ request }) => {
+  // Fetch blog posts
+  const res = await fetch(
+    `${process.env.API_URL}/api/blog-posts?populate=image`
+  );
+
+  if (!res.ok) {
+    console.error(res);
+
+    const resObj = await res.json();
+    throw new Error(
+      `${resObj.error.status} | ${resObj.error.name} | Message: ${
+        resObj.error.message
+      } | Details: ${JSON.stringify(resObj.error.details)}`
+    );
+  }
+
+  const resObj = await res.json();
+  const loaderData = resObj.data;
+
+  return loaderData;
+};
 
 export default function BlogIndex() {
+  const loaderData = useLoaderData();
+
   return (
     <>
       <Layout>
@@ -20,94 +46,9 @@ export default function BlogIndex() {
               </p>
             </div>
             <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-              <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-48 w-full object-cover"
-                    src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=7qwKjEp7Xv&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-indigo-600">
-                      <Link to="/blog/dynamicroute" className="hover:underline">
-                        Article
-                      </Link>
-                    </p>
-                    <Link to="/blog/dynamicroute" className="block mt-2">
-                      <p className="text-xl font-semibold text-gray-900">
-                        Boost your conversion rate
-                      </p>
-                      <p className="mt-3 text-base text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Architecto accusantium praesentium eius, ut atque fuga
-                        culpa, similique sequi cum eos quis dolorum.
-                      </p>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-48 w-full object-cover"
-                    src="https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixqx=7qwKjEp7Xv&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-indigo-600">
-                      <Link to="/blog/dynamicroute" className="hover:underline">
-                        Video
-                      </Link>
-                    </p>
-                    <Link to="/blog/dynamicroute" className="block mt-2">
-                      <p className="text-xl font-semibold text-gray-900">
-                        How to use search engine optimization to drive sales
-                      </p>
-                      <p className="mt-3 text-base text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Velit facilis asperiores porro quaerat doloribus,
-                        eveniet dolore. Adipisci tempora aut inventore optio
-                        animi., tempore temporibus quo laudantium.
-                      </p>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-48 w-full object-cover"
-                    src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixqx=7qwKjEp7Xv&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-indigo-600">
-                      <Link to="/blog/dynamicroute" className="hover:underline">
-                        Case Study
-                      </Link>
-                    </p>
-                    <Link to="/blog/dynamicroute" className="block mt-2">
-                      <p className="text-xl font-semibold text-gray-900">
-                        Improve your customer experience
-                      </p>
-                      <p className="mt-3 text-base text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Sint harum rerum voluptatem quo recusandae magni placeat
-                        saepe molestiae, sed excepturi cumque corporis
-                        perferendis hic.
-                      </p>
-                    </Link>
-                  </div>
-                </div>
-              </div>
+              {loaderData.map((blogPost) => (
+                <BlogPostCard key={blogPost.id} blogPost={blogPost} />
+              ))}
             </div>
           </div>
         </div>

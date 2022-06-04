@@ -44,7 +44,7 @@ export const loader = async () => {
 
   // cache the result
   // result will be cahced for 5 minutes (300 seconds)
-  await fetch(`${process.env.UPSTASH_URL}/set/${cacheKey}?EX=300`, {
+  await fetch(`${process.env.UPSTASH_URL}/set/${cacheKey}?EX=86400`, {
     headers: {
       Authorization: `Bearer ${process.env.UPSTASH_TOKEN}`,
     },

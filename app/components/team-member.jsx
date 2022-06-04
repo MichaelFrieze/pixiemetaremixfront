@@ -1,5 +1,4 @@
 export const TeamMember = ({ teamMember }) => {
-  console.log(teamMember);
   return (
     <li>
       <div className="space-y-6">

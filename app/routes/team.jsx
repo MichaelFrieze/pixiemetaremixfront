@@ -1,25 +1,24 @@
 import { useLoaderData } from '@remix-run/react';
+import { Redis } from '@upstash/redis';
 import { Layout } from '~/components/layout';
 import { TeamMember } from '~/components/team-member';
 
 export const loader = async () => {
-  const cacheKey = `remix-team-members`;
+  const redis = new Redis({
+    url: `${process.env.UPSTASH_URL}`,
+    token: `${process.env.UPSTASH_TOKEN}`,
+  });
 
-  const cacheResponse = await fetch(
-    `${process.env.UPSTASH_URL}/get/${cacheKey}`,
-    {
-      headers: {
-        Authorization: `Bearer ${process.env.UPSTASH_TOKEN}`,
-      },
-    }
-  );
-  const cached =
-    cacheResponse.status === 200
-      ? await cacheResponse.json()
-      : { result: null };
+  // Find the cache key in the Upstash data browser
+  const cacheKey = `/api/team-members?populate=image&`;
+  const redisRes = await redis.get(cacheKey);
 
   // if the cache is valid, return it
-  if (cached.result) return JSON.parse(cached.result);
+  if (redisRes) {
+    const redisResObj = JSON.parse(redisRes);
+    const teamMembersCache = redisResObj.data.data;
+    return teamMembersCache;
+  }
 
   console.log('Cache miss, fetching from API');
 
@@ -41,16 +40,6 @@ export const loader = async () => {
 
   const resObj = await res.json();
   const loaderData = resObj.data;
-
-  // cache the result
-  // result will be cahced for 5 minutes (300 seconds)
-  await fetch(`${process.env.UPSTASH_URL}/set/${cacheKey}?EX=86400`, {
-    headers: {
-      Authorization: `Bearer ${process.env.UPSTASH_TOKEN}`,
-    },
-    method: 'post',
-    body: JSON.stringify(loaderData),
-  });
 
   return loaderData;
 };

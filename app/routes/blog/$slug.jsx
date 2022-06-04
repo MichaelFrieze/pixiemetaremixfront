@@ -1,7 +1,26 @@
 import { useLoaderData } from '@remix-run/react';
+import { Redis } from '@upstash/redis';
 import { Layout } from '~/components/layout';
 
 export const loader = async ({ params: { slug } }) => {
+  const redis = new Redis({
+    url: `${process.env.UPSTASH_URL}`,
+    token: `${process.env.UPSTASH_TOKEN}`,
+  });
+
+  // Find the cache key in the Upstash data browser | also using the slug here
+  const cacheKey = `/api/blog-posts?filters={"slug":{"$eq":"${slug}"}},populate=image&`;
+  const redisRes = await redis.get(cacheKey);
+
+  // if the cache is valid, return it
+  if (redisRes) {
+    const redisResObj = JSON.parse(redisRes);
+    const blogPostCache = redisResObj.data.data[0];
+    return blogPostCache;
+  }
+
+  console.log('Cache miss, fetching from API');
+
   // Fetch blog post
   const res = await fetch(
     `${process.env.API_URL}/api/blog-posts?filters[slug][$eq]=${slug}&populate=image`
@@ -19,9 +38,9 @@ export const loader = async ({ params: { slug } }) => {
   }
 
   const resObj = await res.json();
-  const loaderData = resObj.data;
+  const loaderData = resObj.data[0];
 
-  return loaderData[0];
+  return loaderData;
 };
 
 export default function BlogPost() {

@@ -1,11 +1,7 @@
-import { Layout } from '~/components/layout';
-
-export default function Index() {
+export default function IndexRoute() {
   return (
-    <>
-      <Layout>
-        <h1>Index Route</h1>
-      </Layout>
-    </>
+    <div>
+      <h1>Hello World</h1>
+    </div>
   );
 }

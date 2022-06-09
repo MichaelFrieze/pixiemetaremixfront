@@ -6,12 +6,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react';
-import styles from './styles/tailwind.css';
+import globalStyles from '~/styles/global.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    href: styles,
+    href: globalStyles,
   },
   { rel: 'icon', href: '/favicon.png' },
 ];

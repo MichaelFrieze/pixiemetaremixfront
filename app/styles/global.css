@@ -36,18 +36,31 @@
 
 * {
   margin: 0;
-  padding: 0;
 }
 
 html,
 body {
   height: 100%;
-  font-family: 'Karla';
 }
 
 body {
-  line-height: 1.5;
+  font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  color: #ffffff;
+
+  background-color: #100d2b;
+  max-width: var(--1920px);
+  height: 100%;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 img,
@@ -79,11 +92,4 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
-}
-
-.container {
-  background-color: #100d2b;
-  max-width: var(--1920px);
-  height: var(--8674px);
-  margin: 0 auto;
 }

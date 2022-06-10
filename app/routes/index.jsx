@@ -1,3 +1,4 @@
+import { Header, links as headerLinks } from '~/components/header';
 import indexStyles from '~/styles/index.css';
 
 export const links = () => [
@@ -5,13 +6,13 @@ export const links = () => [
     rel: 'stylesheet',
     href: indexStyles,
   },
+  ...headerLinks(),
 ];
 
 export default function IndexRoute() {
   return (
-    <div className="container">
-      {/* <h1>Hello World</h1> */}
-      <p>Bringing Magic to Everyone’s Life on the Blockchain</p>
+    <div>
+      <Header />
     </div>
   );
 }

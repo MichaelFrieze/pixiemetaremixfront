@@ -1,3 +1,12 @@
+import indexStyles from '~/styles/index.css';
+
+export const links = () => [
+  {
+    rel: 'stylesheet',
+    href: indexStyles,
+  },
+];
+
 export default function IndexRoute() {
   return (
     <div>

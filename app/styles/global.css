@@ -1,3 +1,19 @@
+/* Making rem easier to use */
+/* font-size: calc(18rem / 16); Produces 1.125rem. Equivalent to 18px */
+:root {
+  --14px: 0.875rem;
+  --15px: 0.9375rem;
+  --16px: 1rem;
+  --17px: 1.0625rem;
+  --18px: 1.125rem;
+  --19px: 1.1875rem;
+  --20px: 1.25rem;
+  --21px: 1.3125rem;
+  --87px: 5.4375rem;
+  --1920px: 120rem;
+  --8674px: 542.125rem;
+}
+
 @font-face {
   font-family: 'Objet';
   src: url('/fonts/objet/objet-regular.woff') format('woff');
@@ -63,4 +79,11 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+.container {
+  background-color: #100d2b;
+  max-width: var(--1920px);
+  height: var(--8674px);
+  margin: 0 auto;
 }

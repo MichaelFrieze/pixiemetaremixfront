@@ -9,7 +9,7 @@ export const links = () => [
 
 export default function IndexRoute() {
   return (
-    <div>
+    <div className="container">
       {/* <h1>Hello World</h1> */}
       <p>Bringing Magic to Everyone’s Life on the Blockchain</p>
     </div>

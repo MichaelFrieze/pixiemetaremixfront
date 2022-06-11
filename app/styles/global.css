@@ -96,8 +96,10 @@ h6 {
 @media (min-width: 1920px) {
   .layout-container {
     background-color: #100d2b;
+    margin: 0 auto;
+    background-image: url('/images/background/bg-full.webp');
+    background-repeat: no-repeat;
     max-width: var(--1920px);
     height: var(--8674px);
-    margin: 0 auto;
   }
 }

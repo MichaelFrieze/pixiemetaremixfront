@@ -1,10 +1,34 @@
 @media (min-width: 1920px) {
   .header-container {
     display: flex;
+    justify-content: space-between;
   }
 
   .logo {
     margin-top: var(--154px);
     margin-left: var(--193px);
+    height: 87px;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: var(--807px);
+    height: var(--24px);
+    margin-right: 193px;
+    margin-top: 197px;
+    padding-top: 0;
+  }
+
+  .nav-links a {
+    color: #ffffff;
+    font-size: var(--24px);
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: normal;
+  }
+
+  .nav-links a:hover {
+    color: #fbbd09;
   }
 }

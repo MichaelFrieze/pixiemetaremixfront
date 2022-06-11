@@ -20,7 +20,14 @@ export function Header() {
         />
       </Link>
       <div className="social-button"></div>
-      <nav className="nav-links"></nav>
+      <nav className="nav-links">
+        <a href="/">Mission</a>
+        <a href="/">About Us</a>
+        <Link to="/">Blog</Link>
+        <a href="/">Team</a>
+        <a href="/">Careers</a>
+        <a href="/">Contact Us</a>
+      </nav>
     </header>
   );
 }

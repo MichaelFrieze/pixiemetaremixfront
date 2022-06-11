@@ -1,10 +1,11 @@
 import { Header, links as headerLinks } from '~/components/header';
-import indexStyles from '~/styles/index.css';
+import indexDesktopStyles from '~/styles/desktop/index.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    href: indexStyles,
+    media: 'screen and (min-width: 1920px)',
+    href: indexDesktopStyles,
   },
   ...headerLinks(),
 ];

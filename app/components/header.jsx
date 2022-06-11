@@ -6,12 +6,13 @@ import {
   FaLinkedin,
 } from 'react-icons/fa';
 import { BsMedium } from 'react-icons/bs';
-import headerStyles from '~/styles/header.css';
+import headerDesktopStyles from '~/styles/desktop/header.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    href: headerStyles,
+    media: 'screen and (min-width: 1920px)',
+    href: headerDesktopStyles,
   },
 ];
 

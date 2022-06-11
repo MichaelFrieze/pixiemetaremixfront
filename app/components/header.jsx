@@ -1,19 +1,58 @@
 import { Link } from '@remix-run/react';
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+} from 'react-icons/fa';
+import { BsMedium } from 'react-icons/bs';
+import headerStyles from '~/styles/header.css';
 
-export const Header = () => {
+export const links = () => [
+  {
+    rel: 'stylesheet',
+    href: headerStyles,
+  },
+];
+
+export function Header() {
   return (
-    <header className="container mx-auto mt-10 px-6 text-center h-40 md:h-20">
-      <div className="flex items-center justify-center space-x-4 md:space-x-10 md:absolute top-12 right-10">
-        <Link to="/" prefetch="intent" className="hover:text-accentCyan">
-          Home
-        </Link>
-        <Link to="/blog" prefetch="intent" className="hover:text-accentCyan">
-          Blog
-        </Link>
-        <Link to="/team" prefetch="intent" className="hover:text-accentCyan">
-          Team
-        </Link>
+    <header className="header-container">
+      <Link to="/" prefetch="intent" className="logo">
+        <img
+          srcSet="/images/logos/logo-header.webp"
+          alt="Logo"
+          width={376}
+          height={87}
+        />
+      </Link>
+      <div>
+        <div className="social-btn-container">
+          <a className="social-btn" target="_blank" href="/">
+            <FaFacebookF />
+          </a>
+          <a className="social-btn" target="_blank" href="/">
+            <FaTwitter />
+          </a>
+          <a className="social-btn" target="_blank" href="/">
+            <FaInstagram />
+          </a>
+          <a className="social-btn" target="_blank" href="/">
+            <BsMedium />
+          </a>
+          <a className="social-btn" target="_blank" href="/">
+            <FaLinkedin />
+          </a>
+        </div>
+        <nav className="nav-links">
+          <a href="/">Mission</a>
+          <a href="/">About Us</a>
+          <Link to="/">Blog</Link>
+          <a href="/">Team</a>
+          <a href="/">Careers</a>
+          <a href="/">Contact Us</a>
+        </nav>
       </div>
     </header>
   );
-};
+}

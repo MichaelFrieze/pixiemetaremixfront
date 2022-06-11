@@ -1,0 +1,102 @@
+/* Making rem easier to use */
+/* font-size: calc(18rem / 16); Produces 1.125rem. Equivalent to 18px */
+:root {
+  --14px: 0.875rem;
+  --15px: 0.9375rem;
+  --16px: 1rem;
+  --17px: 1.0625rem;
+  --18px: 1.125rem;
+  --19px: 1.1875rem;
+  --20px: 1.25rem;
+  --21px: 1.3125rem;
+  --24px: 1.5rem;
+  --38px: 2.375rem;
+  --50px: 3.125rem;
+  --87px: 5.4375rem;
+  --100px: 6.25rem;
+  --147px: 9.1875rem;
+  --154px: 9.625rem;
+  --193px: 12.0625rem;
+  --300px: 18.75rem;
+  --376px: 23.5rem;
+  --807px: 50.4375rem;
+  --1920px: 120rem;
+  --2050px: 128.125rem;
+  --8674px: 542.125rem;
+}
+
+@font-face {
+  font-family: 'Objet';
+  src: url('/fonts/objet/objet-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Objet';
+  src: url('/fonts/objet/objet-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}

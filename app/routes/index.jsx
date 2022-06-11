@@ -1,11 +1,18 @@
-import { Layout } from '~/components/layout';
+import { Header, links as headerLinks } from '~/components/header';
+import indexStyles from '~/styles/index.css';
 
-export default function Index() {
+export const links = () => [
+  {
+    rel: 'stylesheet',
+    href: indexStyles,
+  },
+  ...headerLinks(),
+];
+
+export default function IndexRoute() {
   return (
-    <>
-      <Layout>
-        <h1>Index Route</h1>
-      </Layout>
-    </>
+    <div className="layout-container">
+      <Header />
+    </div>
   );
 }

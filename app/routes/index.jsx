@@ -11,8 +11,10 @@ export const links = () => [
 
 export default function IndexRoute() {
   return (
-    <div>
-      <Header />
+    <div className="layout-container">
+      <div className="header-hero-bg-img">
+        <Header />
+      </div>
     </div>
   );
 }

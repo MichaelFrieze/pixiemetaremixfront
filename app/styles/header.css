@@ -1,0 +1,10 @@
+@media (min-width: 1920px) {
+  .header-container {
+    display: flex;
+  }
+
+  .logo {
+    margin-top: var(--154px);
+    margin-left: var(--193px);
+  }
+}

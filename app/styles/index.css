@@ -1,0 +1,11 @@
+@media (min-width: 1920px) {
+  .header-hero-bg-img {
+    background-image: url('/images/background/hero-image.webp');
+    background-repeat: no-repeat;
+    /* background-size: cover;
+  background-position: center;
+  height: 100%; */
+    width: var(--1920px);
+    height: var(--2050px);
+  }
+}

@@ -10,7 +10,11 @@
   --20px: 1.25rem;
   --21px: 1.3125rem;
   --87px: 5.4375rem;
+  --154px: 9.625rem;
+  --193px: 12.0625rem;
+  --376px: 23.5rem;
   --1920px: 120rem;
+  --2050px: 128.125rem;
   --8674px: 542.125rem;
 }
 
@@ -48,11 +52,6 @@ body {
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
   color: #ffffff;
-
-  background-color: #100d2b;
-  max-width: var(--1920px);
-  height: 100%;
-  margin: 0 auto;
 }
 
 ul {
@@ -92,4 +91,13 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+@media (min-width: 1920px) {
+  .layout-container {
+    background-color: #100d2b;
+    max-width: var(--1920px);
+    height: var(--8674px);
+    margin: 0 auto;
+  }
 }

@@ -13,7 +13,7 @@ export function Header() {
     <header className="header-container">
       <Link to="/" prefetch="intent" className="logo">
         <img
-          src="/images/logo/logo-header.webp"
+          src="/images/logos/logo-header.webp"
           alt="logo"
           width={376}
           height={87}

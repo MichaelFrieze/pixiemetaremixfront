@@ -1,6 +1,6 @@
-/* Making rem easier to use */
-/* font-size: calc(18rem / 16); Produces 1.125rem. Equivalent to 18px */
 :root {
+  /* Making rem easier to use */
+  /* font-size: calc(18rem / 16); Produces 1.125rem. Equivalent to 18px */
   --14px: 0.875rem;
   --15px: 0.9375rem;
   --16px: 1rem;
@@ -23,6 +23,20 @@
   --1920px: 120rem;
   --2050px: 128.125rem;
   --8674px: 542.125rem;
+
+  /* Colors from style guide */
+  --white: #ffffff;
+  --black: #000000;
+  --purple: #a333c8;
+  --blue: #0c66ff;
+  --yellow: #fbbd09;
+
+  /* More colors from design PSD */
+  --light-black: #1a1a1a;
+  --orange: #f07d2e;
+  --dark-blue: #282356;
+  --darker-blue: #100d2b;
+  --light-green: #00efe7;
 }
 
 @font-face {

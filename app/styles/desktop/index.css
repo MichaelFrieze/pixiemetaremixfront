@@ -1,5 +1,9 @@
+body {
+  background-color: var(--white);
+}
+
 .layout-container {
-  background-color: #100d2b;
+  background-color: var(--darker-blue);
   margin: 0 auto;
   background-image: url('/images/backgrounds/bg-full.webp');
   background-repeat: no-repeat;

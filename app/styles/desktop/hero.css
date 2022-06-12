@@ -1,0 +1,61 @@
+.section-hero {
+  margin-left: 205px;
+  margin-right: 273px;
+  margin-top: 153px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-text-box {
+}
+
+.hero-heading {
+  font-family: Objet;
+  font-size: 86px;
+  font-weight: 700;
+  text-align: left;
+  line-height: 110px;
+  width: 727px;
+  margin-right: 131px;
+  color: var(--white);
+}
+
+.hero-heading-highlight {
+  color: var(--yellow);
+}
+
+.hero-description-first {
+  margin-top: 77px;
+  font-family: Karla;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: justify;
+  text-align-last: left;
+  line-height: 45px;
+  color: var(--white);
+  width: 802px;
+  margin-right: 57px;
+  padding: 0;
+  word-spacing: 6px;
+}
+
+.hero-description-second {
+  margin-top: 45px;
+  font-family: Karla;
+  font-size: 26px;
+  font-weight: 500;
+  text-align: justify;
+  text-align-last: left;
+  line-height: 45px;
+  color: var(--white);
+  width: 802px;
+  margin-right: 57px;
+  padding: 0;
+  word-spacing: 6px;
+}
+
+.hero-images {
+}

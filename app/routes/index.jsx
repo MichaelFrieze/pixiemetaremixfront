@@ -16,7 +16,9 @@ export default function Index() {
   return (
     <div className="layout-container">
       <Header />
-      <Hero />
+      <main>
+        <Hero />
+      </main>
     </div>
   );
 }

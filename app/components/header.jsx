@@ -27,7 +27,7 @@ export function Header() {
           height={87}
         />
       </Link>
-      <div>
+      <div className="nav-container">
         <div className="social-btn-container">
           <a className="social-btn" target="_blank" href="/">
             <FaFacebookF />
@@ -48,7 +48,9 @@ export function Header() {
         <nav className="nav-links">
           <a href="/">Mission</a>
           <a href="/">About Us</a>
-          <Link to="/">Blog</Link>
+          <Link prefetch="intent" to="/">
+            Blog
+          </Link>
           <a href="/">Team</a>
           <a href="/">Careers</a>
           <a href="/">Contact Us</a>

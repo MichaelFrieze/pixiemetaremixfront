@@ -1,0 +1,60 @@
+.values-section {
+  margin-top: 138px;
+}
+
+.values-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.values-heading {
+  display: flex;
+  flex-direction: row;
+  width: 1150px;
+  height: 250px;
+  margin-left: 240px;
+}
+
+.values-butterfly-image {
+}
+
+.values-text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 110px;
+  margin-top: 125px;
+}
+
+.values-section-title {
+  width: 177px;
+  height: 35px;
+  color: calc(--white);
+  font-family: Karla;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+.values-header-text {
+  width: 905px;
+  height: 80px;
+  color: calc(--white);
+  font-family: Objet;
+  font-size: 60px;
+  font-weight: 700;
+  text-align: center;
+  font-style: normal;
+  letter-spacing: normal;
+  line-height: normal;
+}
+
+.values-header-highlight {
+  color: var(--yellow);
+}

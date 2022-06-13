@@ -29,8 +29,27 @@ export function Hero() {
         </div>
 
         <div className="hero-images">
-          <img srcSet="/images/graphics/hat.webp" alt="hat" />
-          <img srcSet="/images/graphics/pot.webp" alt="pot" />
+          <img
+            className="hat"
+            srcSet="/images/graphics/hat.webp"
+            alt="hat"
+            width={584}
+            height={392}
+          />
+          <img
+            className="hat-butterfly"
+            srcSet="/images/graphics/hat-butterfly.webp"
+            alt="hat-butterfly"
+            width={185}
+            height={183}
+          />
+          <img
+            className="pot"
+            srcSet="/images/graphics/pot.webp"
+            alt="pot"
+            width={440}
+            height={436}
+          />
         </div>
       </div>
     </section>

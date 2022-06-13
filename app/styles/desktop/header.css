@@ -4,24 +4,24 @@
 }
 
 .logo {
-  margin-top: var(--147px);
-  margin-left: var(--193px);
-  height: var(--87px);
+  margin-top: calc(147rem / 16);
+  margin-left: calc(193rem / 16);
+  height: calc(87rem / 16);
 }
 
 .nav-links {
   display: flex;
   justify-content: space-between;
-  width: var(--807px);
-  height: var(--24px);
-  margin-right: var(--193px);
-  margin-top: var(--38px);
+  width: calc(807rem / 16);
+  height: calc(24rem / 16);
+  margin-right: calc(193rem / 16);
+  margin-top: calc(38rem / 16);
   padding-top: 0;
 }
 
 .nav-links a {
   color: var(--white);
-  font-size: var(--24px);
+  font-size: calc(24rem / 16);
   font-weight: 700;
   font-style: normal;
   letter-spacing: normal;
@@ -34,10 +34,10 @@
 .social-btn-container {
   display: flex;
   justify-content: space-between;
-  width: var(--300px);
+  width: calc(300rem / 16);
   margin-left: auto;
-  margin-right: var(--193px);
-  margin-top: var(--100px);
+  margin-right: calc(193rem / 16);
+  margin-top: calc(100rem / 16);
 }
 
 .social-btn {
@@ -45,9 +45,9 @@
   justify-content: center;
   align-items: center;
   color: var(--white);
-  font-size: var(--24px);
-  width: var(--50px);
-  height: var(--50px);
+  font-size: calc(24rem / 16);
+  width: calc(50rem / 16);
+  height: calc(50rem / 16);
   border: 3px solid var(--purple);
   border-radius: 50%;
 }

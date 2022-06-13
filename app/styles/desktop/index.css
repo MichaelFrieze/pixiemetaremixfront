@@ -1,0 +1,12 @@
+body {
+  background-color: var(--white);
+}
+
+.layout-container {
+  background-color: var(--darker-blue);
+  margin: 0 auto;
+  background-image: url('/images/backgrounds/bg-full.webp');
+  background-repeat: no-repeat;
+  width: calc(1920rem / 16);
+  height: calc(8674rem / 16);
+}

@@ -1,0 +1,71 @@
+.section-hero {
+  margin-left: calc(205rem / 16);
+  margin-right: calc(273rem / 16);
+  margin-top: calc(153rem / 16);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  height: calc(720rem / 16);
+}
+
+.hero-heading {
+  font-family: Objet;
+  font-size: calc(86rem / 16);
+  font-weight: 700;
+  text-align: left;
+  line-height: calc(110rem / 16);
+  width: calc(727rem / 16);
+  margin-right: calc(131rem / 16);
+  color: var(--white);
+}
+
+.hero-heading-highlight {
+  color: var(--yellow);
+}
+
+.hero-description-first {
+  margin-top: calc(77rem / 16);
+  font-family: Karla;
+  font-size: calc(26rem / 16);
+  font-weight: 500;
+  text-align: justify;
+  text-align-last: left;
+  line-height: calc(45rem / 16);
+  color: var(--white);
+  width: calc(802rem / 16);
+  margin-right: calc(57rem / 16);
+  padding: 0;
+  word-spacing: calc(6rem / 16);
+}
+
+.hero-description-second {
+  margin-top: calc(45rem / 16);
+  font-family: Karla;
+  font-size: calc(26rem / 16);
+  font-weight: 500;
+  text-align: justify;
+  text-align-last: left;
+  line-height: calc(45rem / 16);
+  color: var(--white);
+  width: calc(802rem / 16);
+  margin-right: calc(57rem / 16);
+  padding: 0;
+  word-spacing: calc(6rem / 16);
+}
+
+.hero-images {
+  margin-top: calc(28rem / 16);
+}
+
+.hat-butterfly {
+  position: relative;
+  top: calc(-190rem / 16);
+}
+
+.pot {
+  position: relative;
+  top: calc(-335rem / 16);
+  margin-left: calc(144rem / 16);
+}

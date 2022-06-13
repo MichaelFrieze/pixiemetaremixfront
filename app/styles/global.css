@@ -1,28 +1,23 @@
-/* Making rem easier to use */
-/* font-size: calc(18rem / 16); Produces 1.125rem. Equivalent to 18px */
+/* 
+Since using rem can be more difficult than using px:
+calc(10rem / 16) is an easy way to make 10px = 0.625rem
+16 is used because it is the default browser font size
+*/
+
 :root {
-  --14px: 0.875rem;
-  --15px: 0.9375rem;
-  --16px: 1rem;
-  --17px: 1.0625rem;
-  --18px: 1.125rem;
-  --19px: 1.1875rem;
-  --20px: 1.25rem;
-  --21px: 1.3125rem;
-  --24px: 1.5rem;
-  --38px: 2.375rem;
-  --50px: 3.125rem;
-  --87px: 5.4375rem;
-  --100px: 6.25rem;
-  --147px: 9.1875rem;
-  --154px: 9.625rem;
-  --193px: 12.0625rem;
-  --300px: 18.75rem;
-  --376px: 23.5rem;
-  --807px: 50.4375rem;
-  --1920px: 120rem;
-  --2050px: 128.125rem;
-  --8674px: 542.125rem;
+  /* Colors from style guide */
+  --white: #ffffff;
+  --black: #000000;
+  --purple: #a333c8;
+  --blue: #0c66ff;
+  --yellow: #fbbd09;
+
+  /* More colors from design PSD */
+  --light-black: #1a1a1a;
+  --orange: #f07d2e;
+  --dark-blue: #282356;
+  --darker-blue: #100d2b;
+  --light-green: #00efe7;
 }
 
 @font-face {

@@ -1,18 +1,24 @@
 import { Header, links as headerLinks } from '~/components/header';
-import indexStyles from '~/styles/index.css';
+import { Hero, links as heroLinks } from '~/components/hero';
+import indexDesktopStyles from '~/styles/desktop/index.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    href: indexStyles,
+    media: 'screen and (min-width: 1920px)',
+    href: indexDesktopStyles,
   },
   ...headerLinks(),
+  ...heroLinks(),
 ];
 
-export default function IndexRoute() {
+export default function Index() {
   return (
     <div className="layout-container">
       <Header />
+      <main>
+        <Hero />
+      </main>
     </div>
   );
 }

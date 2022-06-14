@@ -39,20 +39,52 @@ export function Values() {
             </p>
           </div>
           <div className="values-content-smallbox">
-            {/* <div className="values-smallbox-images">
-              <img className="values-smallbox-colorfill-img" srcSet="" alt="" />
-              <img className="values-smallbox-object-img" srcSet="" alt="" />
-            </div> */}
+            <div className="values-smallbox-images">
+              <img
+                className="values-smallbox-colorfill-img"
+                srcSet="/images/graphics/values-color-fill.webp"
+                alt="color fill"
+              />
+              <img
+                className="values-smallbox-object-img"
+                srcSet="/images/graphics/values-object.webp"
+                alt=""
+              />
+            </div>
             <div className="values-smallbox-label">
               <h3 className="values-smallbox-text">Thrive Together</h3>
             </div>
           </div>
           <div className="values-content-smallbox">
+            <div className="values-smallbox-images">
+              <img
+                className="values-smallbox-colorfill-img"
+                srcSet="/images/graphics/values-color-fill.webp"
+                alt="color fill"
+              />
+              <img
+                className="values-smallbox-object-img"
+                srcSet="/images/graphics/values-object.webp"
+                alt=""
+              />
+            </div>
             <div className="values-smallbox-label">
               <h3 className="values-smallbox-text">Execution is Key</h3>
             </div>
           </div>
           <div className="values-content-smallbox">
+            <div className="values-smallbox-images">
+              <img
+                className="values-smallbox-colorfill-img"
+                srcSet="/images/graphics/values-color-fill.webp"
+                alt="color fill"
+              />
+              <img
+                className="values-smallbox-object-img"
+                srcSet="/images/graphics/values-object.webp"
+                alt=""
+              />
+            </div>
             <div className="values-smallbox-label">
               <h3 className="values-smallbox-text">Fair Play</h3>
             </div>

@@ -15,9 +15,6 @@
   margin-left: 240px;
 }
 
-.values-butterfly-image {
-}
-
 .values-text-box {
   display: flex;
   flex-direction: column;
@@ -57,4 +54,45 @@
 
 .values-header-highlight {
   color: var(--yellow);
+}
+
+.values-content {
+  display: flex;
+  flex-direction: row;
+  margin-left: 204px;
+  margin-top: 109px;
+}
+
+.values-content-largebox {
+  width: 500px;
+  height: 668px;
+  background-color: rgba(163, 51, 200, 0.7);
+  border: 2px solid var(--purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.values-largebox-heading {
+  font-size: 72px;
+  font-family: Objet;
+  text-align: center;
+  line-height: 72.37px;
+  margin-top: 100px;
+}
+
+.values-largebox-text {
+  margin-top: 45px;
+  font-size: 36px;
+  font-family: Karla;
+  text-align: center;
+  width: 388.5px;
+  font-weight: 500;
+}
+
+.values-content-smallbox {
+  width: 349px;
+  height: 668px;
+  border: 2px solid var(--purple);
+  background-color: rgba(0, 0, 0, 0.1);
 }

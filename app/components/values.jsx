@@ -29,6 +29,35 @@ export function Values() {
             </h1>
           </div>
         </div>
+
+        <div className="values-content">
+          <div className="values-content-largebox">
+            <h1 className="values-largebox-heading">Experience First</h1>
+            <p className="values-largebox-text">
+              We believe in building and providing high quality play-to-earn
+              games to our community.
+            </p>
+          </div>
+          <div className="values-content-smallbox">
+            {/* <div className="values-smallbox-images">
+              <img className="values-smallbox-colorfill-img" srcSet="" alt="" />
+              <img className="values-smallbox-object-img" srcSet="" alt="" />
+            </div> */}
+            <div className="values-smallbox-label">
+              <h3 className="values-smallbox-text">Thrive Together</h3>
+            </div>
+          </div>
+          <div className="values-content-smallbox">
+            <div className="values-smallbox-label">
+              <h3 className="values-smallbox-text">Execution is Key</h3>
+            </div>
+          </div>
+          <div className="values-content-smallbox">
+            <div className="values-smallbox-label">
+              <h3 className="values-smallbox-text">Fair Play</h3>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

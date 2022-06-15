@@ -3,7 +3,7 @@ import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
-  FaLinkedin,
+  FaLinkedinIn,
 } from 'react-icons/fa';
 import { BsMedium } from 'react-icons/bs';
 import headerDesktopStyles from '~/styles/desktop/header.css';
@@ -21,7 +21,7 @@ export function Header() {
     <header className="header-container">
       <Link to="/" prefetch="intent" className="logo">
         <img
-          srcSet="/images/logos/logo-header.webp"
+          srcSet="/images/logos/logo-header.svg"
           alt="Logo"
           width={376}
           height={87}
@@ -42,18 +42,17 @@ export function Header() {
             <BsMedium />
           </a>
           <a className="social-btn" target="_blank" href="/">
-            <FaLinkedin />
+            <FaLinkedinIn />
           </a>
         </div>
         <nav className="nav-links">
           <a href="/">Mission</a>
           <a href="/">About Us</a>
-          <Link prefetch="intent" to="/">
-            Blog
-          </Link>
           <a href="/">Team</a>
           <a href="/">Careers</a>
-          <a href="/">Contact Us</a>
+          <Link prefetch="intent" to="/">
+            News
+          </Link>
         </nav>
       </div>
     </header>

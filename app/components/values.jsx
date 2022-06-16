@@ -76,6 +76,24 @@ export function Values() {
           </a>
         </div>
       </div>
+
+      <div className="values-images">
+        <img
+          className="values-planet"
+          srcSet="/images/graphics/values-planet.svg"
+          alt="values planet"
+        />
+        <img
+          className="values-butterfly-1"
+          srcSet="/images/graphics/values-butterfly-1.svg"
+          alt="values butterfly 1"
+        />
+        <img
+          className="values-butterfly-2"
+          srcSet="/images/graphics/values-butterfly-2.svg"
+          alt="values butterfly 2"
+        />
+      </div>
     </section>
   );
 }

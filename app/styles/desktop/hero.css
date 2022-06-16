@@ -1,17 +1,15 @@
 .hero-section {
-  margin-left: calc(202rem / 16);
   margin-top: calc(172rem / 16);
 }
 
 .hero-container {
   display: flex;
-  /* justify-content: space-between; */
-
   height: calc(720rem / 16);
 }
 
 .hero-text-box {
   width: calc(779rem / 16);
+  margin-left: calc(202rem / 16);
 }
 
 .hero-heading {

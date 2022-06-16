@@ -1,0 +1,108 @@
+.mission-section {
+  margin-top: 931px;
+}
+
+.mission-container {
+  display: flex;
+}
+
+.mission-text-box {
+  width: 705px;
+  margin-left: 205px;
+}
+
+.mission-section-title {
+  width: 188px;
+  height: 35px;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  color: #ffffff;
+}
+
+.mission-heading {
+  width: 595px;
+  height: 148px;
+  font-family: 'Objet';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 74px;
+  color: #ffffff;
+}
+
+.mission-heading-highlight {
+  color: var(--yellow);
+}
+
+.mission-paragraphs {
+  margin-top: 30px;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mission-paragraph-one {
+  width: 705px;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: justify;
+  color: #ffffff;
+}
+
+.mission-paragraph-two {
+  width: 705px;
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  text-align: justify;
+  color: #ffffff;
+}
+
+.mission-images-container {
+  margin-left: 75px;
+}
+
+.mission-image-paw {
+  position: relative;
+  margin-top: -85px;
+  z-index: 1;
+}
+
+.mission-image-book {
+  position: relative;
+  margin-top: -565px;
+  margin-left: 55px;
+}
+
+.mission-image-butterfly-1 {
+  position: absolute;
+  width: 191px;
+  height: 190px;
+  left: 1595px;
+  top: 3190px;
+}
+
+.mission-image-butterfly-2 {
+  position: absolute;
+  width: 140px;
+  height: 150px;
+  left: 229px;
+  top: 4005px;
+}
+
+.mission-image-planet {
+  position: absolute;
+  width: 172px;
+  height: 123px;
+  left: 1169px;
+  top: 4020px;
+}

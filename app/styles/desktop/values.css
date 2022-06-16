@@ -128,5 +128,29 @@
 }
 
 .values-carousel-nav-arrow:hover {
-  background-color: var(--purple);
+  background-color: rgba(163, 51, 200, 0.3);
+}
+
+.values-planet {
+  position: absolute;
+  width: calc(124rem / 16);
+  height: calc(89rem / 16);
+  left: calc(101rem / 16);
+  top: calc(2225rem / 16);
+}
+
+.values-butterfly-1 {
+  position: absolute;
+  width: calc(106rem / 16);
+  height: calc(105rem / 16);
+  left: calc(414rem / 16);
+  top: calc(2303rem / 16);
+}
+
+.values-butterfly-2 {
+  position: absolute;
+  width: calc(135rem / 16);
+  height: calc(86rem / 16);
+  left: calc(1473rem / 16);
+  top: calc(2305rem / 16);
 }

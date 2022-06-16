@@ -1,6 +1,7 @@
 import { Header, links as headerLinks } from '~/components/header';
 import { Hero, links as heroLinks } from '~/components/hero';
 import { Values, links as valuesLinks } from '~/components/values';
+import { Mission, links as missionLinks } from '~/components/mission';
 import indexDesktopStyles from '~/styles/desktop/index.css';
 
 export const links = () => [
@@ -12,6 +13,7 @@ export const links = () => [
   ...headerLinks(),
   ...heroLinks(),
   ...valuesLinks(),
+  ...missionLinks(),
 ];
 
 export default function Index() {
@@ -21,6 +23,7 @@ export default function Index() {
       <main>
         <Hero />
         <Values />
+        <Mission />
       </main>
     </div>
   );

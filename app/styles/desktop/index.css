@@ -11,4 +11,5 @@ body {
   width: calc(1920rem / 16);
   height: calc(8674rem / 16);
   position: relative;
+  overflow: hidden;
 }

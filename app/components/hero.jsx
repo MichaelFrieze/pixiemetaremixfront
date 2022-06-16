@@ -31,24 +31,48 @@ export function Hero() {
         <div className="hero-images">
           <img
             className="hero-hat"
-            srcSet="/images/graphics/hat.webp"
-            alt="hat"
-            width={584}
-            height={392}
-          />
-          <img
-            className="hero-butterfly"
-            srcSet="/images/graphics/hat-butterfly.webp"
-            alt="hat-butterfly"
-            width={185}
-            height={183}
+            srcSet="/images/graphics/magic-hat.svg"
+            alt="hero hat"
           />
           <img
             className="hero-pot"
-            srcSet="/images/graphics/pot.webp"
-            alt="pot"
-            width={440}
-            height={436}
+            srcSet="/images/graphics/pot-3.svg"
+            alt="hero pot"
+          />
+          <img
+            className="hero-green-bubble-1"
+            srcSet="/images/graphics/hero-green-bubble-1.svg"
+            alt="hero green bubble 1"
+          />
+          <img
+            className="hero-green-bubble-2"
+            srcSet="/images/graphics/hero-green-bubble-2.svg"
+            alt="hero green bubble 2"
+          />
+          <img
+            className="hero-butterfly-1"
+            srcSet="/images/graphics/hero-butterfly-1.svg"
+            alt="hero butterfly 1"
+          />
+          <img
+            className="hero-butterfly-2"
+            srcSet="/images/graphics/hero-butterfly-2.svg"
+            alt="hero butterfly 2"
+          />
+          <img
+            className="hero-butterfly-3"
+            srcSet="/images/graphics/hero-butterfly-3.svg"
+            alt="hero butterfly 3"
+          />
+          <img
+            className="hero-butterfly-4"
+            srcSet="/images/graphics/hero-butterfly-4.svg"
+            alt="hero butterfly 4"
+          />
+          <img
+            className="hero-butterfly-5"
+            srcSet="/images/graphics/hero-butterfly-5.svg"
+            alt="hero butterfly 5"
           />
         </div>
       </div>

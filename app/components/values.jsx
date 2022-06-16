@@ -13,82 +13,67 @@ export function Values() {
     <section className="values-section">
       <div className="values-container">
         <div className="values-heading">
-          <img
-            className="values-butterfly-image"
-            srcSet="/images/graphics/values-butterfly.webp"
-            alt="butterfly"
-            width={266}
-            height={244}
-          />
+          <h3 className="values-section-title">OUR VALUES</h3>
+          <h1 className="values-header-text">
+            Committed with{' '}
+            <span className="values-header-highlight">Our Community</span>
+          </h1>
+        </div>
 
-          <div className="values-text-box">
-            <h3 className="values-section-title">OUR VALUES</h3>
-            <h1 className="values-header-text">
-              Committed with{' '}
-              <span className="values-header-highlight">Our Community</span>
-            </h1>
+        <div className="values-carousel">
+          <div className="values-carousel-item">
+            <div className="values-carousel-item-number">01.</div>
+            <div className="values-carousel-item-container">
+              <div className="values-carousel-item-heading">
+                Experience First
+              </div>
+              <div className="values-carousel-item-text">
+                We believe in building and providing high quality play-to-earn
+                games to our community
+              </div>
+            </div>
+          </div>
+
+          <div className="values-carousel-item center">
+            <div className="values-carousel-item-number">02.</div>
+            <div className="values-carousel-item-container">
+              <div className="values-carousel-item-heading">
+                Execution is Key
+              </div>
+              <div className="values-carousel-item-text">
+                We believe operational excellence will unlock us to deliver
+                better experiences for the long run
+              </div>
+            </div>
+          </div>
+
+          <div className="values-carousel-item">
+            <div className="values-carousel-item-number">03.</div>
+            <div className="values-carousel-item-container">
+              <div className="values-carousel-item-heading">
+                Thrive Together
+              </div>
+              <div className="values-carousel-item-text">
+                Our goal is to help you build a career playing our games and
+                getting paid for your time.
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="values-content">
-          <div className="values-content-largebox">
-            <h1 className="values-largebox-heading">Experience First</h1>
-            <p className="values-largebox-text">
-              We believe in building and providing high quality play-to-earn
-              games to our community.
-            </p>
-          </div>
-          <div className="values-content-smallbox">
-            <div className="values-smallbox-images">
-              <img
-                className="values-smallbox-colorfill-img"
-                srcSet="/images/graphics/values-color-fill.webp"
-                alt="color fill"
-              />
-              <img
-                className="values-smallbox-object-img"
-                srcSet="/images/graphics/values-object.webp"
-                alt=""
-              />
-            </div>
-            <div className="values-smallbox-label">
-              <h3 className="values-smallbox-text">Thrive Together</h3>
-            </div>
-          </div>
-          <div className="values-content-smallbox">
-            <div className="values-smallbox-images">
-              <img
-                className="values-smallbox-colorfill-img"
-                srcSet="/images/graphics/values-color-fill.webp"
-                alt="color fill"
-              />
-              <img
-                className="values-smallbox-object-img"
-                srcSet="/images/graphics/values-object.webp"
-                alt=""
-              />
-            </div>
-            <div className="values-smallbox-label">
-              <h3 className="values-smallbox-text">Execution is Key</h3>
-            </div>
-          </div>
-          <div className="values-content-smallbox">
-            <div className="values-smallbox-images">
-              <img
-                className="values-smallbox-colorfill-img"
-                srcSet="/images/graphics/values-color-fill.webp"
-                alt="color fill"
-              />
-              <img
-                className="values-smallbox-object-img"
-                srcSet="/images/graphics/values-object.webp"
-                alt=""
-              />
-            </div>
-            <div className="values-smallbox-label">
-              <h3 className="values-smallbox-text">Fair Play</h3>
-            </div>
-          </div>
+        <div className="values-carousel-nav-container">
+          <a href="/" className="values-carousel-nav-arrow">
+            <img
+              srcSet="/images/icons/values-left-arrow.svg"
+              alt="left arrow"
+            />
+          </a>
+          <a href="/" className="values-carousel-nav-arrow">
+            <img
+              srcSet="/images/icons/values-right-arrow.svg"
+              alt="left arrow"
+            />
+          </a>
         </div>
       </div>
     </section>

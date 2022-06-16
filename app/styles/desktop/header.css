@@ -12,8 +12,8 @@
 .nav-links {
   display: flex;
   justify-content: space-between;
-  width: calc(807rem / 16);
-  height: calc(24rem / 16);
+  width: calc(614rem / 16);
+  height: calc(28rem / 16);
   margin-right: calc(193rem / 16);
   margin-top: calc(38rem / 16);
   padding-top: 0;
@@ -21,9 +21,11 @@
 
 .nav-links a {
   color: var(--white);
-  font-size: calc(24rem / 16);
-  font-weight: 700;
+  font-family: 'Karla';
   font-style: normal;
+  font-weight: 400;
+  font-size: calc(24rem / 16);
+  line-height: calc(28rem / 16);
   letter-spacing: normal;
 }
 
@@ -34,7 +36,8 @@
 .social-btn-container {
   display: flex;
   justify-content: space-between;
-  width: calc(300rem / 16);
+  width: calc(359rem / 16);
+  height: calc(55rem / 16);
   margin-left: auto;
   margin-right: calc(193rem / 16);
   margin-top: calc(100rem / 16);
@@ -46,8 +49,8 @@
   align-items: center;
   color: var(--white);
   font-size: calc(24rem / 16);
-  width: calc(50rem / 16);
-  height: calc(50rem / 16);
+  width: calc(55rem / 16);
+  height: calc(55rem / 16);
   border: 3px solid var(--purple);
   border-radius: 50%;
 }

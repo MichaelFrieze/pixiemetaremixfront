@@ -93,6 +93,11 @@ export function Values() {
           srcSet="/images/graphics/values-butterfly-2.svg"
           alt="values butterfly 2"
         />
+        <img
+          className="values-boat"
+          srcSet="/images/graphics/values-boat.svg"
+          alt="values boat"
+        />
       </div>
     </section>
   );

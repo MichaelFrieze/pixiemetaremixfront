@@ -22,41 +22,35 @@ export function Values() {
 
         <div className="values-carousel">
           <div className="values-carousel-item">
-            <div className="values-carousel-item-number">01.</div>
+            <h3 className="values-carousel-item-number">01.</h3>
             <div className="values-carousel-item-container">
-              <div className="values-carousel-item-heading">
-                Experience First
-              </div>
-              <div className="values-carousel-item-text">
+              <h2 className="values-carousel-item-heading">Experience First</h2>
+              <p className="values-carousel-item-text">
                 We believe in building and providing high quality play-to-earn
                 games to our community
-              </div>
+              </p>
             </div>
           </div>
 
           <div className="values-carousel-item center">
-            <div className="values-carousel-item-number">02.</div>
+            <h3 className="values-carousel-item-number">02.</h3>
             <div className="values-carousel-item-container">
-              <div className="values-carousel-item-heading">
-                Execution is Key
-              </div>
-              <div className="values-carousel-item-text">
+              <h2 className="values-carousel-item-heading">Execution is Key</h2>
+              <p className="values-carousel-item-text">
                 We believe operational excellence will unlock us to deliver
                 better experiences for the long run
-              </div>
+              </p>
             </div>
           </div>
 
           <div className="values-carousel-item">
-            <div className="values-carousel-item-number">03.</div>
+            <h3 className="values-carousel-item-number">03.</h3>
             <div className="values-carousel-item-container">
-              <div className="values-carousel-item-heading">
-                Thrive Together
-              </div>
-              <div className="values-carousel-item-text">
+              <h2 className="values-carousel-item-heading">Thrive Together</h2>
+              <p className="values-carousel-item-text">
                 Our goal is to help you build a career playing our games and
                 getting paid for your time.
-              </div>
+              </p>
             </div>
           </div>
         </div>

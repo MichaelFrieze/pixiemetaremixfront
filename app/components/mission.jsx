@@ -19,17 +19,17 @@ export function Mission() {
             <span className="mission-heading-highlight">Into Your World</span>
           </h1>
           <div className="mission-paragraphs">
-            <div className="mission-paragraph-one">
+            <p className="mission-paragraph-one">
               We believe blockchain is the single biggest thing to happen to the
               internet in the last couple of decades because it will reshape how
               we use, work and interact with digital worlds.
-            </div>
-            <div className="mission-paragraph-two">
+            </p>
+            <p className="mission-paragraph-two">
               That’s why we strive to create blockchain-based play-to-earn games
               with a high and positive impact in the community. We aim to create
               digital jobs so you can thrive and have fun from anywhere in the
               world.
-            </div>
+            </p>
           </div>
         </div>
 

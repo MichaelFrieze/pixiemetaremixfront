@@ -1,5 +1,5 @@
 .mission-section {
-  margin-top: 931px;
+  margin-top: calc(931rem / 16);
 }
 
 .mission-container {
@@ -7,30 +7,30 @@
 }
 
 .mission-text-box {
-  width: 705px;
-  margin-left: 205px;
+  width: calc(705rem / 16);
+  margin-left: calc(205rem / 16);
 }
 
 .mission-section-title {
-  width: 188px;
-  height: 35px;
+  width: calc(188rem / 16);
+  height: calc(35rem / 16);
   font-family: 'Karla';
   font-style: normal;
   font-weight: 500;
-  font-size: 30px;
-  line-height: 35px;
-  color: #ffffff;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
+  color: var(--white);
 }
 
 .mission-heading {
-  width: 595px;
-  height: 148px;
+  width: calc(595rem / 16);
+  height: calc(148rem / 16);
   font-family: 'Objet';
   font-style: normal;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 74px;
-  color: #ffffff;
+  font-size: calc(60rem / 16);
+  line-height: calc(74rem / 16);
+  color: var(--white);
 }
 
 .mission-heading-highlight {
@@ -38,71 +38,71 @@
 }
 
 .mission-paragraphs {
-  margin-top: 30px;
-  height: 370px;
+  margin-top: calc(30rem / 16);
+  height: calc(370rem / 16);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .mission-paragraph-one {
-  width: 705px;
+  width: calc(705rem / 16);
   font-family: 'Karla';
   font-style: normal;
   font-weight: 500;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
   text-align: justify;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .mission-paragraph-two {
-  width: 705px;
+  width: calc(705rem / 16);
   font-family: 'Karla';
   font-style: normal;
   font-weight: 500;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
   text-align: justify;
-  color: #ffffff;
+  color: var(--white);
 }
 
 .mission-images-container {
-  margin-left: 75px;
+  margin-left: calc(75rem / 16);
 }
 
 .mission-image-paw {
   position: relative;
-  margin-top: -85px;
+  margin-top: calc(-85rem / 16);
   z-index: 1;
 }
 
 .mission-image-book {
   position: relative;
-  margin-top: -565px;
-  margin-left: 55px;
+  margin-top: calc(-565rem / 16);
+  margin-left: calc(55rem / 16);
 }
 
 .mission-image-butterfly-1 {
   position: absolute;
-  width: 191px;
-  height: 190px;
-  left: 1595px;
-  top: 3190px;
+  width: calc(191rem / 16);
+  height: calc(190rem / 16);
+  left: calc(1595rem / 16);
+  top: calc(3190rem / 16);
 }
 
 .mission-image-butterfly-2 {
   position: absolute;
-  width: 140px;
-  height: 150px;
-  left: 229px;
-  top: 4005px;
+  width: calc(140rem / 16);
+  height: calc(150rem / 16);
+  left: calc(229rem / 16);
+  top: calc(4005rem / 16);
 }
 
 .mission-image-planet {
   position: absolute;
-  width: 172px;
-  height: 123px;
-  left: 1169px;
-  top: 4020px;
+  width: calc(172rem / 16);
+  height: calc(123rem / 16);
+  left: calc(1169rem / 16);
+  top: calc(4020rem / 16);
 }

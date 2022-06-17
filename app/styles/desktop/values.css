@@ -154,3 +154,11 @@
   left: calc(1473rem / 16);
   top: calc(2305rem / 16);
 }
+
+.values-boat {
+  position: absolute;
+  width: calc(387rem / 16);
+  height: calc(87rem / 16);
+  left: calc(615rem / 16);
+  top: calc(2758rem / 16);
+}

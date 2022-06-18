@@ -1,21 +1,18 @@
-.about-section {
-  margin-top: calc(375rem / 16);
+.careers-section {
+  margin-top: calc(177rem / 16);
 }
 
-.about-container {
-  background-image: url('/images/backgrounds/bg-about-us.webp');
-  background-repeat: no-repeat;
-  height: calc(1153rem / 16);
+.careers-container {
   display: flex;
 }
 
-.about-text-box {
+.careers-text-box {
+  margin-left: calc(205rem / 16);
   width: calc(705rem / 16);
-  margin-top: calc(265rem / 16);
 }
 
-.about-section-title {
-  width: calc(139rem / 16);
+.careers-section-title {
+  width: calc(127rem / 16);
   height: calc(35rem / 16);
   font-family: 'Karla';
   font-style: normal;
@@ -25,8 +22,8 @@
   color: var(--white);
 }
 
-.about-heading {
-  width: calc(341rem / 16);
+.careers-heading {
+  width: calc(402rem / 16);
   height: calc(74rem / 16);
   font-family: 'Objet';
   font-style: normal;
@@ -36,10 +33,13 @@
   color: var(--white);
 }
 
-.about-paragraphs {
+.careers-heading-highlight {
+  color: var(--yellow);
+}
+
+.careers-paragraphs {
   margin-top: calc(30rem / 16);
-  height: calc(485rem / 16);
-  width: calc(705rem / 16);
+  height: calc(495rem / 16);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -48,19 +48,19 @@
   font-style: normal;
   font-weight: 500;
   font-size: calc(30rem / 16);
-  line-height: calc(43rem / 16);
+  line-height: calc(35rem / 16);
   text-align: justify;
   color: var(--white);
 }
 
-.about-contact {
+.careers-contact {
   margin-top: calc(30rem / 16);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.about-contact-email {
+.careers-contact-email {
   height: calc(47rem / 16);
   font-family: 'Karla';
   font-style: normal;
@@ -71,38 +71,33 @@
   color: var(--white);
 }
 
-.about-contact-underline {
+.careers-contact-underline {
   width: calc(349rem / 16);
   height: calc(47rem / 16);
 }
 
-.about-image-fairy {
-  width: calc(778rem / 16);
-  height: calc(1062rem / 16);
-  margin-left: calc(218rem / 16);
-  margin-top: calc(-90rem / 16);
+.careers-image-space-ship {
+  width: calc(622rem / 16);
+  height: calc(962rem / 16);
+  margin-left: calc(241rem / 16);
+  margin-top: calc(-180rem / 16);
 }
 
-.about-image-butterfly-1 {
-  position: absolute;
-  width: calc(173rem / 16);
-  height: calc(135rem / 16);
-  left: calc(1560rem / 16);
-  top: calc(4334rem / 16);
+.careers-image-fairy {
+  width: calc(315rem / 16);
+  height: calc(611rem / 16);
+  margin-top: calc(-702rem / 16);
+  margin-left: calc(365rem / 16);
 }
 
-.about-image-butterfly-2 {
+.careers-image-butterfly {
   position: absolute;
-  width: calc(193rem / 16);
-  height: calc(217rem / 16);
-  left: calc(341rem / 16);
-  top: calc(5105rem / 16);
+  left: calc(626rem / 16);
+  top: calc(6320rem / 16);
 }
 
-.about-image-planet {
+.careers-image-planet {
   position: absolute;
-  width: calc(172rem / 16);
-  height: calc(123rem / 16);
-  left: calc(1647rem / 16);
-  top: calc(5272rem / 16);
+  left: 1131px;
+  top: 6394px;
 }

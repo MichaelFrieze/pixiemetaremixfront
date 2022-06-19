@@ -98,6 +98,6 @@
 
 .careers-image-planet {
   position: absolute;
-  left: 1131px;
-  top: 6394px;
+  left: calc(1131rem / 16);
+  top: calc(6394rem / 16);
 }

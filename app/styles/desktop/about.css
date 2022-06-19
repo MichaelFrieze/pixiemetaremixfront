@@ -5,6 +5,8 @@
 .about-container {
   background-image: url('/images/backgrounds/bg-about-us.webp');
   background-repeat: no-repeat;
+  background-size: contain;
+
   height: calc(1153rem / 16);
   display: flex;
 }

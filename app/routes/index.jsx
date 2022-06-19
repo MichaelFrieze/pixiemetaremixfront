@@ -4,6 +4,7 @@ import { Values, links as valuesLinks } from '~/components/values';
 import { Mission, links as missionLinks } from '~/components/mission';
 import { About, links as aboutLinks } from '~/components/about';
 import { Careers, links as careersLinks } from '~/components/careers';
+import { Team, links as teamLinks } from '~/components/team';
 
 import indexDesktopStyles from '~/styles/desktop/index.css';
 
@@ -19,6 +20,7 @@ export const links = () => [
   ...missionLinks(),
   ...aboutLinks(),
   ...careersLinks(),
+  ...teamLinks(),
 ];
 
 export default function Index() {
@@ -31,6 +33,7 @@ export default function Index() {
         <Mission />
         <About />
         <Careers />
+        <Team />
       </main>
     </div>
   );

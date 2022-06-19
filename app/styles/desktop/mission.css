@@ -62,12 +62,16 @@
   position: relative;
   margin-top: calc(-85rem / 16);
   z-index: 1;
+  height: calc(677rem / 16);
+  width: calc(574rem / 16);
 }
 
 .mission-image-book {
   position: relative;
   margin-top: calc(-565rem / 16);
   margin-left: calc(55rem / 16);
+  height: calc(590rem / 16);
+  width: calc(784rem / 16);
 }
 
 .mission-image-butterfly-1 {

@@ -39,8 +39,8 @@ export default function Index() {
         <Careers />
         <Team />
         <Subscribe />
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 }

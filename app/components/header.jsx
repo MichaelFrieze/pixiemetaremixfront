@@ -19,33 +19,28 @@ export const links = () => [
 export function Header() {
   return (
     <header className="header-container">
-      <Link to="/" prefetch="intent" className="logo">
-        <img
-          srcSet="/images/logos/logo-header.svg"
-          alt="Logo"
-          width={376}
-          height={87}
-        />
+      <Link to="/" prefetch="intent" className="header-logo">
+        <img srcSet="/images/logos/logo-header.svg" alt="header logo" />
       </Link>
-      <div className="nav-container">
-        <div className="social-btn-container">
-          <a className="social-btn" target="_blank" href="/">
+      <div className="header-nav-container">
+        <div className="header-social-btn-container">
+          <a className="header-social-btn" target="_blank" href="/">
             <FaFacebookF />
           </a>
-          <a className="social-btn" target="_blank" href="/">
+          <a className="header-social-btn" target="_blank" href="/">
             <FaTwitter />
           </a>
-          <a className="social-btn" target="_blank" href="/">
+          <a className="header-social-btn" target="_blank" href="/">
             <FaInstagram />
           </a>
-          <a className="social-btn" target="_blank" href="/">
+          <a className="header-social-btn" target="_blank" href="/">
             <BsMedium />
           </a>
-          <a className="social-btn" target="_blank" href="/">
+          <a className="header-social-btn" target="_blank" href="/">
             <FaLinkedinIn />
           </a>
         </div>
-        <nav className="nav-links">
+        <nav className="header-nav-links">
           <a href="/">Mission</a>
           <a href="/">About Us</a>
           <a href="/">Team</a>

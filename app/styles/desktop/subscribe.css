@@ -95,3 +95,11 @@
   margin-top: calc(10rem / 16);
   cursor: pointer;
 }
+
+.subscribe-image-butterfly {
+  position: absolute;
+  width: calc(292rem / 16);
+  height: calc(259rem / 16);
+  left: calc(1415rem / 16);
+  top: calc(8341rem / 16);
+}

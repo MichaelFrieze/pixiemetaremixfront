@@ -36,6 +36,14 @@ export function Subscribe() {
           </button>
         </form>
       </div>
+
+      <div className="subscribe-images-container">
+        <img
+          className="subscribe-image-butterfly"
+          srcSet="/images/graphics/subscribe-butterfly.svg"
+          alt="subscribe butterfly"
+        />
+      </div>
     </section>
   );
 }

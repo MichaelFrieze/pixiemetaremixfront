@@ -95,3 +95,9 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+@media screen and (max-width: 1919px) {
+  html {
+    display: none;
+  }
+}

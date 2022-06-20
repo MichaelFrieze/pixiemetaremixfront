@@ -1,0 +1,105 @@
+.subscribe-section {
+  margin-top: calc(39rem / 16);
+}
+
+.subscribe-container {
+  position: relative;
+  height: calc(890rem / 16);
+  width: calc(1920rem / 16);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.subscribe-container::before {
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  background-image: url('/images/backgrounds/bg-email-banner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  mix-blend-mode: color-dodge;
+}
+
+.subscribe-text-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(230rem / 16);
+  width: calc(909rem / 16);
+  z-index: 2;
+}
+
+.subscribe-heading {
+  font-family: 'Objet';
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(55rem / 16);
+  line-height: calc(68rem / 16);
+  color: var(--white);
+}
+
+.subscribe-description {
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(35rem / 16);
+  line-height: calc(41rem / 16);
+  text-align: center;
+  color: var(--white);
+}
+
+.subscribe-form {
+  z-index: 2;
+  position: relative;
+  margin-top: calc(80rem / 16);
+}
+
+.subscribe-input {
+  position: relative;
+  width: calc(710rem / 16);
+  height: calc(90rem / 16);
+  background: var(--white);
+  border-radius: calc(45rem / 16);
+  padding-left: calc(40rem / 16);
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(23rem / 16);
+}
+
+.subscribe-label {
+  display: none;
+}
+
+.subscribe-btn {
+  position: absolute;
+  width: calc(290rem / 16);
+  height: calc(70rem / 16);
+  background: var(--purple);
+  border-radius: calc(35rem / 16);
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
+  color: var(--white);
+
+  margin-left: calc(-300rem / 16);
+  margin-top: calc(10rem / 16);
+  cursor: pointer;
+}
+
+.subscribe-image-butterfly {
+  position: absolute;
+  width: calc(292rem / 16);
+  height: calc(259rem / 16);
+  left: calc(1415rem / 16);
+  top: calc(8341rem / 16);
+}

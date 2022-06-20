@@ -22,12 +22,12 @@ export function About() {
           <h2 className="about-section-title">ABOUT US</h2>
           <h1 className="about-heading">Who We Are</h1>
           <div className="about-paragraphs">
-            <p className="about-paragraph-one">
+            <p>
               Pixie Meta was born with the idea of becoming a game development
               studio whose main goal is to focus on designing and creating
               projects on the Blockchain.
             </p>
-            <p className="about-paragraph-two">
+            <p>
               Pixie Meta was founded in 2022 by a group of blockchain
               enthusiasts, artists and entrepreneurs with the goal of
               developing, publishing and supporting the most exciting and
@@ -35,7 +35,7 @@ export function About() {
               transition of sustainable jobs in the Metaverse.
             </p>
           </div>
-          <div className="about-contact">
+          <a href="mailto:hi@pixiemeta.com" className="about-contact">
             <p className="about-contact-email">hi@pixiemeta.com</p>
             <div className="about-contact-underline">
               <img
@@ -43,7 +43,7 @@ export function About() {
                 alt="email underline"
               />
             </div>
-          </div>
+          </a>
         </div>
 
         <div className="about-images-container">

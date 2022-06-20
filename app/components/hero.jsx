@@ -31,12 +31,12 @@ export function Hero() {
         <div className="hero-images">
           <img
             className="hero-hat"
-            srcSet="/images/graphics/magic-hat.svg"
+            srcSet="/images/graphics/hero-magic-hat.svg"
             alt="hero hat"
           />
           <img
             className="hero-pot"
-            srcSet="/images/graphics/pot-3.svg"
+            srcSet="/images/graphics/hero-pot.svg"
             alt="hero pot"
           />
           <img

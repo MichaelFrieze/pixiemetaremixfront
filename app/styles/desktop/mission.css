@@ -43,20 +43,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
 
-.mission-paragraph-one {
-  width: calc(705rem / 16);
-  font-family: 'Karla';
-  font-style: normal;
-  font-weight: 500;
-  font-size: calc(30rem / 16);
-  line-height: calc(35rem / 16);
-  text-align: justify;
-  color: var(--white);
-}
-
-.mission-paragraph-two {
   width: calc(705rem / 16);
   font-family: 'Karla';
   font-style: normal;
@@ -75,12 +62,16 @@
   position: relative;
   margin-top: calc(-85rem / 16);
   z-index: 1;
+  height: calc(677rem / 16);
+  width: calc(574rem / 16);
 }
 
 .mission-image-book {
   position: relative;
   margin-top: calc(-565rem / 16);
   margin-left: calc(55rem / 16);
+  height: calc(590rem / 16);
+  width: calc(784rem / 16);
 }
 
 .mission-image-butterfly-1 {

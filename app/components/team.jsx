@@ -18,7 +18,8 @@ export function Team() {
               <img
                 className="team-image-ceo"
                 srcSet="/images/team/giancarlo-cappucci.jpg"
-                alt=""
+                alt="team ceo"
+                loading="lazy"
               />
               <div className="team-images-ceo-label">
                 <p>Giancarlo Cappuccio</p>
@@ -29,7 +30,8 @@ export function Team() {
               <img
                 className="team-image-cto"
                 srcSet="/images/team/danny-ahumada.jpg"
-                alt=""
+                alt="team cto"
+                loading="lazy"
               />
             </div>
           </div>
@@ -37,17 +39,20 @@ export function Team() {
             <img
               className="team-image-other"
               srcSet="/images/team/ilse-montoya.jpg"
-              alt=""
+              alt="team member"
+              loading="lazy"
             />
             <img
               className="team-image-other"
               srcSet="/images/team/gianfranco-cappuccio.jpg"
-              alt=""
+              alt="team member"
+              loading="lazy"
             />
             <img
               className="team-image-other"
               srcSet="/images/team/carlos-bernal.jpg"
-              alt=""
+              alt="team member"
+              loading="lazy"
             />
           </div>
         </div>
@@ -82,11 +87,13 @@ export function Team() {
           className="team-image-butterfly-1"
           srcSet="/images/graphics/team-butterfly-1.svg"
           alt="team butterfly 1"
+          loading="lazy"
         />
         <img
           className="team-image-butterfly-2"
           srcSet="/images/graphics/team-butterfly-2.svg"
           alt="team butterfly 2"
+          loading="lazy"
         />
       </div>
     </section>

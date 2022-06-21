@@ -16,6 +16,7 @@ export function About() {
           className="about-image-fairy"
           srcSet="/images/graphics/about-large-fairy.svg"
           alt="about fairy"
+          loading="lazy"
         />
 
         <div className="about-text-box">
@@ -51,16 +52,19 @@ export function About() {
             className="about-image-butterfly-1"
             srcSet="/images/graphics/about-butterfly-1.svg"
             alt="about butterfly 1"
+            loading="lazy"
           />
           <img
             className="about-image-butterfly-2"
             srcSet="/images/graphics/about-butterfly-2.svg"
             alt="about butterfly 2"
+            loading="lazy"
           />
           <img
             className="about-image-planet"
             srcSet="/images/graphics/about-planet.svg"
             alt="about planet"
+            loading="lazy"
           />
         </div>
       </div>

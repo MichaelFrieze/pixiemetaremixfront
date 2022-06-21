@@ -54,21 +54,25 @@ export function Careers() {
             className="careers-image-space-ship"
             srcSet="/images/graphics/careers-space-ship.svg"
             alt="careers space ship"
+            loading="lazy"
           />
           <img
             className="careers-image-fairy"
             srcSet="/images/graphics/careers-fairy.svg"
             alt="careers fairy"
+            loading="lazy"
           />
           <img
             className="careers-image-butterfly"
             srcSet="/images/graphics/careers-butterfly.svg"
             alt="careers butterfly"
+            loading="lazy"
           />
           <img
             className="careers-image-planet"
             srcSet="/images/graphics/careers-planet.svg"
             alt="careers planet"
+            loading="lazy"
           />
         </div>
       </div>

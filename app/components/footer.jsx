@@ -24,6 +24,7 @@ export function Footer() {
             srcSet="/images/logos/logo-footer.svg"
             alt="footer logo"
             className="footer-image-logo"
+            loading="lazy"
           />
         </div>
         <div className="footer-social-btn-container">

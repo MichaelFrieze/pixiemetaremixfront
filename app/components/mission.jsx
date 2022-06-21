@@ -38,26 +38,31 @@ export function Mission() {
             className="mission-image-paw"
             srcSet="/images/graphics/mission-paw.svg"
             alt="mission paw"
+            loading="lazy"
           />
           <img
             className="mission-image-book"
             srcSet="/images/graphics/mission-book.svg"
             alt="mission book"
+            loading="lazy"
           />
           <img
             className="mission-image-butterfly-1"
             srcSet="/images/graphics/mission-butterfly-1.svg"
             alt="mission butterfly 1"
+            loading="lazy"
           />
           <img
             className="mission-image-butterfly-2"
             srcSet="/images/graphics/mission-butterfly-2.svg"
             alt="mission butterfly 2"
+            loading="lazy"
           />
           <img
             className="mission-image-planet"
             srcSet="/images/graphics/mission-planet.svg"
             alt="mission planet"
+            loading="lazy"
           />
         </div>
       </div>

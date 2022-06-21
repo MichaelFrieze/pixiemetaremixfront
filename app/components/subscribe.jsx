@@ -42,6 +42,7 @@ export function Subscribe() {
           className="subscribe-image-butterfly"
           srcSet="/images/graphics/subscribe-butterfly.svg"
           alt="subscribe butterfly"
+          loading="lazy"
         />
       </div>
     </section>

@@ -52,13 +52,13 @@ export function Careers() {
         <div className="careers-iamges-container">
           <img
             className="careers-image-space-ship"
-            srcSet="/images/graphics/careers-space-ship.svg"
+            srcSet="/images/graphics/careers-space-ship.webp"
             alt="careers space ship"
             loading="lazy"
           />
           <img
             className="careers-image-fairy"
-            srcSet="/images/graphics/careers-fairy.svg"
+            srcSet="/images/graphics/careers-fairy.webp"
             alt="careers fairy"
             loading="lazy"
           />

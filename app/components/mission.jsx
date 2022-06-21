@@ -36,13 +36,13 @@ export function Mission() {
         <div className="mission-images-container">
           <img
             className="mission-image-paw"
-            srcSet="/images/graphics/mission-paw.svg"
+            srcSet="/images/graphics/mission-paw.webp"
             alt="mission paw"
             loading="lazy"
           />
           <img
             className="mission-image-book"
-            srcSet="/images/graphics/mission-book.svg"
+            srcSet="/images/graphics/mission-book.webp"
             alt="mission book"
             loading="lazy"
           />

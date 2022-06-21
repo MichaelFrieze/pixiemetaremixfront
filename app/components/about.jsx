@@ -14,7 +14,7 @@ export function About() {
       <div className="about-container">
         <img
           className="about-image-fairy"
-          srcSet="/images/graphics/about-large-fairy.svg"
+          srcSet="/images/graphics/about-large-fairy.webp"
           alt="about fairy"
           loading="lazy"
         />

@@ -44,41 +44,36 @@
 
 .values-carousel {
   margin-top: calc(75rem / 16);
+  /* 630px for mobile view */
+  /* 1920px for desktop view */
+  width: calc(1920rem / 16);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .values-carousel-inner {
+  min-width: calc(1920rem / 16);
+  min-height: calc(570rem / 16);
   display: flex;
-  justify-content: space-between;
-  width: calc(1920rem / 16);
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-
-  /* removing scroll bar while keeping functionality */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* removing scroll bar while keeping functionality on Chrome and Safari */
-.values-carousel-inner::-webkit-scrollbar {
-  display: none;
+  justify-content: center;
 }
 
 .values-carousel-item {
   min-width: calc(570rem / 16);
   height: calc(570rem / 16);
-  /* min-width: calc(625rem / 16);
-  height: calc(625rem / 16); */
   background: rgba(0, 0, 0, 0.3);
   border: 6px solid var(--purple);
   border-radius: calc(25rem / 16);
-  scroll-snap-align: center;
   margin-left: 35px;
   margin-right: 35px;
+}
 
-  /* flex-shrink: 0; */
-  /* position: relative; */
+.values-carousel-item-empty {
+  min-width: calc(570rem / 16);
+  height: calc(570rem / 16);
+  margin-left: 35px;
+  margin-right: 35px;
 }
 
 .values-carousel-item-number {
@@ -129,10 +124,6 @@
 .values-carousel-item.center {
   background: rgba(163, 51, 200, 0.3);
 }
-
-/* .values-carousel-item:nth-child(2) {
-  background: rgba(163, 51, 200, 0.3);
-} */
 
 .values-carousel-nav-container {
   display: flex;

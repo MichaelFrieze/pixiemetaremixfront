@@ -10,22 +10,54 @@ export const links = () => [
   },
 ];
 
+const carouselItemComponent = (valuesCarouselNumber, currentItem) => {
+  let centerHighlight = null;
+  if (currentItem + 1 === valuesCarouselNumber) {
+    centerHighlight = 'center';
+  }
+
+  return (
+    <>
+      <motion.div
+        className={`values-carousel-item ${centerHighlight}`}
+        key={valuesCarouselNumber}
+      >
+        <h3 className="values-carousel-item-number">
+          {'0' + valuesCarouselNumber + '.'}
+        </h3>
+        <div className="values-carousel-item-container">
+          <h2 className="values-carousel-item-heading">Experience First</h2>
+          <p className="values-carousel-item-text">
+            We believe in building and providing high quality play-to-earn games
+            to our community
+          </p>
+        </div>
+      </motion.div>
+    </>
+  );
+};
+
+const emptyCarouselItemComponent = (valuesCarouselNumber) => {
+  return (
+    <>
+      <motion.div
+        className="values-carousel-item-empty"
+        key={valuesCarouselNumber}
+      ></motion.div>
+    </>
+  );
+};
+
 export function Values() {
   const [currentItem, setCurrentItem] = useState(1);
   const [isPrev, setIsPrev] = useState(false);
 
-  // let carouselItems = document.querySelectorAll('.values-carousel-item');
-  // carouselItems.forEach(() => {
-  //   // item.classList.add('center');
-  //   totalCarouselItems = totalCarouselItems + 1;
-  // });
-
-  /* 
-  - figure out how to keep the highlighted div in the center
-  - reverse still does not remove previous highlighted div
-  - make the div hilighted when also scrolling with mouse
-  - add some kind of animation to the divs
-  */
+  const valuesCarouselItemsData = [1, 2, 3, 4, 5];
+  const carouselItemsComponents = valuesCarouselItemsData.map(
+    (valuesCarouselNumber) => {
+      return carouselItemComponent(valuesCarouselNumber, currentItem);
+    }
+  );
 
   const prevBtn = () => {
     setIsPrev(true);
@@ -38,31 +70,16 @@ export function Values() {
   };
 
   useEffect(() => {
-    const carouselItems = document.querySelectorAll('.values-carousel-item');
-    const totalCarouselItems = carouselItems.length;
-
-    console.log(totalCarouselItems);
-
-    if (currentItem < 1) {
-      setCurrentItem(1);
+    if (currentItem < 0) {
+      setCurrentItem(0);
       return;
     }
 
-    if (currentItem > totalCarouselItems) {
-      setCurrentItem(totalCarouselItems);
+    if (currentItem > valuesCarouselItemsData.length - 1) {
+      setCurrentItem(valuesCarouselItemsData.length - 1);
       return;
     }
-
-    if (isPrev) {
-      document
-        .querySelector(`#item-${currentItem}`)
-        .scrollIntoView({ block: 'nearest', inline: 'end' });
-    } else {
-      document
-        .querySelector(`#item-${currentItem}`)
-        .scrollIntoView({ block: 'nearest', inline: 'start' });
-    }
-  }, [currentItem, isPrev]);
+  }, [currentItem, valuesCarouselItemsData]);
 
   return (
     <section className="values-section">
@@ -76,63 +93,25 @@ export function Values() {
         </div>
 
         <motion.div
-          whileHover={{
-            scale: 1.01,
-          }}
           className="values-carousel"
+          // whileHover={{
+          //   scale: 1.01,
+          // }}
         >
-          <motion.div className="values-carousel-inner">
-            <motion.div className="values-carousel-item" id="item-1">
-              <h3 className="values-carousel-item-number">01.</h3>
-              <div className="values-carousel-item-container">
-                <h2 className="values-carousel-item-heading">
-                  Experience First
-                </h2>
-                <p className="values-carousel-item-text">
-                  We believe in building and providing high quality play-to-earn
-                  games to our community
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div className="values-carousel-item" id="item-2">
-              <h3 className="values-carousel-item-number">02.</h3>
-              <div className="values-carousel-item-container">
-                <h2 className="values-carousel-item-heading">
-                  Execution is Key
-                </h2>
-                <p className="values-carousel-item-text">
-                  We believe operational excellence will unlock us to deliver
-                  better experiences for the long run
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div className="values-carousel-item" id="item-3">
-              <h3 className="values-carousel-item-number">03.</h3>
-              <div className="values-carousel-item-container">
-                <h2 className="values-carousel-item-heading">
-                  Thrive Together
-                </h2>
-                <p className="values-carousel-item-text">
-                  Our goal is to help you build a career playing our games and
-                  getting paid for your time.
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div className="values-carousel-item" id="item-4">
-              <h3 className="values-carousel-item-number">04.</h3>
-              <div className="values-carousel-item-container">
-                <h2 className="values-carousel-item-heading">
-                  Thrive Together
-                </h2>
-                <p className="values-carousel-item-text">
-                  Our goal is to help you build a career playing our games and
-                  getting paid for your time.
-                </p>
-              </div>
-            </motion.div>
+          <motion.div
+            className="values-carousel-inner"
+            key={currentItem}
+            initial={{ x: 40 }}
+            animate={{ x: 0 }}
+            // transition={{ duration: 1 }}
+          >
+            {currentItem > 0
+              ? carouselItemsComponents[currentItem - 1]
+              : emptyCarouselItemComponent(currentItem - 1)}
+            {carouselItemsComponents[currentItem]}
+            {currentItem < valuesCarouselItemsData.length - 1
+              ? carouselItemsComponents[currentItem + 1]
+              : emptyCarouselItemComponent(currentItem + 1)}
           </motion.div>
         </motion.div>
 

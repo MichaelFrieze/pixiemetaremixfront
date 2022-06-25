@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion';
 import missionDesktopStyles from '~/styles/desktop/mission.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: missionDesktopStyles,
   },
 ];
@@ -34,11 +35,14 @@ export function Mission() {
         </div>
 
         <div className="mission-images-container">
-          <img
+          <motion.img
             className="mission-image-paw"
             srcSet="/images/graphics/mission-paw.webp"
             alt="mission paw"
             loading="lazy"
+            whileHover={{
+              scale: 1.02,
+            }}
           />
           <img
             className="mission-image-book"
@@ -46,23 +50,32 @@ export function Mission() {
             alt="mission book"
             loading="lazy"
           />
-          <img
+          <motion.img
             className="mission-image-butterfly-1"
             srcSet="/images/graphics/mission-butterfly-1.svg"
             alt="mission butterfly 1"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="mission-image-butterfly-2"
             srcSet="/images/graphics/mission-butterfly-2.svg"
             alt="mission butterfly 2"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="mission-image-planet"
             srcSet="/images/graphics/mission-planet.svg"
             alt="mission planet"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
         </div>
       </div>

@@ -6,12 +6,13 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa';
 import { BsMedium } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 import headerDesktopStyles from '~/styles/desktop/header.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: headerDesktopStyles,
   },
 ];
@@ -24,21 +25,56 @@ export function Header() {
       </Link>
       <div className="header-nav-container">
         <div className="header-social-btn-container">
-          <a className="header-social-btn" target="_blank" href="/">
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaFacebookF />
-          </a>
-          <a className="header-social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaTwitter />
-          </a>
-          <a className="header-social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaInstagram />
-          </a>
-          <a className="header-social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <BsMedium />
-          </a>
-          <a className="header-social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaLinkedinIn />
-          </a>
+          </motion.a>
         </div>
         <nav className="header-nav-links">
           <a href="/">Mission</a>

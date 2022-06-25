@@ -44,17 +44,36 @@
 
 .values-carousel {
   margin-top: calc(75rem / 16);
+}
+
+.values-carousel-inner {
   display: flex;
   justify-content: space-between;
-  width: calc(2024rem / 16);
+  width: calc(1920rem / 16);
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  /* removing scroll bar while keeping functionality */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* removing scroll bar while keeping functionality on Chrome and Safari */
+.values-carousel-inner::-webkit-scrollbar {
+  display: none;
 }
 
 .values-carousel-item {
-  width: calc(625rem / 16);
-  height: calc(625rem / 16);
+  min-width: calc(570rem / 16);
+  height: calc(570rem / 16);
   background: rgba(0, 0, 0, 0.3);
   border: 6px solid var(--purple);
   border-radius: calc(25rem / 16);
+  scroll-snap-align: center;
+  margin-left: 35px;
+  margin-right: 35px;
 }
 
 .values-carousel-item-number {
@@ -111,6 +130,11 @@
   justify-content: space-between;
   width: calc(225rem / 16);
   margin-top: calc(91rem / 16);
+}
+
+.values-carousel-nav-container button {
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .values-carousel-nav-arrow {

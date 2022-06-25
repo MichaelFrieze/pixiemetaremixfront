@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion';
 import heroDesktopStyles from '~/styles/desktop/hero.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: heroDesktopStyles,
   },
 ];
@@ -35,53 +36,77 @@ export function Hero() {
             alt="hero hat"
             loading="lazy"
           />
-          <img
+          <motion.img
             className="hero-pot"
             srcSet="/images/graphics/hero-pot.webp"
             alt="hero pot"
             loading="lazy"
+            whileHover={{
+              scale: 1.01,
+            }}
           />
-          <img
+          <motion.img
             className="hero-green-bubble-1"
             srcSet="/images/graphics/hero-green-bubble-1.svg"
             alt="hero green bubble 1"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="hero-green-bubble-2"
             srcSet="/images/graphics/hero-green-bubble-2.svg"
             alt="hero green bubble 2"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="hero-butterfly-1"
             srcSet="/images/graphics/hero-butterfly-1.svg"
             alt="hero butterfly 1"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="hero-butterfly-2"
             srcSet="/images/graphics/hero-butterfly-2.svg"
             alt="hero butterfly 2"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="hero-butterfly-3"
             srcSet="/images/graphics/hero-butterfly-3.svg"
             alt="hero butterfly 3"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="hero-butterfly-4"
             srcSet="/images/graphics/hero-butterfly-4.svg"
             alt="hero butterfly 4"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="hero-butterfly-5"
             srcSet="/images/graphics/hero-butterfly-5.svg"
             alt="hero butterfly 5"
             loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
         </div>
       </div>

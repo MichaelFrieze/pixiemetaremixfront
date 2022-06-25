@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion';
 import careersDesktopStyles from '~/styles/desktop/careers.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: careersDesktopStyles,
   },
 ];
@@ -36,7 +37,14 @@ export function Careers() {
             </p>
           </div>
 
-          <a href="mailto:hi@pixiemeta.com" className="careers-contact">
+          <motion.a
+            href="mailto:hi@pixiemeta.com"
+            className="careers-contact"
+            whileHover={{
+              scale: 1.02,
+              x: 3,
+            }}
+          >
             <p href="mailto:hi@pixiemeta.com" className="careers-contact-email">
               Work at Pixie Meta
             </p>
@@ -46,29 +54,42 @@ export function Careers() {
                 alt="email underline"
               />
             </div>
-          </a>
+          </motion.a>
         </div>
 
         <div className="careers-iamges-container">
           <img
             className="careers-image-space-ship"
-            srcSet="/images/graphics/careers-space-ship.svg"
+            srcSet="/images/graphics/careers-space-ship.webp"
             alt="careers space ship"
+            loading="lazy"
           />
-          <img
+          <motion.img
             className="careers-image-fairy"
-            srcSet="/images/graphics/careers-fairy.svg"
+            srcSet="/images/graphics/careers-fairy.webp"
             alt="careers fairy"
+            loading="lazy"
+            whileHover={{
+              scale: 1.02,
+            }}
           />
-          <img
+          <motion.img
             className="careers-image-butterfly"
             srcSet="/images/graphics/careers-butterfly.svg"
             alt="careers butterfly"
+            loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
-          <img
+          <motion.img
             className="careers-image-planet"
             srcSet="/images/graphics/careers-planet.svg"
             alt="careers planet"
+            loading="lazy"
+            whileHover={{
+              scale: 1.05,
+            }}
           />
         </div>
       </div>

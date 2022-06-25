@@ -13,7 +13,7 @@ import indexDesktopStyles from '~/styles/desktop/index.css';
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: indexDesktopStyles,
   },
   ...headerLinks(),
@@ -39,8 +39,8 @@ export default function Index() {
         <Careers />
         <Team />
         <Subscribe />
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 }

@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion';
 import subscribeDesktopStyles from '~/styles/desktop/subscribe.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: subscribeDesktopStyles,
   },
 ];
@@ -31,17 +32,27 @@ export function Subscribe() {
             className="subscribe-input"
             placeholder="EMAIL"
           />
-          <button type="submit" className="subscribe-btn">
+          <motion.button
+            whileHover={{
+              scale: 0.99,
+            }}
+            type="submit"
+            className="subscribe-btn"
+          >
             SUBSCRIBE
-          </button>
+          </motion.button>
         </form>
       </div>
 
       <div className="subscribe-images-container">
-        <img
+        <motion.img
           className="subscribe-image-butterfly"
           srcSet="/images/graphics/subscribe-butterfly.svg"
           alt="subscribe butterfly"
+          loading="lazy"
+          whileHover={{
+            scale: 1.05,
+          }}
         />
       </div>
     </section>

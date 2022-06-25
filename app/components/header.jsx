@@ -6,12 +6,13 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa';
 import { BsMedium } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 import headerDesktopStyles from '~/styles/desktop/header.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: headerDesktopStyles,
   },
 ];
@@ -19,33 +20,63 @@ export const links = () => [
 export function Header() {
   return (
     <header className="header-container">
-      <Link to="/" prefetch="intent" className="logo">
-        <img
-          srcSet="/images/logos/logo-header.svg"
-          alt="Logo"
-          width={376}
-          height={87}
-        />
+      <Link to="/" prefetch="intent" className="header-logo">
+        <img srcSet="/images/logos/logo-header.svg" alt="header logo" />
       </Link>
-      <div className="nav-container">
-        <div className="social-btn-container">
-          <a className="social-btn" target="_blank" href="/">
+      <div className="header-nav-container">
+        <div className="header-social-btn-container">
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaFacebookF />
-          </a>
-          <a className="social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaTwitter />
-          </a>
-          <a className="social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaInstagram />
-          </a>
-          <a className="social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <BsMedium />
-          </a>
-          <a className="social-btn" target="_blank" href="/">
+          </motion.a>
+          <motion.a
+            whileHover={{
+              scale: 1.05,
+            }}
+            className="footer-social-btn"
+            target="_blank"
+            href="/"
+          >
             <FaLinkedinIn />
-          </a>
+          </motion.a>
         </div>
-        <nav className="nav-links">
+        <nav className="header-nav-links">
           <a href="/">Mission</a>
           <a href="/">About Us</a>
           <a href="/">Team</a>

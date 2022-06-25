@@ -1,9 +1,10 @@
+import { motion } from 'framer-motion';
 import teamDesktopStyles from '~/styles/desktop/team.css';
 
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: 'screen and (min-width: 1920px)',
+    media: '(min-width: 1920px)',
     href: teamDesktopStyles,
   },
 ];
@@ -15,10 +16,14 @@ export function Team() {
         <div className="team-images-container">
           <div className="team-images-large">
             <div className="team-images-ceo">
-              <img
+              <motion.img
                 className="team-image-ceo"
                 srcSet="/images/team/giancarlo-cappucci.jpg"
-                alt=""
+                alt="team ceo"
+                loading="lazy"
+                whileHover={{
+                  scale: 1.01,
+                }}
               />
               <div className="team-images-ceo-label">
                 <p>Giancarlo Cappuccio</p>
@@ -26,28 +31,44 @@ export function Team() {
               </div>
             </div>
             <div className="team-images-cto">
-              <img
+              <motion.img
                 className="team-image-cto"
                 srcSet="/images/team/danny-ahumada.jpg"
-                alt=""
+                alt="team cto"
+                loading="lazy"
+                whileHover={{
+                  scale: 1.01,
+                }}
               />
             </div>
           </div>
           <div className="team-images-small">
-            <img
+            <motion.img
               className="team-image-other"
               srcSet="/images/team/ilse-montoya.jpg"
-              alt=""
+              alt="team member"
+              loading="lazy"
+              whileHover={{
+                scale: 1.01,
+              }}
             />
-            <img
+            <motion.img
               className="team-image-other"
               srcSet="/images/team/gianfranco-cappuccio.jpg"
-              alt=""
+              alt="team member"
+              loading="lazy"
+              whileHover={{
+                scale: 1.01,
+              }}
             />
-            <img
+            <motion.img
               className="team-image-other"
               srcSet="/images/team/carlos-bernal.jpg"
-              alt=""
+              alt="team member"
+              loading="lazy"
+              whileHover={{
+                scale: 1.01,
+              }}
             />
           </div>
         </div>
@@ -78,15 +99,23 @@ export function Team() {
       </div>
 
       <div className="team-images-fairy">
-        <img
+        <motion.img
           className="team-image-butterfly-1"
           srcSet="/images/graphics/team-butterfly-1.svg"
           alt="team butterfly 1"
+          loading="lazy"
+          whileHover={{
+            scale: 1.05,
+          }}
         />
-        <img
+        <motion.img
           className="team-image-butterfly-2"
           srcSet="/images/graphics/team-butterfly-2.svg"
           alt="team butterfly 2"
+          loading="lazy"
+          whileHover={{
+            scale: 1.05,
+          }}
         />
       </div>
     </section>

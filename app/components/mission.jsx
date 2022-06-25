@@ -11,7 +11,7 @@ export const links = () => [
 
 export function Mission() {
   return (
-    <section className="mission-section">
+    <section className="mission-section" id="mission-section">
       <div className="mission-container">
         <div className="mission-text-box">
           <div className="mission-section-title">OUR MISSION</div>

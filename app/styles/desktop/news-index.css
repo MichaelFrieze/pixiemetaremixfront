@@ -1,0 +1,19 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--purple);
+}
+
+.layout-container {
+  background-color: var(--darker-blue);
+  margin: 0 auto;
+  background-image: url('/images/backgrounds/bg-full-news.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: calc(1920rem / 16);
+  height: calc(9098rem / 16);
+  position: relative;
+  overflow: hidden;
+}

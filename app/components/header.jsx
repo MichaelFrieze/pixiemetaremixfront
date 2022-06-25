@@ -29,7 +29,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -39,7 +39,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -49,7 +49,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -59,7 +59,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -69,7 +69,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -77,11 +77,11 @@ export function Header() {
           </motion.a>
         </div>
         <nav className="header-nav-links">
-          <NavLink to="#mission-section">Mission</NavLink>
-          <NavLink to="#about-section">About Us</NavLink>
-          <NavLink to="#team-section">Team</NavLink>
-          <NavLink to="#careers-section">Careers</NavLink>
-          <NavLink prefetch="intent" to="/">
+          <NavLink to="/#mission-section">Mission</NavLink>
+          <NavLink to="/#about-section">About Us</NavLink>
+          <NavLink to="/#team-section">Team</NavLink>
+          <NavLink to="/#careers-section">Careers</NavLink>
+          <NavLink prefetch="intent" to="/news">
             News
           </NavLink>
         </nav>

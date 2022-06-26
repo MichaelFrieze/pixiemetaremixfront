@@ -18,6 +18,11 @@ export const links = () => [
 ];
 
 export function Header() {
+  const activeStyle = {
+    textDecoration: 'underline',
+    color: 'var(--yellow)',
+  };
+
   return (
     <header className="header-container">
       <Link to="/" prefetch="intent" className="header-logo">
@@ -81,7 +86,11 @@ export function Header() {
           <NavLink to="/#about-section">About Us</NavLink>
           <NavLink to="/#team-section">Team</NavLink>
           <NavLink to="/#careers-section">Careers</NavLink>
-          <NavLink prefetch="intent" to="/news">
+          <NavLink
+            prefetch="intent"
+            to="/news"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             News
           </NavLink>
         </nav>

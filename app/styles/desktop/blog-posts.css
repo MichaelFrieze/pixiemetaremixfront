@@ -1,7 +1,0 @@
-.blog-posts-section {
-  margin-top: calc(172rem / 16);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}

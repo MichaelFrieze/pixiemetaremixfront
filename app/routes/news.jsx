@@ -1,4 +1,5 @@
 import qs from 'qs';
+import { Link } from '@remix-run/react';
 import { Outlet, useLoaderData } from '@remix-run/react';
 import { Redis } from '@upstash/redis';
 import { Header, links as headerLinks } from '~/components/header';
@@ -14,25 +15,27 @@ export const links = () => [
 ];
 
 export const loader = async () => {
-  // const redis = new Redis({
-  //   url: `${process.env.UPSTASH_URL}`,
-  //   token: `${process.env.UPSTASH_TOKEN}`,
-  // });
+  const redis = new Redis({
+    url: `${process.env.UPSTASH_URL}`,
+    token: `${process.env.UPSTASH_TOKEN}`,
+  });
 
-  // // Find the cache key in the Upstash data browser
-  // const cacheKey = `/api/blog-posts?populate=image,sort=["date:desc"]&`;
-  // const redisRes = await redis.get(cacheKey);
+  // Find the cache key in the Upstash data browser
+  const cacheKey = `/api/blog-posts?populate=image,sort=["date:desc"]&`;
+  const redisRes = await redis.get(cacheKey);
 
-  // // if the cache is valid, return it
-  // if (redisRes) {
-  //   console.log('Cache hit, fetching from Upstash!');
+  // if the cache is valid, return it
+  if (redisRes) {
+    console.log('Cache hit, fetching from Upstash!');
 
-  //   const redisResObj = JSON.parse(redisRes);
-  //   const blogPostsCache = redisResObj.data.data;
-  //   return blogPostsCache;
-  // }
+    const redisResObj = JSON.parse(redisRes);
+    const blogPostsCache = redisResObj.data.data;
+    const recentPost = blogPostsCache[0];
 
-  // console.log('Cache miss, fetching from API');
+    return recentPost;
+  }
+
+  console.log('Cache miss, fetching from API');
 
   const query = qs.stringify(
     {
@@ -67,7 +70,10 @@ export const loader = async () => {
 
 export default function NewsRoute() {
   const recentPost = useLoaderData();
-  console.log(recentPost);
+
+  const date = new Date(recentPost.attributes.date);
+  const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
+  const dateString = date.toLocaleDateString('en-US', dateOptions);
 
   return (
     <div className="layout-container">
@@ -106,7 +112,22 @@ export default function NewsRoute() {
             </div>
 
             <div className="news-recent-post-text-container">
-              <h1>post text</h1>
+              <div className="news-recent-post-date">{dateString}</div>
+              <div className="news-recent-post-title">
+                {recentPost.attributes.title}: {recentPost.attributes.subtitle}
+              </div>
+              <img
+                src="/images/graphics/news-recent-post-line.svg"
+                alt="recent post line"
+                className="news-recent-post-line-img"
+              />
+              <Link
+                prefetch="intent"
+                to="/news"
+                className="news-recent-post-link"
+              >
+                <div className="news-recent-post-link-text">READ BLOG POST</div>
+              </Link>
             </div>
           </div>
         </section>

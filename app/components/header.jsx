@@ -1,4 +1,4 @@
-import { Link } from '@remix-run/react';
+import { Link, NavLink } from '@remix-run/react';
 import {
   FaFacebookF,
   FaTwitter,
@@ -18,6 +18,11 @@ export const links = () => [
 ];
 
 export function Header() {
+  const activeStyle = {
+    textDecoration: 'underline',
+    color: 'var(--yellow)',
+  };
+
   return (
     <header className="header-container">
       <Link to="/" prefetch="intent" className="header-logo">
@@ -29,7 +34,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -39,7 +44,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -49,7 +54,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -59,7 +64,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -69,7 +74,7 @@ export function Header() {
             whileHover={{
               scale: 1.05,
             }}
-            className="footer-social-btn"
+            className="header-social-btn"
             target="_blank"
             href="/"
           >
@@ -77,13 +82,17 @@ export function Header() {
           </motion.a>
         </div>
         <nav className="header-nav-links">
-          <a href="/">Mission</a>
-          <a href="/">About Us</a>
-          <a href="/">Team</a>
-          <a href="/">Careers</a>
-          <Link prefetch="intent" to="/">
+          <NavLink to="/#mission-section">Mission</NavLink>
+          <NavLink to="/#about-section">About Us</NavLink>
+          <NavLink to="/#team-section">Team</NavLink>
+          <NavLink to="/#careers-section">Careers</NavLink>
+          <NavLink
+            prefetch="intent"
+            to="/news"
+            style={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
             News
-          </Link>
+          </NavLink>
         </nav>
       </div>
     </header>

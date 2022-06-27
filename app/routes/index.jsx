@@ -27,7 +27,7 @@ export const links = () => [
   ...footerLinks(),
 ];
 
-export default function Index() {
+export default function IndexRoute() {
   return (
     <div className="layout-container">
       <Header />

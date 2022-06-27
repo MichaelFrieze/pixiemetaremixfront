@@ -11,7 +11,7 @@ export const links = () => [
 
 export function About() {
   return (
-    <section className="about-section">
+    <section className="about-section" id="about-section">
       <div className="about-container">
         <motion.img
           className="about-image-fairy"

@@ -11,7 +11,7 @@ export const links = () => [
 
 export function Careers() {
   return (
-    <section className="careers-section">
+    <section className="careers-section" id="careers-section">
       <div className="careers-container">
         <div className="careers-text-box">
           <h2 className="careers-section-title">CAREERS</h2>

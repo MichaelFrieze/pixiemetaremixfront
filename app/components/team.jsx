@@ -11,7 +11,7 @@ export const links = () => [
 
 export function Team() {
   return (
-    <section className="team-section">
+    <section className="team-section" id="team-section">
       <div className="team-container">
         <div className="team-images-container">
           <div className="team-images-large">

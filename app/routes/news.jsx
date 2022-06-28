@@ -111,7 +111,9 @@ export default function NewsRoute() {
             </div>
 
             <div className="news-recent-post-text-container">
-              <div className="news-recent-post-date">{dateString}</div>
+              <div className="news-recent-post-date">
+                {dateString.toUpperCase()}
+              </div>
               <div className="news-recent-post-title">
                 {recentPost.attributes.title}: {recentPost.attributes.subtitle}
               </div>

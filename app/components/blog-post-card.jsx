@@ -30,7 +30,9 @@ export function BlogPostCard({ blogPost }) {
       </div>
 
       <div className="news-index-blog-post-text-container">
-        <div className="news-index-blog-post-date">{dateString}</div>
+        <div className="news-index-blog-post-date">
+          {dateString.toUpperCase()}
+        </div>
         <div className="news-index-blog-post-title">
           {blogPost.attributes.title}: {blogPost.attributes.subtitle}
         </div>

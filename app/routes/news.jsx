@@ -1,6 +1,5 @@
 import qs from 'qs';
-import { Link } from '@remix-run/react';
-import { Outlet, useLoaderData } from '@remix-run/react';
+import { Outlet, useLoaderData, Link } from '@remix-run/react';
 import { Redis } from '@upstash/redis';
 import { Header, links as headerLinks } from '~/components/header';
 import newsDesktopStyles from '~/styles/desktop/news.css';
@@ -98,13 +97,13 @@ export default function NewsRoute() {
 
           <div className="news-recent-post-container">
             <div className="news-recent-post-img-container">
-              {recentPost.attributes.image?.data?.[0].attributes?.formats?.large
-                ?.url && (
+              {recentPost.attributes.image?.data?.[0].attributes?.formats
+                ?.medium?.url && (
                 <img
                   className="news-recent-post-img"
                   srcSet={
                     recentPost.attributes.image.data?.[0].attributes.formats
-                      .large.url
+                      .medium.url
                   }
                   alt="Recent Post"
                 />

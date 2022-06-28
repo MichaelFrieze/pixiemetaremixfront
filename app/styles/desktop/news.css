@@ -125,7 +125,7 @@ body {
   font-weight: 700;
   font-size: calc(68rem / 16);
   line-height: calc(70rem / 16);
-  color: #ffffff;
+  color: var(--white);
   max-height: calc(140rem / 16);
   overflow: hidden;
 }
@@ -138,7 +138,7 @@ body {
   margin-top: calc(33rem / 16);
   width: calc(220rem / 16);
   height: calc(50rem / 16);
-  background: #ffffff;
+  background: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,5 +150,5 @@ body {
   font-weight: 500;
   font-size: calc(25rem / 16);
   line-height: calc(29rem / 16);
-  color: #a333c8;
+  color: var(--purple);
 }

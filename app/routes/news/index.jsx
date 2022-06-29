@@ -6,6 +6,10 @@ import {
   BlogPostCard,
   links as blogPostCardLinks,
 } from '~/components/blog-post-card';
+import {
+  NewsPagination,
+  links as newsPaginationLinks,
+} from '~/components/news-pagination';
 
 export const links = () => [
   {
@@ -14,36 +18,46 @@ export const links = () => [
     href: newsIndexDesktopStyles,
   },
   ...blogPostCardLinks(),
+  ...newsPaginationLinks(),
 ];
 
-export const loader = async () => {
-  // const redis = new Redis({
-  //   url: `${process.env.UPSTASH_URL}`,
-  //   token: `${process.env.UPSTASH_TOKEN}`,
-  // });
+export const loader = async ({ request }) => {
+  // Get page from params
+  const url = new URL(request.url);
+  const page = Number(url.searchParams.get('page') ?? 1);
+  const pageSize = 6;
 
-  // // Find the cache key in the Upstash data browser
-  // const cacheKey = `/api/blog-posts?populate=image,sort=["date:desc"]&`;
-  // const redisRes = await redis.get(cacheKey);
+  const redis = new Redis({
+    url: `${process.env.UPSTASH_URL}`,
+    token: `${process.env.UPSTASH_TOKEN}`,
+  });
 
-  // // if the cache is valid, return it
-  // if (redisRes) {
-  //   console.log('Cache hit, fetching from Upstash!');
+  // Find the cache key in the Upstash data browser
+  const cacheKey = `/api/blog-posts?pagination={"page":"${page}","pageSize":"${pageSize}","withCount":"true"},populate=image,sort=["date:desc"]&`;
+  const redisRes = await redis.get(cacheKey);
 
-  //   const redisResObj = JSON.parse(redisRes);
-  //   const blogPostsCache = redisResObj.data.data;
-  //   const recentPost = blogPostsCache[0];
+  // if the cache is valid, return it
+  if (redisRes) {
+    console.log('Paginated blog posts cache hit, fetching from Upstash!');
 
-  //   return recentPost;
-  // }
+    const redisResObj = JSON.parse(redisRes);
 
-  // console.log('Cache miss, fetching from API');
+    const cachedLoaderData = {
+      paginatedBlogPosts: redisResObj.data.data,
+      page: redisResObj.data.meta.pagination.page,
+      pageCount: redisResObj.data.meta.pagination.pageCount,
+    };
+
+    return cachedLoaderData;
+  }
+
+  console.log('Paginated blog posts cache miss, fetching from API');
 
   const query = qs.stringify(
     {
       pagination: {
-        page: 1,
-        pageSize: 6,
+        page: page,
+        pageSize: pageSize,
         withCount: true,
       },
       sort: ['date:desc'],
@@ -69,13 +83,18 @@ export const loader = async () => {
   }
 
   const resObj = await res.json();
-  const paginatedBlogPosts = resObj.data;
 
-  return paginatedBlogPosts;
+  const loaderData = {
+    paginatedBlogPosts: resObj.data,
+    page: resObj.meta.pagination.page,
+    pageCount: resObj.meta.pagination.pageCount,
+  };
+
+  return loaderData;
 };
 
 export default function NewsIndexRoute() {
-  const paginatedBlogPosts = useLoaderData();
+  const { paginatedBlogPosts, page, pageCount } = useLoaderData();
 
   return (
     <section className="news-index-blog-posts-section">
@@ -84,6 +103,7 @@ export default function NewsIndexRoute() {
           <BlogPostCard key={blogPost.id} blogPost={blogPost} />
         ))}
       </div>
+      <NewsPagination page={page} pageCount={pageCount} />
     </section>
   );
 }

@@ -25,7 +25,7 @@ export const loader = async () => {
 
   // if the cache is valid, return it
   if (redisRes) {
-    console.log('Cache hit, fetching from Upstash!');
+    console.log('Recent post cache hit, fetching from Upstash!');
 
     const redisResObj = JSON.parse(redisRes);
     const blogPostsCache = redisResObj.data.data;
@@ -34,7 +34,7 @@ export const loader = async () => {
     return recentPost;
   }
 
-  console.log('Cache miss, fetching from API');
+  console.log('Recent post cache miss, fetching from API');
 
   const query = qs.stringify(
     {

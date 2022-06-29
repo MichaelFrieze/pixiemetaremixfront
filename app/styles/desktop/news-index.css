@@ -1,7 +1,11 @@
 .news-index-blog-posts-section {
   margin-top: calc(62rem / 16);
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+
+  scroll-behavior: initial;
 }
 
 .news-index-blog-posts-container {
@@ -11,6 +15,5 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: calc(40rem / 16);
   row-gap: calc(62rem / 16);
-  /* align-items: center; */
   justify-items: center;
 }

@@ -166,7 +166,7 @@ export function Values() {
           >
             <img
               srcSet="/images/icons/values-right-arrow.svg"
-              alt="left arrow"
+              alt="right arrow"
               loading="lazy"
             />
           </motion.button>

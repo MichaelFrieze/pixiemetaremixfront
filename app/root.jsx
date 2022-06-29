@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from '@remix-run/react';
 import globalStyles from '~/styles/global.css';
 
@@ -50,6 +51,12 @@ export const meta = () => ({
 });
 
 export default function App() {
+  let shouldScroll = true;
+  const location = useLocation();
+  if (location?.state && location?.state?.disableScroll === true) {
+    shouldScroll = false;
+  }
+
   return (
     <html lang="en">
       <head>
@@ -58,7 +65,7 @@ export default function App() {
       </head>
       <body className="font-sans">
         <Outlet />
-        <ScrollRestoration />
+        {shouldScroll ? <ScrollRestoration /> : null}
         <Scripts />
         <LiveReload />
       </body>

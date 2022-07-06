@@ -16,6 +16,7 @@ export function NewsPagination({ page, pageCount }) {
         <Link
           to={`/news?page=${page - 1}`}
           className="news-index-pagination-link"
+          prefetch="intent"
           // state={{ disableScroll: true }}
         >
           <button className="news-index-pagination-btn" type="button">
@@ -45,6 +46,7 @@ export function NewsPagination({ page, pageCount }) {
         <Link
           to={`/news?page=${page + 1}`}
           className="news-index-pagination-link"
+          prefetch="intent"
           // state={{ disableScroll: true }}
         >
           <button className="news-index-pagination-btn" type="button">

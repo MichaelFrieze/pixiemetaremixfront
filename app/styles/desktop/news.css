@@ -4,6 +4,7 @@ html {
 
 body {
   background-color: var(--purple);
+  overflow-x: hidden;
 }
 
 .layout-container {
@@ -13,9 +14,18 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   width: calc(1920rem / 16);
-  height: calc(5316rem / 16);
-  position: relative;
-  overflow: hidden;
+  min-height: calc(5316rem / 16);
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  /* removing scroll bar in this layout container */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* removing scroll bar in the layout container */
+.layout-container::-webkit-scrollbar {
+  display: none;
 }
 
 .news-hero-section {
@@ -151,4 +161,45 @@ body {
   font-size: calc(25rem / 16);
   line-height: calc(29rem / 16);
   color: var(--purple);
+}
+
+.news-index-blog-posts-section {
+  margin-top: calc(62rem / 16);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-behavior: initial;
+}
+
+.news-index-blog-posts-container {
+  width: calc(1500rem / 16);
+  /* max-height: calc(1771rem / 16); */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: calc(40rem / 16);
+  row-gap: calc(62rem / 16);
+  justify-items: center;
+}
+
+.news-index-blog-posts-load-more-btn {
+  margin-top: calc(87rem / 16);
+  width: calc(220rem / 16);
+  height: calc(60rem / 16);
+  background-color: var(--purple);
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
+  text-align: center;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.news-index-blog-posts-load-more-btn:disabled {
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  background-color: rgba(163, 51, 200, 0.5);
+  cursor: not-allowed;
 }

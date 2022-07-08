@@ -6,6 +6,11 @@ import {
   BlogPostsList,
   links as blogPostsListLinks,
 } from '~/components/blog-posts-list';
+import {
+  Subscribe,
+  links as subscribeLinks,
+} from '~/components/subscribe-news';
+
 import newsDesktopStyles from '~/styles/desktop/news.css';
 import { useEffect, useState } from 'react';
 import { redirect } from '@remix-run/node';
@@ -18,6 +23,7 @@ export const links = () => [
   },
   ...headerLinks(),
   ...blogPostsListLinks(),
+  ...subscribeLinks(),
 ];
 
 export const action = async ({ request }) => {
@@ -284,6 +290,8 @@ export default function NewsIndexRoute() {
           paginatedBlogPosts={paginatedBlogPosts}
           totalPosts={total}
         />
+
+        <Subscribe />
       </main>
     </div>
   );

@@ -174,11 +174,13 @@ body {
 
 .news-index-blog-posts-section {
   margin-top: calc(62rem / 16);
+  margin-bottom: calc(187rem / 16);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   scroll-behavior: initial;
+  min-height: calc(1771rem / 16);
 }
 
 .news-index-blog-posts-container {

@@ -81,8 +81,9 @@ body {
   cursor: pointer;
   border: transparent;
   letter-spacing: calc(10.5rem / 16);
-  text-align: center;
+  text-align: start;
   margin-left: calc(10.5rem / 16);
+  width: calc(185rem / 16);
 
   /* removing dropdown arrow */
   -o-appearance: none;

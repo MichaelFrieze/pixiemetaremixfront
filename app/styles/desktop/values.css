@@ -76,6 +76,10 @@
   margin-right: 35px;
 }
 
+.values-carousel-item:hover {
+  background: rgba(163, 51, 200, 0.3);
+}
+
 .values-carousel-item-number {
   width: calc(68rem / 16);
   height: calc(56rem / 16);

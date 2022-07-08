@@ -61,17 +61,16 @@ body {
 
 .news-subheading-filter {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: calc(22rem / 16);
-  width: calc(399rem / 16);
+  width: calc(410rem / 16);
   height: calc(29rem / 16);
   font-family: 'Karla';
   font-style: normal;
   font-weight: 500;
   font-size: calc(25rem / 16);
   line-height: calc(29rem / 16);
-  text-align: center;
-  letter-spacing: calc(11.5rem / 16);
+  letter-spacing: calc(9.5rem / 16);
   color: var(--white);
 }
 
@@ -81,7 +80,16 @@ body {
   background-color: transparent;
   cursor: pointer;
   border: transparent;
-  letter-spacing: calc(11.5rem / 16);
+  letter-spacing: calc(10.5rem / 16);
+  text-align: center;
+  margin-left: calc(10.5rem / 16);
+
+  /* removing dropdown arrow */
+  -o-appearance: none;
+  -ms-appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .news-recent-post-container {

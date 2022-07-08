@@ -45,6 +45,17 @@ export const loader = async ({ request }) => {
     filterTag = null;
   }
 
+  // REDIS
+  // /api/blog-posts?pagination={"start":"0","limit":"7","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&
+  // /api/tags?&
+  // /api/blog-posts?pagination={"start":"7","limit":"2","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&
+  // /api/blog-posts?filters={"tags":{"name":{"$eq":"REMIX"}}},pagination={"start":"0","limit":"7","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&
+  // /api/blog-posts?filters={"tags":{"name":{"$eq":"NFT"}}},pagination={"start":"0","limit":"7","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&
+  // /api/blog-posts?filters={"tags":{"name":{"$eq":"NFT"}}},pagination={"start":"7","limit":"2","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&
+
+  // current
+  // /api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=image,sort=["date:desc"]&
+
   // const redis = new Redis({
   //   url: `${process.env.UPSTASH_URL}`,
   //   token: `${process.env.UPSTASH_TOKEN}`,
@@ -137,14 +148,23 @@ export const loader = async ({ request }) => {
     recentPost: blogPostsResObj.data[0],
     strapiUrl: process.env.API_URL,
     filterTag,
+    upstashURL: `${process.env.UPSTASH_URL}`,
+    upstashToken: `${process.env.UPSTASH_TOKEN}`,
   };
 
   return loaderData;
 };
 
 export default function NewsIndexRoute() {
-  const { recentPost, paginatedBlogPosts, total, strapiUrl, filterTag } =
-    useLoaderData();
+  const {
+    recentPost,
+    paginatedBlogPosts,
+    total,
+    strapiUrl,
+    filterTag,
+    upstashURL,
+    upstashToken,
+  } = useLoaderData();
   const submit = useSubmit();
 
   const [tags, setTags] = useState(() => []);
@@ -153,30 +173,48 @@ export default function NewsIndexRoute() {
   const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
   const dateString = date.toLocaleDateString('en-US', dateOptions);
 
-  useEffect(() => {
-    const fetchTags = async () => {
-      const tagsRes = await fetch(`${strapiUrl}/api/tags`);
-
-      if (!tagsRes.ok) {
-        console.error(tagsRes);
-        const tagsResObj = await tagsRes.json();
-        throw new Error(
-          `${tagsResObj.error.status} | ${tagsResObj.error.name} | Message: ${
-            tagsResObj.error.message
-          } | Details: ${JSON.stringify(tagsResObj.error.details)}`
-        );
-      }
-
-      const tagsResObj = await tagsRes.json();
-      setTags(tagsResObj.data);
-    };
-
-    fetchTags();
-  }, [strapiUrl]);
-
   const updateFilter = (e) => {
     submit(e.target.form, { replace: true });
   };
+
+  const fetchTags = async () => {
+    const redis = new Redis({
+      url: upstashURL,
+      token: upstashToken,
+    });
+
+    // Find the cache key in the Upstash data browser
+    const cacheKey = `/api/tags?&`;
+    const redisRes = await redis.get(cacheKey);
+
+    // if the cache is valid, return it
+    if (redisRes) {
+      const redisResObj = JSON.parse(redisRes);
+      const cachedTagsData = redisResObj.data;
+      setTags(cachedTagsData.data);
+      return;
+    }
+
+    console.log('are we here');
+    const tagsRes = await fetch(`${strapiUrl}/api/tags`);
+
+    if (!tagsRes.ok) {
+      console.error(tagsRes);
+      const tagsResObj = await tagsRes.json();
+      throw new Error(
+        `${tagsResObj.error.status} | ${tagsResObj.error.name} | Message: ${
+          tagsResObj.error.message
+        } | Details: ${JSON.stringify(tagsResObj.error.details)}`
+      );
+    }
+
+    const tagsResObj = await tagsRes.json();
+    setTags(tagsResObj.data);
+  };
+
+  useEffect(() => {
+    fetchTags();
+  });
 
   return (
     <div className="layout-container">

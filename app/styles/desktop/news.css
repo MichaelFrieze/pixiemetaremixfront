@@ -29,11 +29,24 @@ body {
 }
 
 .news-hero-section {
+  position: relative;
   margin-top: calc(152rem / 16);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.news-hero-butterfly-img-1 {
+  position: absolute;
+  top: calc(-110rem / 16);
+  left: calc(505rem / 16);
+}
+
+.news-hero-butterfly-img-2 {
+  position: absolute;
+  top: calc(90rem / 16);
+  right: calc(525rem / 16);
 }
 
 .news-heading-container {

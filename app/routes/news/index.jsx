@@ -284,6 +284,19 @@ export default function NewsIndexRoute() {
               </Link>
             </div>
           </div>
+
+          <div className="news-hero-images">
+            <img
+              className="news-hero-butterfly-img-1"
+              srcSet="/images/graphics/news-butterfly-1.svg"
+              alt="news hero butterfly img 1"
+            />
+            <img
+              className="news-hero-butterfly-img-2"
+              srcSet="/images/graphics/news-butterfly-2.svg"
+              alt="news hero butterfly img 2"
+            />
+          </div>
         </section>
 
         <BlogPostsList

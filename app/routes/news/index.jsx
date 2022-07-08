@@ -10,6 +10,7 @@ import {
   Subscribe,
   links as subscribeLinks,
 } from '~/components/subscribe-news';
+import { Footer, links as footerLinks } from '~/components/footer-news';
 
 import newsDesktopStyles from '~/styles/desktop/news.css';
 import { useEffect, useState } from 'react';
@@ -24,6 +25,7 @@ export const links = () => [
   ...headerLinks(),
   ...blogPostsListLinks(),
   ...subscribeLinks(),
+  ...footerLinks(),
 ];
 
 export const action = async ({ request }) => {
@@ -293,6 +295,7 @@ export default function NewsIndexRoute() {
 
         <Subscribe />
       </main>
+      <Footer />
     </div>
   );
 }

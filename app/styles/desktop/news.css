@@ -59,7 +59,7 @@ body {
   color: var(--yellow);
 }
 
-.news-subheading-container {
+.news-subheading-filter {
   display: flex;
   justify-content: space-between;
   margin-top: calc(22rem / 16);

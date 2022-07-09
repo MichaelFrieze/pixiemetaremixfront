@@ -1,5 +1,18 @@
 .subscribe-section {
   margin-top: calc(39rem / 16);
+  position: relative;
+}
+
+.news-subscribe-butterfly-img-1 {
+  position: absolute;
+  top: calc(-145rem / 16);
+  left: calc(250rem / 16);
+}
+
+.news-subscribe-butterfly-img-2 {
+  position: absolute;
+  top: calc(728rem / 16);
+  right: calc(225rem / 16);
 }
 
 .subscribe-container {

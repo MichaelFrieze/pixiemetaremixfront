@@ -43,6 +43,19 @@ export function Subscribe() {
           </motion.button>
         </form>
       </div>
+
+      <div className="news-subscribe-images">
+        <img
+          className="news-subscribe-butterfly-img-1"
+          srcSet="/images/graphics/news-butterfly-3.svg"
+          alt="news subscribe butterfly img 1"
+        />
+        <img
+          className="news-subscribe-butterfly-img-2"
+          srcSet="/images/graphics/news-butterfly-4.svg"
+          alt="news subscribe butterfly img 2"
+        />
+      </div>
     </section>
   );
 }

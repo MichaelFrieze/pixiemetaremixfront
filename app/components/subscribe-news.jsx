@@ -45,15 +45,23 @@ export function Subscribe() {
       </div>
 
       <div className="news-subscribe-images">
-        <img
+        <motion.img
           className="news-subscribe-butterfly-img-1"
           srcSet="/images/graphics/news-butterfly-3.svg"
           alt="news subscribe butterfly img 1"
+          loading="lazy"
+          whileHover={{
+            scale: 1.05,
+          }}
         />
-        <img
+        <motion.img
           className="news-subscribe-butterfly-img-2"
           srcSet="/images/graphics/news-butterfly-4.svg"
           alt="news subscribe butterfly img 2"
+          loading="lazy"
+          whileHover={{
+            scale: 1.05,
+          }}
         />
       </div>
     </section>

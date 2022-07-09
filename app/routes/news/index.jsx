@@ -1,4 +1,7 @@
 import qs from 'qs';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { redirect } from '@remix-run/node';
 import { useLoaderData, Link, useSubmit, Form } from '@remix-run/react';
 import { Redis } from '@upstash/redis';
 import { Header, links as headerLinks } from '~/components/header';
@@ -13,8 +16,6 @@ import {
 import { Footer, links as footerLinks } from '~/components/footer-news';
 
 import newsDesktopStyles from '~/styles/desktop/news.css';
-import { useEffect, useState } from 'react';
-import { redirect } from '@remix-run/node';
 
 export const links = () => [
   {
@@ -231,12 +232,15 @@ export default function NewsIndexRoute() {
               className="news-subheading-filter"
             >
               <label htmlFor="blogPostsFilterTag">FILTER BY: </label>
-              <select
+              <motion.select
                 className="news-subheading-filter-dropdown"
                 id="blogPostsFilterTag"
                 name="blogPostsFilterTag"
                 value={filterTag ? filterTag : 'ALL'}
                 onChange={updateFilter}
+                whileHover={{
+                  scale: 1.01,
+                }}
               >
                 <option value="ALL">ALL</option>
                 {tags.map((tag) => (
@@ -244,7 +248,7 @@ export default function NewsIndexRoute() {
                     {tag.attributes.name}
                   </option>
                 ))}
-              </select>
+              </motion.select>
             </Form>
           </div>
 
@@ -280,21 +284,35 @@ export default function NewsIndexRoute() {
                 to="/news"
                 className="news-recent-post-link"
               >
-                <div className="news-recent-post-link-text">READ BLOG POST</div>
+                <motion.button
+                  type="button"
+                  className="news-recent-post-btn"
+                  whileHover={{
+                    scale: 0.98,
+                  }}
+                >
+                  READ BLOG POST
+                </motion.button>
               </Link>
             </div>
           </div>
 
           <div className="news-hero-images">
-            <img
+            <motion.img
               className="news-hero-butterfly-img-1"
               srcSet="/images/graphics/news-butterfly-1.svg"
               alt="news hero butterfly img 1"
+              whileHover={{
+                scale: 1.05,
+              }}
             />
-            <img
+            <motion.img
               className="news-hero-butterfly-img-2"
               srcSet="/images/graphics/news-butterfly-2.svg"
               alt="news hero butterfly img 2"
+              whileHover={{
+                scale: 1.05,
+              }}
             />
           </div>
         </section>

@@ -1,5 +1,6 @@
 import { useFetcher } from '@remix-run/react';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import {
   BlogPostCard,
   links as blogPostCardLinks,
@@ -47,17 +48,20 @@ export function BlogPostsList({ filterTag, paginatedBlogPosts, totalPosts }) {
           <BlogPostCard key={blogPost.id} blogPost={blogPost} />
         ))}
       </div>
-      <button
+      <motion.button
         onClick={loadMore}
         disabled={loadMoreBtnDisabled}
         className="news-index-blog-posts-load-more-btn"
+        whileHover={{
+          scale: 0.98,
+        }}
       >
         {loadMoreBtnDisabled
           ? 'No more posts'
           : isFetcherLoading
           ? 'Loading...'
           : 'Load More'}
-      </button>
+      </motion.button>
     </section>
   );
 }

@@ -167,22 +167,27 @@ body {
 }
 
 .news-recent-post-link {
+  width: calc(220rem / 16);
+  height: calc(50rem / 16);
   margin-top: calc(33rem / 16);
+}
+
+.news-recent-post-btn {
   width: calc(220rem / 16);
   height: calc(50rem / 16);
   background: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.news-recent-post-link-text {
   font-family: 'Karla';
   font-style: normal;
   font-weight: 500;
   font-size: calc(25rem / 16);
   line-height: calc(29rem / 16);
   color: var(--purple);
+
+  cursor: pointer;
 }
 
 .news-index-blog-posts-section {

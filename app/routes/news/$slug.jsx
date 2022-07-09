@@ -1,4 +1,5 @@
 import qs from 'qs';
+import { marked } from 'marked';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { redirect } from '@remix-run/node';
@@ -69,10 +70,14 @@ export const loader = async ({ request }) => {
     console.log('Blog posts cache hit, fetching from Upstash!');
 
     const redisResObj = JSON.parse(redisRes);
+    const recentPost = redisResObj.data.data[0];
+    const recentPostContentHTML = marked(recentPost.attributes.content);
+
     const cachedLoaderData = {
       paginatedBlogPosts: redisResObj.data.data,
       total: redisResObj.data.meta.pagination.total,
-      recentPost: redisResObj.data.data[0],
+      recentPost,
+      recentPostContentHTML,
       strapiUrl: process.env.API_URL,
       filterTag,
       upstashURL: `${process.env.UPSTASH_URL}`,
@@ -143,11 +148,16 @@ export const loader = async ({ request }) => {
 
   const blogPostsResObj = await blogPostsRes.json();
 
+  // Get recent post
+  const recentPost = blogPostsResObj.data[0];
+  const recentPostContentHTML = marked(recentPost.attributes.content);
+
   const loaderData = {
     paginatedBlogPosts: blogPostsResObj.data,
     total: blogPostsResObj.meta.pagination.total,
-    recentPost: blogPostsResObj.data[0],
     strapiUrl: process.env.API_URL,
+    recentPost,
+    recentPostContentHTML,
     filterTag,
     upstashURL: `${process.env.UPSTASH_URL}`,
     upstashToken: `${process.env.UPSTASH_TOKEN}`,
@@ -156,9 +166,10 @@ export const loader = async ({ request }) => {
   return loaderData;
 };
 
-export default function NewsIndexRoute() {
+export default function NewsPageRoute() {
   const {
     recentPost,
+    recentPostContentHTML,
     paginatedBlogPosts,
     total,
     strapiUrl,
@@ -219,9 +230,10 @@ export default function NewsIndexRoute() {
     fetchTags();
   });
 
-  useEffect(() => {
-    console.log(recentPost);
-  }, [recentPost]);
+  // useEffect(() => {
+  //   console.log(recentPost);
+  //   console.log(recentPostContentHTML);
+  // }, [recentPost, recentPostContentHTML]);
 
   return (
     <div className="layout-container">
@@ -281,7 +293,9 @@ export default function NewsIndexRoute() {
                 {recentPost.attributes.title}: {recentPost.attributes.subtitle}
               </div>
               <div className="news-recent-post-content">
-                {recentPost.attributes.content}
+                <div
+                  dangerouslySetInnerHTML={{ __html: recentPostContentHTML }}
+                />
               </div>
             </div>
           </div>

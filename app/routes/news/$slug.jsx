@@ -292,11 +292,10 @@ export default function NewsPageRoute() {
               <div className="news-recent-post-title">
                 {recentPost.attributes.title}: {recentPost.attributes.subtitle}
               </div>
-              <div className="news-recent-post-content">
-                <div
-                  dangerouslySetInnerHTML={{ __html: recentPostContentHTML }}
-                />
-              </div>
+              <div
+                className="news-recent-post-content"
+                dangerouslySetInnerHTML={{ __html: recentPostContentHTML }}
+              />
             </div>
           </div>
 

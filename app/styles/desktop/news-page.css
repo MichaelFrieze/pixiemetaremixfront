@@ -165,10 +165,13 @@ body {
   font-family: 'Karla';
   font-style: normal;
   font-weight: 400;
-  font-size: 30px;
-  line-height: 50px;
-  /* or 167% */
+  font-size: calc(30rem / 16);
+  line-height: calc(50rem / 16);
   text-align: justify;
+}
+
+.news-recent-post-content p {
+  margin-bottom: calc(33rem / 16);
 }
 
 .news-index-blog-posts-section {

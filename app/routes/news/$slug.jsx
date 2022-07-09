@@ -15,7 +15,7 @@ import {
 } from '~/components/subscribe-news';
 import { Footer, links as footerLinks } from '~/components/footer-news';
 
-import newsDesktopStyles from '~/styles/desktop/news.css';
+import newsDesktopStyles from '~/styles/desktop/news-page.css';
 
 export const links = () => [
   {
@@ -40,7 +40,7 @@ export const loader = async ({ request }) => {
   // Get page from params
   const url = new URL(request.url);
   const start = Number(url.searchParams.get('start') ?? 0);
-  const limit = Number(url.searchParams.get('limit') ?? 7);
+  const limit = Number(url.searchParams.get('limit') ?? 3);
   let filterTag = url.searchParams.get('tag') ?? null;
   let redisRes = null;
   let blogPostsQuery;
@@ -168,7 +168,8 @@ export default function NewsIndexRoute() {
   } = useLoaderData();
   const submit = useSubmit();
 
-  const loadMoreStart = 7;
+  const loadMoreStart = 3;
+
   const [tags, setTags] = useState(() => []);
 
   const date = new Date(recentPost.attributes.date);
@@ -217,6 +218,10 @@ export default function NewsIndexRoute() {
   useEffect(() => {
     fetchTags();
   });
+
+  useEffect(() => {
+    console.log(recentPost);
+  }, [recentPost]);
 
   return (
     <div className="layout-container">
@@ -275,26 +280,9 @@ export default function NewsIndexRoute() {
               <div className="news-recent-post-title">
                 {recentPost.attributes.title}: {recentPost.attributes.subtitle}
               </div>
-              <img
-                src="/images/graphics/news-recent-post-line.svg"
-                alt="recent post line"
-                className="news-recent-post-line-img"
-              />
-              <Link
-                prefetch="intent"
-                to="/news/test"
-                className="news-recent-post-link"
-              >
-                <motion.button
-                  type="button"
-                  className="news-recent-post-btn"
-                  whileHover={{
-                    scale: 0.98,
-                  }}
-                >
-                  READ BLOG POST
-                </motion.button>
-              </Link>
+              <div className="news-recent-post-content">
+                {recentPost.attributes.content}
+              </div>
             </div>
           </div>
 

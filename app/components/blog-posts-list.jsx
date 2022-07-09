@@ -8,11 +8,16 @@ import {
 
 export const links = () => [...blogPostCardLinks()];
 
-export function BlogPostsList({ filterTag, paginatedBlogPosts, totalPosts }) {
+export function BlogPostsList({
+  filterTag,
+  paginatedBlogPosts,
+  totalPosts,
+  loadMoreStart,
+}) {
   const [blogPosts, setBlogPosts] = useState(() => paginatedBlogPosts);
 
   const [loadMoreBtnDisabled, setLoadMoreBtnDisabled] = useState(() => false);
-  const [start, setStart] = useState(() => 7);
+  const [start, setStart] = useState(() => loadMoreStart);
   const loadMoreLimit = 2;
   const fetcher = useFetcher();
   let isFetcherLoading = fetcher.state === 'loading';

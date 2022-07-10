@@ -282,7 +282,7 @@ export default function NewsIndexRoute() {
               />
               <Link
                 prefetch="intent"
-                to="/news/test"
+                to={`/news/${recentPost.attributes.slug}`}
                 className="news-recent-post-link"
               >
                 <motion.button

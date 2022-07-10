@@ -44,7 +44,7 @@ export function BlogPostCard({ blogPost }) {
         />
         <Link
           prefetch="intent"
-          to="/news"
+          to={`/news/${blogPost.attributes.slug}`}
           className="news-index-blog-post-link"
         >
           <motion.button

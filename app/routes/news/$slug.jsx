@@ -3,7 +3,7 @@ import { marked } from 'marked';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { redirect } from '@remix-run/node';
-import { useLoaderData, Link, useSubmit, Form } from '@remix-run/react';
+import { useLoaderData, useSubmit, Form } from '@remix-run/react';
 import { Redis } from '@upstash/redis';
 import { Header, links as headerLinks } from '~/components/header';
 import {
@@ -37,13 +37,14 @@ export const action = async ({ request }) => {
   return redirect(`/news?tag=${blogPostsFilterTag}`);
 };
 
-export const loader = async ({ request }) => {
+export const loader = async ({ request, params: { slug } }) => {
   // Get page from params
   const url = new URL(request.url);
   const start = Number(url.searchParams.get('start') ?? 0);
   const limit = Number(url.searchParams.get('limit') ?? 3);
   let filterTag = url.searchParams.get('tag') ?? null;
-  let redisRes = null;
+  let redisRes1 = null;
+  let redisRes2 = null;
   let blogPostsQuery;
 
   if (filterTag === 'ALL') {
@@ -57,27 +58,32 @@ export const loader = async ({ request }) => {
 
   if (filterTag === null) {
     // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
+    const cacheKey1 = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+    redisRes1 = await redis.get(cacheKey1);
   } else {
     // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
+    const cacheKey1 = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+    redisRes1 = await redis.get(cacheKey1);
   }
 
+  const cacheKey2 = `/api/blog-posts?filters={"slug":{"$eq":"${slug}"}},populate=["image","tags"]&`;
+  redisRes2 = await redis.get(cacheKey2);
+
   // if the cache is valid, return it
-  if (redisRes !== null) {
+  if (redisRes1 !== null && redisRes2 !== null) {
     console.log('Blog posts cache hit, fetching from Upstash!');
 
-    const redisResObj = JSON.parse(redisRes);
-    const recentPost = redisResObj.data.data[0];
-    const recentPostContentHTML = marked(recentPost.attributes.content);
+    const redisRes1Obj = JSON.parse(redisRes1);
+
+    const redisRes2Obj = JSON.parse(redisRes2);
+    const blogPost = redisRes2Obj.data.data[0];
+    const blogPostContentHTML = marked(blogPost.attributes.content);
 
     const cachedLoaderData = {
-      paginatedBlogPosts: redisResObj.data.data,
-      total: redisResObj.data.meta.pagination.total,
-      recentPost,
-      recentPostContentHTML,
+      paginatedBlogPosts: redisRes1Obj.data.data,
+      total: redisRes1Obj.data.meta.pagination.total,
+      blogPost,
+      blogPostContentHTML,
       strapiUrl: process.env.API_URL,
       filterTag,
       upstashURL: `${process.env.UPSTASH_URL}`,
@@ -148,16 +154,50 @@ export const loader = async ({ request }) => {
 
   const blogPostsResObj = await blogPostsRes.json();
 
-  // Get recent post
-  const recentPost = blogPostsResObj.data[0];
-  const recentPostContentHTML = marked(recentPost.attributes.content);
+  // Get blog post from slug
+  const blogPostQuery = qs.stringify(
+    {
+      filters: {
+        slug: {
+          $eq: slug,
+        },
+      },
+      populate: ['image', 'tags'],
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
+
+  const blogPostRes = await fetch(
+    `${process.env.API_URL}/api/blog-posts?${blogPostQuery}`
+  );
+
+  if (!blogPostRes.ok) {
+    console.error(blogPostRes);
+
+    const blogPostResObj = await blogPostRes.json();
+    throw new Error(
+      `${blogPostResObj.error.status} | ${
+        blogPostResObj.error.name
+      } | Message: ${blogPostResObj.error.message} | Details: ${JSON.stringify(
+        blogPostResObj.error.details
+      )}`
+    );
+  }
+
+  const blogPostResObj = await blogPostRes.json();
+
+  const blogPost = blogPostResObj.data[0];
+
+  const blogPostContentHTML = marked(blogPost.attributes.content);
 
   const loaderData = {
     paginatedBlogPosts: blogPostsResObj.data,
     total: blogPostsResObj.meta.pagination.total,
     strapiUrl: process.env.API_URL,
-    recentPost,
-    recentPostContentHTML,
+    blogPost,
+    blogPostContentHTML,
     filterTag,
     upstashURL: `${process.env.UPSTASH_URL}`,
     upstashToken: `${process.env.UPSTASH_TOKEN}`,
@@ -168,8 +208,8 @@ export const loader = async ({ request }) => {
 
 export default function NewsPageRoute() {
   const {
-    recentPost,
-    recentPostContentHTML,
+    blogPost,
+    blogPostContentHTML,
     paginatedBlogPosts,
     total,
     strapiUrl,
@@ -183,7 +223,7 @@ export default function NewsPageRoute() {
 
   const [tags, setTags] = useState(() => []);
 
-  const date = new Date(recentPost.attributes.date);
+  const date = new Date(blogPost.attributes.date);
   const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
   const dateString = date.toLocaleDateString('en-US', dateOptions);
 
@@ -231,9 +271,9 @@ export default function NewsPageRoute() {
   });
 
   // useEffect(() => {
-  //   console.log(recentPost);
-  //   console.log(recentPostContentHTML);
-  // }, [recentPost, recentPostContentHTML]);
+  //   console.log(blogPost);
+  //   console.log(blogPostContentHTML);
+  // }, [blogPost, blogPostContentHTML]);
 
   return (
     <div className="layout-container">
@@ -272,12 +312,12 @@ export default function NewsPageRoute() {
 
           <div className="news-recent-post-container">
             <div className="news-recent-post-img-container">
-              {recentPost.attributes.image?.data?.[0].attributes?.formats
-                ?.medium?.url && (
+              {blogPost.attributes.image?.data?.[0].attributes?.formats?.medium
+                ?.url && (
                 <img
                   className="news-recent-post-img"
                   srcSet={
-                    recentPost.attributes.image.data?.[0].attributes.formats
+                    blogPost.attributes.image.data?.[0].attributes.formats
                       .medium.url
                   }
                   alt="Recent Post"
@@ -290,11 +330,11 @@ export default function NewsPageRoute() {
                 {dateString.toUpperCase()}
               </div>
               <div className="news-recent-post-title">
-                {recentPost.attributes.title}: {recentPost.attributes.subtitle}
+                {blogPost.attributes.title}: {blogPost.attributes.subtitle}
               </div>
               <div
                 className="news-recent-post-content"
-                dangerouslySetInnerHTML={{ __html: recentPostContentHTML }}
+                dangerouslySetInnerHTML={{ __html: blogPostContentHTML }}
               />
             </div>
           </div>

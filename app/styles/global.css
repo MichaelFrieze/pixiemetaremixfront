@@ -98,7 +98,7 @@ h6 {
   isolation: isolate;
 }
 
-@media (max-width: 1919px) {
+@media (max-width: 1439px) {
   html {
     display: none;
   }

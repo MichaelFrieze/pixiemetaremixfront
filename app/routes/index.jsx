@@ -13,7 +13,7 @@ import indexDesktopStyles from '~/styles/desktop/index.css';
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: '(min-width: 1920px)',
+    media: '(min-width: 1440px)',
     href: indexDesktopStyles,
   },
   ...headerLinks(),
@@ -32,15 +32,15 @@ export default function IndexRoute() {
     <div className="layout-container">
       <Header />
       <main>
-        <Hero />
-        <Values />
-        <Mission />
-        <About />
-        <Careers />
-        <Team />
-        <Subscribe />
+        {/* <Hero /> */}
+        {/* <Values /> */}
+        {/* <Mission /> */}
+        {/* <About /> */}
+        {/* <Careers /> */}
+        {/* <Team /> */}
+        {/* <Subscribe /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

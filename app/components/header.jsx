@@ -12,7 +12,7 @@ import headerDesktopStyles from '~/styles/desktop/header.css';
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: '(min-width: 1920px)',
+    media: '(min-width: 1440px)',
     href: headerDesktopStyles,
   },
 ];
@@ -25,9 +25,11 @@ export function Header() {
 
   return (
     <header className="header-container">
-      <Link to="/" prefetch="intent" className="header-logo">
-        <img srcSet="/images/logos/logo-header.svg" alt="header logo" />
-      </Link>
+      <div className="header-logo-container">
+        <Link to="/" prefetch="intent" className="header-logo">
+          <img srcSet="/images/logos/logo-header.svg" alt="header logo" />
+        </Link>
+      </div>
       <div className="header-nav-container">
         <div className="header-social-btn-container">
           <motion.a

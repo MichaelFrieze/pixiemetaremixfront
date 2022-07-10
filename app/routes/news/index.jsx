@@ -284,15 +284,9 @@ export default function NewsIndexRoute() {
                 to={`/news/${recentPost.attributes.slug}`}
                 className="news-recent-post-link"
               >
-                <motion.button
-                  type="button"
-                  className="news-recent-post-btn"
-                  whileHover={{
-                    scale: 0.98,
-                  }}
-                >
+                <button type="button" className="news-recent-post-btn">
                   READ BLOG POST
-                </motion.button>
+                </button>
               </Link>
             </div>
           </div>

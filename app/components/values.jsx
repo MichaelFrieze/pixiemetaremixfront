@@ -65,14 +65,9 @@ export function Values() {
           </h1>
         </div>
 
-        <motion.div
-          whileHover={{
-            scale: 1.01,
-          }}
-          className="values-carousel"
-        >
-          <motion.div className="values-carousel-inner">
-            <motion.div className="values-carousel-item" id="item-1">
+        <div className="values-carousel">
+          <div className="values-carousel-inner">
+            <div className="values-carousel-item" id="item-1">
               <h3 className="values-carousel-item-number">01.</h3>
               <div className="values-carousel-item-container">
                 <h2 className="values-carousel-item-heading">
@@ -83,9 +78,9 @@ export function Values() {
                   games to our community
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div className="values-carousel-item" id="item-2">
+            <div className="values-carousel-item" id="item-2">
               <h3 className="values-carousel-item-number">02.</h3>
               <div className="values-carousel-item-container">
                 <h2 className="values-carousel-item-heading">
@@ -96,9 +91,9 @@ export function Values() {
                   better experiences for the long run
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div className="values-carousel-item" id="item-3">
+            <div className="values-carousel-item" id="item-3">
               <h3 className="values-carousel-item-number">03.</h3>
               <div className="values-carousel-item-container">
                 <h2 className="values-carousel-item-heading">
@@ -109,9 +104,9 @@ export function Values() {
                   getting paid for your time.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div className="values-carousel-item" id="item-4">
+            <div className="values-carousel-item" id="item-4">
               <h3 className="values-carousel-item-number">04.</h3>
               <div className="values-carousel-item-container">
                 <h2 className="values-carousel-item-heading">Lorem Ipsum</h2>
@@ -119,9 +114,9 @@ export function Values() {
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div className="values-carousel-item" id="item-5">
+            <div className="values-carousel-item" id="item-5">
               <h3 className="values-carousel-item-number">05.</h3>
               <div className="values-carousel-item-container">
                 <h2 className="values-carousel-item-heading">Lorem Ipsum</h2>
@@ -129,9 +124,9 @@ export function Values() {
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 </p>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div className="values-carousel-item" id="item-6">
+            <div className="values-carousel-item" id="item-6">
               <h3 className="values-carousel-item-number">06.</h3>
               <div className="values-carousel-item-container">
                 <h2 className="values-carousel-item-heading">Lorem Ipsum</h2>
@@ -139,38 +134,26 @@ export function Values() {
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </div>
+          </div>
+        </div>
 
-        <motion.div className="values-carousel-nav-container">
-          <motion.button
-            className="values-carousel-nav-arrow"
-            onClick={prevBtn}
-            whileHover={{
-              scale: 1.02,
-            }}
-          >
+        <div className="values-carousel-nav-container">
+          <button className="values-carousel-nav-arrow" onClick={prevBtn}>
             <img
               srcSet="/images/icons/values-left-arrow.svg"
               alt="left arrow"
               loading="lazy"
             />
-          </motion.button>
-          <motion.button
-            className="values-carousel-nav-arrow"
-            onClick={nextBtn}
-            whileHover={{
-              scale: 1.02,
-            }}
-          >
+          </button>
+          <button className="values-carousel-nav-arrow" onClick={nextBtn}>
             <img
               srcSet="/images/icons/values-right-arrow.svg"
               alt="right arrow"
               loading="lazy"
             />
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       </div>
 
       <div className="values-images">

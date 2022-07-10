@@ -49,40 +49,40 @@ export const loader = async ({ request }) => {
     filterTag = null;
   }
 
-  const redis = new Redis({
-    url: `${process.env.UPSTASH_URL}`,
-    token: `${process.env.UPSTASH_TOKEN}`,
-  });
+  // const redis = new Redis({
+  //   url: `${process.env.UPSTASH_URL}`,
+  //   token: `${process.env.UPSTASH_TOKEN}`,
+  // });
 
-  if (filterTag === null) {
-    // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
-  } else {
-    // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
-  }
+  // if (filterTag === null) {
+  //   // Find the cache key in the Upstash data browser
+  //   const cacheKey = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+  //   redisRes = await redis.get(cacheKey);
+  // } else {
+  //   // Find the cache key in the Upstash data browser
+  //   const cacheKey = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+  //   redisRes = await redis.get(cacheKey);
+  // }
 
-  // if the cache is valid, return it
-  if (redisRes !== null) {
-    console.log('Blog posts cache hit, fetching from Upstash!');
+  // // if the cache is valid, return it
+  // if (redisRes !== null) {
+  //   console.log('Blog posts cache hit, fetching from Upstash!');
 
-    const redisResObj = JSON.parse(redisRes);
-    const cachedLoaderData = {
-      paginatedBlogPosts: redisResObj.data.data,
-      total: redisResObj.data.meta.pagination.total,
-      recentPost: redisResObj.data.data[0],
-      strapiUrl: process.env.API_URL,
-      filterTag,
-      upstashURL: `${process.env.UPSTASH_URL}`,
-      upstashToken: `${process.env.UPSTASH_TOKEN}`,
-    };
+  //   const redisResObj = JSON.parse(redisRes);
+  //   const cachedLoaderData = {
+  //     paginatedBlogPosts: redisResObj.data.data,
+  //     total: redisResObj.data.meta.pagination.total,
+  //     recentPost: redisResObj.data.data[0],
+  //     strapiUrl: process.env.API_URL,
+  //     filterTag,
+  //     upstashURL: `${process.env.UPSTASH_URL}`,
+  //     upstashToken: `${process.env.UPSTASH_TOKEN}`,
+  //   };
 
-    return cachedLoaderData;
-  }
+  //   return cachedLoaderData;
+  // }
 
-  console.log('Blog posts cache miss, fetching from API');
+  // console.log('Blog posts cache miss, fetching from API');
 
   if (filterTag) {
     blogPostsQuery = qs.stringify(

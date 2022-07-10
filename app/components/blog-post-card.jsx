@@ -1,5 +1,6 @@
-import blogPostCardDesktopStyles from '~/styles/desktop/blog-post-card.css';
+import { motion } from 'framer-motion';
 import { Link } from '@remix-run/react';
+import blogPostCardDesktopStyles from '~/styles/desktop/blog-post-card.css';
 
 export const links = () => [
   {
@@ -43,10 +44,18 @@ export function BlogPostCard({ blogPost }) {
         />
         <Link
           prefetch="intent"
-          to="/news"
+          to={`/news/${blogPost.attributes.slug}`}
           className="news-index-blog-post-link"
         >
-          <div className="news-index-blog-post-link-text">Read Blog Post</div>
+          <motion.button
+            className="news-index-blog-post-link-btn"
+            type="button"
+            whileHover={{
+              scale: 0.98,
+            }}
+          >
+            Read Blog Post
+          </motion.button>
         </Link>
       </div>
     </div>

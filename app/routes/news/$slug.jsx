@@ -1,8 +1,9 @@
 import qs from 'qs';
+import { marked } from 'marked';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { redirect } from '@remix-run/node';
-import { useLoaderData, Link, useSubmit, Form } from '@remix-run/react';
+import { useLoaderData, useSubmit, Form } from '@remix-run/react';
 import { Redis } from '@upstash/redis';
 import { Header, links as headerLinks } from '~/components/header';
 import {
@@ -15,7 +16,7 @@ import {
 } from '~/components/subscribe-news';
 import { Footer, links as footerLinks } from '~/components/footer-news';
 
-import newsDesktopStyles from '~/styles/desktop/news.css';
+import newsDesktopStyles from '~/styles/desktop/news-page.css';
 
 export const links = () => [
   {
@@ -29,20 +30,21 @@ export const links = () => [
   ...footerLinks(),
 ];
 
-export const action = async ({ request }) => {
+export const action = async ({ request, params: { slug } }) => {
   const formData = await request.formData();
   const { blogPostsFilterTag } = Object.fromEntries(formData);
 
-  return redirect(`/news?tag=${blogPostsFilterTag}`);
+  return redirect(`/news/${slug}?tag=${blogPostsFilterTag}`);
 };
 
-export const loader = async ({ request }) => {
+export const loader = async ({ request, params: { slug } }) => {
   // Get page from params
   const url = new URL(request.url);
   const start = Number(url.searchParams.get('start') ?? 0);
-  const limit = Number(url.searchParams.get('limit') ?? 7);
+  const limit = Number(url.searchParams.get('limit') ?? 2);
   let filterTag = url.searchParams.get('tag') ?? null;
-  let redisRes = null;
+  let redisRes1 = null;
+  let redisRes2 = null;
   let blogPostsQuery;
 
   if (filterTag === 'ALL') {
@@ -56,23 +58,32 @@ export const loader = async ({ request }) => {
 
   if (filterTag === null) {
     // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
+    const cacheKey1 = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+    redisRes1 = await redis.get(cacheKey1);
   } else {
     // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
+    const cacheKey1 = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+    redisRes1 = await redis.get(cacheKey1);
   }
 
+  const cacheKey2 = `/api/blog-posts?filters={"slug":{"$eq":"${slug}"}},populate=["image","tags"]&`;
+  redisRes2 = await redis.get(cacheKey2);
+
   // if the cache is valid, return it
-  if (redisRes !== null) {
+  if (redisRes1 !== null && redisRes2 !== null) {
     console.log('Blog posts cache hit, fetching from Upstash!');
 
-    const redisResObj = JSON.parse(redisRes);
+    const redisRes1Obj = JSON.parse(redisRes1);
+
+    const redisRes2Obj = JSON.parse(redisRes2);
+    const blogPost = redisRes2Obj.data.data[0];
+    const blogPostContentHTML = marked(blogPost.attributes.content);
+
     const cachedLoaderData = {
-      paginatedBlogPosts: redisResObj.data.data,
-      total: redisResObj.data.meta.pagination.total,
-      recentPost: redisResObj.data.data[0],
+      paginatedBlogPosts: redisRes1Obj.data.data,
+      total: redisRes1Obj.data.meta.pagination.total,
+      blogPost,
+      blogPostContentHTML,
       strapiUrl: process.env.API_URL,
       filterTag,
       upstashURL: `${process.env.UPSTASH_URL}`,
@@ -143,11 +154,50 @@ export const loader = async ({ request }) => {
 
   const blogPostsResObj = await blogPostsRes.json();
 
+  // Get blog post from slug
+  const blogPostQuery = qs.stringify(
+    {
+      filters: {
+        slug: {
+          $eq: slug,
+        },
+      },
+      populate: ['image', 'tags'],
+    },
+    {
+      encodeValuesOnly: true, // prettify URL
+    }
+  );
+
+  const blogPostRes = await fetch(
+    `${process.env.API_URL}/api/blog-posts?${blogPostQuery}`
+  );
+
+  if (!blogPostRes.ok) {
+    console.error(blogPostRes);
+
+    const blogPostResObj = await blogPostRes.json();
+    throw new Error(
+      `${blogPostResObj.error.status} | ${
+        blogPostResObj.error.name
+      } | Message: ${blogPostResObj.error.message} | Details: ${JSON.stringify(
+        blogPostResObj.error.details
+      )}`
+    );
+  }
+
+  const blogPostResObj = await blogPostRes.json();
+
+  const blogPost = blogPostResObj.data[0];
+
+  const blogPostContentHTML = marked(blogPost.attributes.content);
+
   const loaderData = {
     paginatedBlogPosts: blogPostsResObj.data,
     total: blogPostsResObj.meta.pagination.total,
-    recentPost: blogPostsResObj.data[0],
     strapiUrl: process.env.API_URL,
+    blogPost,
+    blogPostContentHTML,
     filterTag,
     upstashURL: `${process.env.UPSTASH_URL}`,
     upstashToken: `${process.env.UPSTASH_TOKEN}`,
@@ -156,9 +206,10 @@ export const loader = async ({ request }) => {
   return loaderData;
 };
 
-export default function NewsIndexRoute() {
+export default function NewsPageRoute() {
   const {
-    recentPost,
+    blogPost,
+    blogPostContentHTML,
     paginatedBlogPosts,
     total,
     strapiUrl,
@@ -168,10 +219,11 @@ export default function NewsIndexRoute() {
   } = useLoaderData();
   const submit = useSubmit();
 
-  const loadMoreStart = 7;
+  const loadMoreStart = 2;
+
   const [tags, setTags] = useState(() => []);
 
-  const date = new Date(recentPost.attributes.date);
+  const date = new Date(blogPost.attributes.date);
   const dateOptions = { month: 'long', day: 'numeric', year: 'numeric' };
   const dateString = date.toLocaleDateString('en-US', dateOptions);
 
@@ -216,16 +268,17 @@ export default function NewsIndexRoute() {
 
   useEffect(() => {
     fetchTags();
-  });
+  }, []);
 
   return (
     <div className="layout-container">
       <Header />
       <main>
-        <section className="news-hero-section">
-          <div className="news-heading-container">
-            <h1 className="news-heading">
-              Pixie Meta <span className="news-heading-highlight">News</span>
+        <section className="news-page-section">
+          <div className="news-page-heading-container">
+            <h1 className="news-page-heading">
+              Pixie Meta{' '}
+              <span className="news-page-heading-highlight">News</span>
             </h1>
             <Form
               method="post"
@@ -253,14 +306,14 @@ export default function NewsIndexRoute() {
             </Form>
           </div>
 
-          <div className="news-recent-post-container">
-            <div className="news-recent-post-img-container">
-              {recentPost.attributes.image?.data?.[0].attributes?.formats
-                ?.medium?.url && (
+          <div className="news-blog-post-container">
+            <div className="news-blog-post-img-container">
+              {blogPost.attributes.image?.data?.[0].attributes?.formats?.medium
+                ?.url && (
                 <img
-                  className="news-recent-post-img"
+                  className="news-blog-post-img"
                   srcSet={
-                    recentPost.attributes.image.data?.[0].attributes.formats
+                    blogPost.attributes.image.data?.[0].attributes.formats
                       .medium.url
                   }
                   alt="Recent Post"
@@ -268,33 +321,17 @@ export default function NewsIndexRoute() {
               )}
             </div>
 
-            <div className="news-recent-post-text-container">
-              <div className="news-recent-post-date">
+            <div className="news-blog-post-text-container">
+              <div className="news-blog-post-date">
                 {dateString.toUpperCase()}
               </div>
-              <div className="news-recent-post-title">
-                {recentPost.attributes.title}: {recentPost.attributes.subtitle}
+              <div className="news-blog-post-title">
+                {blogPost.attributes.title}: {blogPost.attributes.subtitle}
               </div>
-              <img
-                src="/images/graphics/news-recent-post-line.svg"
-                alt="recent post line"
-                className="news-recent-post-line-img"
+              <div
+                className="news-blog-post-content"
+                dangerouslySetInnerHTML={{ __html: blogPostContentHTML }}
               />
-              <Link
-                prefetch="intent"
-                to={`/news/${recentPost.attributes.slug}`}
-                className="news-recent-post-link"
-              >
-                <motion.button
-                  type="button"
-                  className="news-recent-post-btn"
-                  whileHover={{
-                    scale: 0.98,
-                  }}
-                >
-                  READ BLOG POST
-                </motion.button>
-              </Link>
             </div>
           </div>
 
@@ -324,6 +361,7 @@ export default function NewsIndexRoute() {
           paginatedBlogPosts={paginatedBlogPosts}
           totalPosts={total}
           loadMoreStart={loadMoreStart}
+          isNewsPage={true}
         />
 
         <Subscribe />

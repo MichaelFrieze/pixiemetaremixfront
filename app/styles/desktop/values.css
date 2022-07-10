@@ -1,5 +1,6 @@
 .values-section {
   margin-top: calc(183rem / 16);
+  margin-bottom: calc(980rem / 16);
 }
 
 .values-container {
@@ -74,6 +75,10 @@
   scroll-snap-align: center;
   margin-left: 35px;
   margin-right: 35px;
+}
+
+.values-carousel-item:hover {
+  background: rgba(163, 51, 200, 0.3);
 }
 
 .values-carousel-item-number {

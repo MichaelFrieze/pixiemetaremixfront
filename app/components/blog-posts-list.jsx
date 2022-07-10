@@ -13,6 +13,7 @@ export function BlogPostsList({
   paginatedBlogPosts,
   totalPosts,
   loadMoreStart,
+  isNewsPage = false,
 }) {
   const [blogPosts, setBlogPosts] = useState(() => paginatedBlogPosts);
 
@@ -49,9 +50,15 @@ export function BlogPostsList({
   return (
     <section className="news-index-blog-posts-section">
       <div className="news-index-blog-posts-container">
-        {blogPosts.slice(1).map((blogPost) => (
-          <BlogPostCard key={blogPost.id} blogPost={blogPost} />
-        ))}
+        {isNewsPage
+          ? blogPosts.map((blogPost) => (
+              <BlogPostCard key={blogPost.id} blogPost={blogPost} />
+            ))
+          : blogPosts
+              .slice(1)
+              .map((blogPost) => (
+                <BlogPostCard key={blogPost.id} blogPost={blogPost} />
+              ))}
       </div>
       <motion.button
         onClick={loadMore}

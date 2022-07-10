@@ -30,18 +30,18 @@ export const links = () => [
   ...footerLinks(),
 ];
 
-export const action = async ({ request }) => {
+export const action = async ({ request, params: { slug } }) => {
   const formData = await request.formData();
   const { blogPostsFilterTag } = Object.fromEntries(formData);
 
-  return redirect(`/news?tag=${blogPostsFilterTag}`);
+  return redirect(`/news/${slug}?tag=${blogPostsFilterTag}`);
 };
 
 export const loader = async ({ request, params: { slug } }) => {
   // Get page from params
   const url = new URL(request.url);
   const start = Number(url.searchParams.get('start') ?? 0);
-  const limit = Number(url.searchParams.get('limit') ?? 3);
+  const limit = Number(url.searchParams.get('limit') ?? 2);
   let filterTag = url.searchParams.get('tag') ?? null;
   let redisRes1 = null;
   let redisRes2 = null;
@@ -219,7 +219,7 @@ export default function NewsPageRoute() {
   } = useLoaderData();
   const submit = useSubmit();
 
-  const loadMoreStart = 3;
+  const loadMoreStart = 2;
 
   const [tags, setTags] = useState(() => []);
 
@@ -268,21 +268,17 @@ export default function NewsPageRoute() {
 
   useEffect(() => {
     fetchTags();
-  });
-
-  // useEffect(() => {
-  //   console.log(blogPost);
-  //   console.log(blogPostContentHTML);
-  // }, [blogPost, blogPostContentHTML]);
+  }, []);
 
   return (
     <div className="layout-container">
       <Header />
       <main>
-        <section className="news-hero-section">
-          <div className="news-heading-container">
-            <h1 className="news-heading">
-              Pixie Meta <span className="news-heading-highlight">News</span>
+        <section className="news-page-section">
+          <div className="news-page-heading-container">
+            <h1 className="news-page-heading">
+              Pixie Meta{' '}
+              <span className="news-page-heading-highlight">News</span>
             </h1>
             <Form
               method="post"
@@ -310,12 +306,12 @@ export default function NewsPageRoute() {
             </Form>
           </div>
 
-          <div className="news-recent-post-container">
-            <div className="news-recent-post-img-container">
+          <div className="news-blog-post-container">
+            <div className="news-blog-post-img-container">
               {blogPost.attributes.image?.data?.[0].attributes?.formats?.medium
                 ?.url && (
                 <img
-                  className="news-recent-post-img"
+                  className="news-blog-post-img"
                   srcSet={
                     blogPost.attributes.image.data?.[0].attributes.formats
                       .medium.url
@@ -325,15 +321,15 @@ export default function NewsPageRoute() {
               )}
             </div>
 
-            <div className="news-recent-post-text-container">
-              <div className="news-recent-post-date">
+            <div className="news-blog-post-text-container">
+              <div className="news-blog-post-date">
                 {dateString.toUpperCase()}
               </div>
-              <div className="news-recent-post-title">
+              <div className="news-blog-post-title">
                 {blogPost.attributes.title}: {blogPost.attributes.subtitle}
               </div>
               <div
-                className="news-recent-post-content"
+                className="news-blog-post-content"
                 dangerouslySetInnerHTML={{ __html: blogPostContentHTML }}
               />
             </div>
@@ -365,6 +361,7 @@ export default function NewsPageRoute() {
           paginatedBlogPosts={paginatedBlogPosts}
           totalPosts={total}
           loadMoreStart={loadMoreStart}
+          isNewsPage={true}
         />
 
         <Subscribe />

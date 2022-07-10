@@ -11,10 +11,10 @@ body {
   background-color: var(--darker-blue);
   margin: 0 auto;
   background-image: url('/images/backgrounds/bg-full-news.jpg');
-  background-size: contain;
+  background-size: auto;
   background-repeat: no-repeat;
   width: calc(1920rem / 16);
-  min-height: calc(5316rem / 16);
+  /* min-height: calc(5316rem / 16); */
   overflow-x: hidden;
   overflow-y: scroll;
 
@@ -196,7 +196,7 @@ body {
   /* justify-content: center; */
   align-items: center;
   scroll-behavior: initial;
-  min-height: calc(1771rem / 16);
+  /* min-height: calc(1771rem / 16); */
 }
 
 .news-index-blog-posts-container {

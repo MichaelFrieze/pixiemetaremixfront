@@ -149,8 +149,8 @@ export const loader = async ({ request }) => {
     recentPost: blogPostsResObj.data[0],
     strapiUrl: process.env.API_URL,
     filterTag,
-    upstashURL: `${process.env.UPSTASH_URL}`,
-    upstashToken: `${process.env.UPSTASH_TOKEN}`,
+    // upstashURL: `${process.env.UPSTASH_URL}`,
+    // upstashToken: `${process.env.UPSTASH_TOKEN}`,
   };
 
   return loaderData;
@@ -163,8 +163,8 @@ export default function NewsIndexRoute() {
     total,
     strapiUrl,
     filterTag,
-    upstashURL,
-    upstashToken,
+    // upstashURL,
+    // upstashToken,
   } = useLoaderData();
   const submit = useSubmit();
 
@@ -180,24 +180,23 @@ export default function NewsIndexRoute() {
   };
 
   const fetchTags = async () => {
-    const redis = new Redis({
-      url: upstashURL,
-      token: upstashToken,
-    });
+    // const redis = new Redis({
+    //   url: upstashURL,
+    //   token: upstashToken,
+    // });
 
-    // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/tags?&`;
-    const redisRes = await redis.get(cacheKey);
+    // // Find the cache key in the Upstash data browser
+    // const cacheKey = `/api/tags?&`;
+    // const redisRes = await redis.get(cacheKey);
 
-    // if the cache is valid, return it
-    if (redisRes) {
-      const redisResObj = JSON.parse(redisRes);
-      const cachedTagsData = redisResObj.data;
-      setTags(cachedTagsData.data);
-      return;
-    }
+    // // if the cache is valid, return it
+    // if (redisRes) {
+    //   const redisResObj = JSON.parse(redisRes);
+    //   const cachedTagsData = redisResObj.data;
+    //   setTags(cachedTagsData.data);
+    //   return;
+    // }
 
-    console.log('are we here');
     const tagsRes = await fetch(`${strapiUrl}/api/tags`);
 
     if (!tagsRes.ok) {

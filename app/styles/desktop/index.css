@@ -7,6 +7,16 @@ body {
   background-image: url('/images/backgrounds/large-bg.webp');
   background-repeat: no-repeat;
   background-position: center top;
+  /* width: calc(3840rem / 16); */
+  /* height: calc(6587rem / 16); */
+  /* background-size: cover; */
+
+  /* position: fixed; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-size: cover; */
 }
 
 .layout-container {

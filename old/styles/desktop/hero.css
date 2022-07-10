@@ -1,0 +1,123 @@
+.hero-section {
+  margin-top: calc(172rem / 16);
+}
+
+.hero-container {
+  display: flex;
+  height: calc(720rem / 16);
+}
+
+.hero-text-box {
+  width: calc(779rem / 16);
+  margin-left: calc(202rem / 16);
+}
+
+.hero-heading {
+  font-family: Objet;
+  font-size: calc(90rem / 16);
+  font-weight: 700;
+  text-align: left;
+  line-height: calc(112rem / 16);
+  width: calc(779rem / 16);
+  margin-right: calc(131rem / 16);
+  color: var(--white);
+}
+
+.hero-heading-highlight {
+  color: var(--yellow);
+}
+
+.hero-description-first {
+  margin-top: calc(65rem / 16);
+  font-family: Karla;
+  font-size: calc(30rem / 16);
+  font-weight: 500;
+  text-align: justify;
+  text-align-last: left;
+  line-height: calc(45rem / 16);
+  color: var(--white);
+}
+
+.hero-description-second {
+  margin-top: calc(23rem / 16);
+  font-family: Karla;
+  font-size: calc(30rem / 16);
+  font-weight: 500;
+  text-align: justify;
+  text-align-last: left;
+  line-height: calc(35rem / 16);
+  color: var(--white);
+}
+
+.hero-hat {
+  width: calc(676rem / 16);
+  height: calc(455rem / 16);
+  margin-left: calc(60rem / 16);
+  margin-top: calc(-20rem / 16);
+}
+
+.hero-pot {
+  width: calc(525rem / 16);
+  height: calc(461rem / 16);
+  margin-left: calc(227rem / 16);
+  margin-top: calc(-103rem / 16);
+}
+
+/* the butterfly img positions are based on the layout container
+the layout container 1920px wide and 8674px high  */
+
+.hero-green-bubble-1 {
+  position: absolute;
+  width: calc(49rem / 16);
+  height: calc(49rem / 16);
+  left: calc(1615rem / 16);
+  top: calc(726rem / 16);
+}
+
+.hero-green-bubble-2 {
+  position: absolute;
+  width: calc(29rem / 16);
+  height: calc(29rem / 16);
+  left: calc(1594rem / 16);
+  top: calc(655rem / 16);
+}
+
+.hero-butterfly-1 {
+  position: absolute;
+  width: calc(125rem / 16);
+  height: calc(111rem / 16);
+  left: calc(610rem / 16);
+  top: calc(273rem / 16);
+}
+
+.hero-butterfly-2 {
+  position: absolute;
+  width: calc(88rem / 16);
+  height: calc(78rem / 16);
+  left: calc(1426rem / 16);
+  top: calc(383rem / 16);
+}
+
+.hero-butterfly-3 {
+  position: absolute;
+  width: calc(173rem / 16);
+  height: calc(172rem / 16);
+  left: calc(1019rem / 16);
+  top: calc(598rem / 16);
+}
+
+.hero-butterfly-4 {
+  position: absolute;
+  width: calc(112rem / 16);
+  height: calc(111rem / 16);
+  left: calc(1635rem / 16);
+  top: calc(735rem / 16);
+}
+
+.hero-butterfly-5 {
+  position: absolute;
+  width: calc(182rem / 16);
+  height: calc(143rem / 16);
+  left: calc(290rem / 16);
+  top: calc(1162rem / 16);
+}

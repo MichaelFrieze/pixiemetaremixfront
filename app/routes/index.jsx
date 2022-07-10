@@ -32,7 +32,7 @@ export default function IndexRoute() {
     <div className="layout-container">
       <Header />
       <main>
-        {/* <Hero /> */}
+        <Hero />
         {/* <Values /> */}
         {/* <Mission /> */}
         {/* <About /> */}

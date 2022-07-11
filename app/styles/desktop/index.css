@@ -25,7 +25,7 @@ body {
   width: calc(1156rem / 16);
   min-height: calc(6587rem / 16);
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   flex-direction: column;
   align-items: center;

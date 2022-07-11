@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { redirect } from '@remix-run/node';
 import { useLoaderData, useSubmit, Form } from '@remix-run/react';
 import { Redis } from '@upstash/redis';
-import { Header, links as headerLinks } from '~/components/header';
+import { Header, links as headerLinks } from '~/components/header-old';
 import {
   BlogPostsList,
   links as blogPostsListLinks,

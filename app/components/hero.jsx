@@ -4,7 +4,7 @@ import heroDesktopStyles from '~/styles/desktop/hero.css';
 export const links = () => [
   {
     rel: 'stylesheet',
-    media: '(min-width: 1440px)',
+    media: '(min-width: 1920px)',
     href: heroDesktopStyles,
   },
 ];

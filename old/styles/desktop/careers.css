@@ -1,0 +1,103 @@
+.careers-section {
+  margin-top: calc(177rem / 16);
+}
+
+.careers-container {
+  display: flex;
+}
+
+.careers-text-box {
+  margin-left: calc(205rem / 16);
+  width: calc(705rem / 16);
+}
+
+.careers-section-title {
+  width: calc(127rem / 16);
+  height: calc(35rem / 16);
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
+  color: var(--white);
+}
+
+.careers-heading {
+  width: calc(402rem / 16);
+  height: calc(74rem / 16);
+  font-family: 'Objet';
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(60rem / 16);
+  line-height: calc(74rem / 16);
+  color: var(--white);
+}
+
+.careers-heading-highlight {
+  color: var(--yellow);
+}
+
+.careers-paragraphs {
+  margin-top: calc(30rem / 16);
+  height: calc(495rem / 16);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
+  text-align: justify;
+  color: var(--white);
+}
+
+.careers-contact {
+  margin-top: calc(30rem / 16);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.careers-contact-email {
+  height: calc(47rem / 16);
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(40rem / 16);
+  line-height: calc(47rem / 16);
+  text-align: justify;
+  color: var(--white);
+}
+
+.careers-contact-underline {
+  width: calc(349rem / 16);
+  height: calc(47rem / 16);
+}
+
+.careers-image-space-ship {
+  width: calc(622rem / 16);
+  height: calc(962rem / 16);
+  margin-left: calc(241rem / 16);
+  margin-top: calc(-180rem / 16);
+}
+
+.careers-image-fairy {
+  width: calc(315rem / 16);
+  height: calc(611rem / 16);
+  margin-top: calc(-702rem / 16);
+  margin-left: calc(365rem / 16);
+}
+
+.careers-image-butterfly {
+  position: absolute;
+  left: calc(626rem / 16);
+  top: calc(6320rem / 16);
+}
+
+.careers-image-planet {
+  position: absolute;
+  left: calc(1131rem / 16);
+  top: calc(6394rem / 16);
+}

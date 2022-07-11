@@ -73,7 +73,7 @@ export function Careers() {
               scale: 1.02,
             }}
           />
-          <motion.img
+          {/* <motion.img
             className="careers-image-butterfly"
             srcSet="/images/graphics/careers-butterfly.svg"
             alt="careers butterfly"
@@ -81,8 +81,8 @@ export function Careers() {
             whileHover={{
               scale: 1.05,
             }}
-          />
-          <motion.img
+          /> */}
+          {/* <motion.img
             className="careers-image-planet"
             srcSet="/images/graphics/careers-planet.svg"
             alt="careers planet"
@@ -90,7 +90,7 @@ export function Careers() {
             whileHover={{
               scale: 1.05,
             }}
-          />
+          /> */}
         </div>
       </div>
     </section>

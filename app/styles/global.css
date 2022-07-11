@@ -97,9 +97,3 @@ h6 {
 #__next {
   isolation: isolate;
 }
-
-@media (max-width: 1439px) {
-  html {
-    display: none;
-  }
-}

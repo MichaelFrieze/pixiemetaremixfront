@@ -59,7 +59,7 @@
   color: var(--white);
   width: calc(41rem / 16);
   height: calc(41rem / 16);
-  border: 2px solid var(--purple);
+  border: 3px solid var(--purple);
   border-radius: 50%;
 }
 

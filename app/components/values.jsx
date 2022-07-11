@@ -175,30 +175,30 @@ export function Values() {
       </div>
 
       <div className="values-images">
-        <img
+        {/* <img
           className="values-planet"
           srcSet="/images/graphics/values-planet.svg"
           alt="values planet"
           loading="lazy"
-        />
-        <img
+        /> */}
+        {/* <img
           className="values-butterfly-1"
           srcSet="/images/graphics/values-butterfly-1.svg"
           alt="values butterfly 1"
           loading="lazy"
-        />
-        <img
+        /> */}
+        {/* <img
           className="values-butterfly-2"
           srcSet="/images/graphics/values-butterfly-2.svg"
           alt="values butterfly 2"
           loading="lazy"
-        />
-        <img
+        /> */}
+        {/* <img
           className="values-boat"
           srcSet="/images/graphics/values-boat.svg"
           alt="values boat"
           loading="lazy"
-        />
+        /> */}
       </div>
     </section>
   );

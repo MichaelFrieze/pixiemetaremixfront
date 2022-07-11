@@ -1,0 +1,100 @@
+.mission-section {
+  margin-top: calc(731rem / 16);
+}
+
+.mission-container {
+  display: flex;
+  width: calc(1156rem / 16);
+}
+
+.mission-text-box {
+  width: calc(705rem / 16);
+  margin-left: calc(205rem / 16);
+}
+
+.mission-section-title {
+  width: calc(188rem / 16);
+  height: calc(35rem / 16);
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
+  color: var(--white);
+}
+
+.mission-heading {
+  width: calc(595rem / 16);
+  height: calc(148rem / 16);
+  font-family: 'Objet';
+  font-style: normal;
+  font-weight: 700;
+  font-size: calc(60rem / 16);
+  line-height: calc(74rem / 16);
+  color: var(--white);
+}
+
+.mission-heading-highlight {
+  color: var(--yellow);
+}
+
+.mission-paragraphs {
+  margin-top: calc(30rem / 16);
+  height: calc(370rem / 16);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: calc(705rem / 16);
+  font-family: 'Karla';
+  font-style: normal;
+  font-weight: 500;
+  font-size: calc(30rem / 16);
+  line-height: calc(35rem / 16);
+  text-align: justify;
+  color: var(--white);
+}
+
+.mission-images-container {
+  margin-left: calc(75rem / 16);
+}
+
+.mission-image-paw {
+  position: relative;
+  margin-top: calc(-85rem / 16);
+  z-index: 1;
+  height: calc(677rem / 16);
+  width: calc(574rem / 16);
+}
+
+.mission-image-book {
+  position: relative;
+  margin-top: calc(-565rem / 16);
+  margin-left: calc(55rem / 16);
+  height: calc(590rem / 16);
+  width: calc(784rem / 16);
+}
+
+.mission-image-butterfly-1 {
+  position: absolute;
+  width: calc(191rem / 16);
+  height: calc(190rem / 16);
+  left: calc(1595rem / 16);
+  top: calc(3190rem / 16);
+}
+
+.mission-image-butterfly-2 {
+  position: absolute;
+  width: calc(140rem / 16);
+  height: calc(150rem / 16);
+  left: calc(229rem / 16);
+  top: calc(4005rem / 16);
+}
+
+.mission-image-planet {
+  position: absolute;
+  width: calc(172rem / 16);
+  height: calc(123rem / 16);
+  left: calc(1169rem / 16);
+  top: calc(4020rem / 16);
+}

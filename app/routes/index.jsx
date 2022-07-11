@@ -37,10 +37,10 @@ export default function IndexRoute() {
         <Mission />
         <About />
         <Careers />
-        <Team />
-        <Subscribe />
+        {/* <Team /> */}
+        {/* <Subscribe /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -60,20 +60,17 @@ export function BlogPostsList({
                 <BlogPostCard key={blogPost.id} blogPost={blogPost} />
               ))}
       </div>
-      <motion.button
+      <button
         onClick={loadMore}
         disabled={loadMoreBtnDisabled}
         className="news-index-blog-posts-load-more-btn"
-        whileHover={{
-          scale: 0.98,
-        }}
       >
         {loadMoreBtnDisabled
           ? 'No more posts'
           : isFetcherLoading
           ? 'Loading...'
           : 'Load More'}
-      </motion.button>
+      </button>
     </section>
   );
 }

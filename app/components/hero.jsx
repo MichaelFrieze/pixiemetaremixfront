@@ -40,7 +40,6 @@ export function Hero() {
             className="hero-pot"
             srcSet="/images/graphics/hero-pot.webp"
             alt="hero pot"
-            loading="lazy"
             whileHover={{
               scale: 1.01,
             }}
@@ -49,7 +48,6 @@ export function Hero() {
             className="hero-green-bubble-1"
             srcSet="/images/graphics/hero-green-bubble-1.svg"
             alt="hero green bubble 1"
-            loading="lazy"
             whileHover={{
               scale: 1.05,
             }}
@@ -58,7 +56,6 @@ export function Hero() {
             className="hero-green-bubble-2"
             srcSet="/images/graphics/hero-green-bubble-2.svg"
             alt="hero green bubble 2"
-            loading="lazy"
             whileHover={{
               scale: 1.05,
             }}
@@ -67,7 +64,6 @@ export function Hero() {
             className="hero-butterfly-1"
             srcSet="/images/graphics/hero-butterfly-1.svg"
             alt="hero butterfly 1"
-            loading="lazy"
             whileHover={{
               scale: 1.05,
             }}
@@ -94,15 +90,6 @@ export function Hero() {
             className="hero-butterfly-4"
             srcSet="/images/graphics/hero-butterfly-4.svg"
             alt="hero butterfly 4"
-            loading="lazy"
-            whileHover={{
-              scale: 1.05,
-            }}
-          />
-          <motion.img
-            className="hero-butterfly-5"
-            srcSet="/images/graphics/hero-butterfly-5.svg"
-            alt="hero butterfly 5"
             loading="lazy"
             whileHover={{
               scale: 1.05,

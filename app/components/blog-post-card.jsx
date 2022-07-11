@@ -47,15 +47,9 @@ export function BlogPostCard({ blogPost }) {
           to={`/news/${blogPost.attributes.slug}`}
           className="news-index-blog-post-link"
         >
-          <motion.button
-            className="news-index-blog-post-link-btn"
-            type="button"
-            whileHover={{
-              scale: 0.98,
-            }}
-          >
+          <button className="news-index-blog-post-link-btn" type="button">
             Read Blog Post
-          </motion.button>
+          </button>
         </Link>
       </div>
     </div>

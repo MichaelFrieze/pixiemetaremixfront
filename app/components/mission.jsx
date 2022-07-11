@@ -50,7 +50,7 @@ export function Mission() {
             alt="mission book"
             loading="lazy"
           />
-          <motion.img
+          {/* <motion.img
             className="mission-image-butterfly-1"
             srcSet="/images/graphics/mission-butterfly-1.svg"
             alt="mission butterfly 1"
@@ -58,8 +58,8 @@ export function Mission() {
             whileHover={{
               scale: 1.05,
             }}
-          />
-          <motion.img
+          /> */}
+          {/* <motion.img
             className="mission-image-butterfly-2"
             srcSet="/images/graphics/mission-butterfly-2.svg"
             alt="mission butterfly 2"
@@ -67,8 +67,8 @@ export function Mission() {
             whileHover={{
               scale: 1.05,
             }}
-          />
-          <motion.img
+          /> */}
+          {/* <motion.img
             className="mission-image-planet"
             srcSet="/images/graphics/mission-planet.svg"
             alt="mission planet"
@@ -76,7 +76,7 @@ export function Mission() {
             whileHover={{
               scale: 1.05,
             }}
-          />
+          /> */}
         </div>
       </div>
     </section>

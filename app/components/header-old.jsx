@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fa';
 import { BsMedium } from 'react-icons/bs';
 import { motion } from 'framer-motion';
-import headerDesktopStyles from '~/styles/desktop/header.css';
+import headerDesktopStyles from '~/styles/desktop/header-old.css';
 
 export const links = () => [
   {
@@ -25,11 +25,9 @@ export function Header() {
 
   return (
     <header className="header-container">
-      <div className="header-logo-container">
-        <Link to="/" prefetch="intent" className="header-logo">
-          <img srcSet="/images/logos/logo-header.svg" alt="header logo" />
-        </Link>
-      </div>
+      <Link to="/" prefetch="intent" className="header-logo">
+        <img srcSet="/images/logos/logo-header.svg" alt="header logo" />
+      </Link>
       <div className="header-nav-container">
         <div className="header-social-btn-container">
           <motion.a

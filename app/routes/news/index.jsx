@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { redirect } from '@remix-run/node';
 import { useLoaderData, Link, useSubmit, Form } from '@remix-run/react';
 import { Redis } from '@upstash/redis';
-import { Header, links as headerLinks } from '~/components/header';
+import { Header, links as headerLinks } from '~/components/header-old';
 import {
   BlogPostsList,
   links as blogPostsListLinks,
@@ -49,40 +49,40 @@ export const loader = async ({ request }) => {
     filterTag = null;
   }
 
-  const redis = new Redis({
-    url: `${process.env.UPSTASH_URL}`,
-    token: `${process.env.UPSTASH_TOKEN}`,
-  });
+  // const redis = new Redis({
+  //   url: `${process.env.UPSTASH_URL}`,
+  //   token: `${process.env.UPSTASH_TOKEN}`,
+  // });
 
-  if (filterTag === null) {
-    // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
-  } else {
-    // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
-    redisRes = await redis.get(cacheKey);
-  }
+  // if (filterTag === null) {
+  //   // Find the cache key in the Upstash data browser
+  //   const cacheKey = `/api/blog-posts?pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+  //   redisRes = await redis.get(cacheKey);
+  // } else {
+  //   // Find the cache key in the Upstash data browser
+  //   const cacheKey = `/api/blog-posts?filters={"tags":{"name":{"$eq":"${filterTag}"}}},pagination={"start":"${start}","limit":"${limit}","withCount":"true"},populate=["image","tags"],sort=["date:desc"]&`;
+  //   redisRes = await redis.get(cacheKey);
+  // }
 
-  // if the cache is valid, return it
-  if (redisRes !== null) {
-    console.log('Blog posts cache hit, fetching from Upstash!');
+  // // if the cache is valid, return it
+  // if (redisRes !== null) {
+  //   console.log('Blog posts cache hit, fetching from Upstash!');
 
-    const redisResObj = JSON.parse(redisRes);
-    const cachedLoaderData = {
-      paginatedBlogPosts: redisResObj.data.data,
-      total: redisResObj.data.meta.pagination.total,
-      recentPost: redisResObj.data.data[0],
-      strapiUrl: process.env.API_URL,
-      filterTag,
-      upstashURL: `${process.env.UPSTASH_URL}`,
-      upstashToken: `${process.env.UPSTASH_TOKEN}`,
-    };
+  //   const redisResObj = JSON.parse(redisRes);
+  //   const cachedLoaderData = {
+  //     paginatedBlogPosts: redisResObj.data.data,
+  //     total: redisResObj.data.meta.pagination.total,
+  //     recentPost: redisResObj.data.data[0],
+  //     strapiUrl: process.env.API_URL,
+  //     filterTag,
+  //     upstashURL: `${process.env.UPSTASH_URL}`,
+  //     upstashToken: `${process.env.UPSTASH_TOKEN}`,
+  //   };
 
-    return cachedLoaderData;
-  }
+  //   return cachedLoaderData;
+  // }
 
-  console.log('Blog posts cache miss, fetching from API');
+  // console.log('Blog posts cache miss, fetching from API');
 
   if (filterTag) {
     blogPostsQuery = qs.stringify(
@@ -149,8 +149,8 @@ export const loader = async ({ request }) => {
     recentPost: blogPostsResObj.data[0],
     strapiUrl: process.env.API_URL,
     filterTag,
-    upstashURL: `${process.env.UPSTASH_URL}`,
-    upstashToken: `${process.env.UPSTASH_TOKEN}`,
+    // upstashURL: `${process.env.UPSTASH_URL}`,
+    // upstashToken: `${process.env.UPSTASH_TOKEN}`,
   };
 
   return loaderData;
@@ -163,8 +163,8 @@ export default function NewsIndexRoute() {
     total,
     strapiUrl,
     filterTag,
-    upstashURL,
-    upstashToken,
+    // upstashURL,
+    // upstashToken,
   } = useLoaderData();
   const submit = useSubmit();
 
@@ -180,24 +180,23 @@ export default function NewsIndexRoute() {
   };
 
   const fetchTags = async () => {
-    const redis = new Redis({
-      url: upstashURL,
-      token: upstashToken,
-    });
+    // const redis = new Redis({
+    //   url: upstashURL,
+    //   token: upstashToken,
+    // });
 
-    // Find the cache key in the Upstash data browser
-    const cacheKey = `/api/tags?&`;
-    const redisRes = await redis.get(cacheKey);
+    // // Find the cache key in the Upstash data browser
+    // const cacheKey = `/api/tags?&`;
+    // const redisRes = await redis.get(cacheKey);
 
-    // if the cache is valid, return it
-    if (redisRes) {
-      const redisResObj = JSON.parse(redisRes);
-      const cachedTagsData = redisResObj.data;
-      setTags(cachedTagsData.data);
-      return;
-    }
+    // // if the cache is valid, return it
+    // if (redisRes) {
+    //   const redisResObj = JSON.parse(redisRes);
+    //   const cachedTagsData = redisResObj.data;
+    //   setTags(cachedTagsData.data);
+    //   return;
+    // }
 
-    console.log('are we here');
     const tagsRes = await fetch(`${strapiUrl}/api/tags`);
 
     if (!tagsRes.ok) {
@@ -285,15 +284,9 @@ export default function NewsIndexRoute() {
                 to={`/news/${recentPost.attributes.slug}`}
                 className="news-recent-post-link"
               >
-                <motion.button
-                  type="button"
-                  className="news-recent-post-btn"
-                  whileHover={{
-                    scale: 0.98,
-                  }}
-                >
+                <button type="button" className="news-recent-post-btn">
                   READ BLOG POST
-                </motion.button>
+                </button>
               </Link>
             </div>
           </div>

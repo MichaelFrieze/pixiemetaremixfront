@@ -12,6 +12,12 @@ export const links = () => [
 export function About() {
   return (
     <section className="about-section" id="about-section">
+      <img
+        srcSet="/images/backgrounds/about-large-bg.webp"
+        alt="about section background"
+        loading="lazy"
+        className="about-section-background-img"
+      />
       <div className="about-container">
         <motion.img
           className="about-image-fairy"
@@ -59,7 +65,7 @@ export function About() {
         </div>
 
         <div className="about-images-container">
-          <motion.img
+          {/* <motion.img
             className="about-image-butterfly-1"
             srcSet="/images/graphics/about-butterfly-1.svg"
             alt="about butterfly 1"
@@ -67,8 +73,8 @@ export function About() {
             whileHover={{
               scale: 1.05,
             }}
-          />
-          <motion.img
+          /> */}
+          {/* <motion.img
             className="about-image-butterfly-2"
             srcSet="/images/graphics/about-butterfly-2.svg"
             alt="about butterfly 2"
@@ -76,8 +82,8 @@ export function About() {
             whileHover={{
               scale: 1.05,
             }}
-          />
-          <motion.img
+          /> */}
+          {/* <motion.img
             className="about-image-planet"
             srcSet="/images/graphics/about-planet.svg"
             alt="about planet"
@@ -85,7 +91,7 @@ export function About() {
             whileHover={{
               scale: 1.05,
             }}
-          />
+          /> */}
         </div>
       </div>
     </section>

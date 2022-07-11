@@ -35,7 +35,7 @@ export default function IndexRoute() {
         <Hero />
         <Values />
         <Mission />
-        {/* <About /> */}
+        <About />
         {/* <Careers /> */}
         {/* <Team /> */}
         {/* <Subscribe /> */}

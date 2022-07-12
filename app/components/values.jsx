@@ -155,7 +155,8 @@ export function Values() {
             <img
               srcSet="/images/icons/values-left-arrow.svg"
               alt="left arrow"
-              loading="lazy"
+              width={36}
+              height={36}
             />
           </motion.button>
           <motion.button
@@ -167,8 +168,9 @@ export function Values() {
           >
             <img
               srcSet="/images/icons/values-right-arrow.svg"
-              alt="left arrow"
-              loading="lazy"
+              alt="right arrow"
+              width={36}
+              height={36}
             />
           </motion.button>
         </motion.div>

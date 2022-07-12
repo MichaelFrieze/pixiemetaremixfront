@@ -40,6 +40,8 @@ export function Mission() {
             srcSet="/images/graphics/mission-paw.webp"
             alt="mission paw"
             loading="lazy"
+            width={487}
+            height={575}
             whileHover={{
               scale: 1.02,
             }}
@@ -49,6 +51,8 @@ export function Mission() {
             srcSet="/images/graphics/mission-book.webp"
             alt="mission book"
             loading="lazy"
+            width={665}
+            height={501}
           />
           {/* <motion.img
             className="mission-image-butterfly-1"

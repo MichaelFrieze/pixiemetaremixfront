@@ -69,9 +69,6 @@
   margin-top: calc(-83rem / 16);
 }
 
-/* the butterfly img positions are based on the layout container
-the layout container 1920px wide and 8674px high  */
-
 .hero-green-bubble-1 {
   width: calc(29rem / 16);
   height: calc(29rem / 16);
@@ -86,18 +83,19 @@ the layout container 1920px wide and 8674px high  */
   margin-left: calc(435rem / 16);
 }
 
+/* ======== */
 .hero-butterfly-1 {
-  width: calc(125rem / 16);
-  height: calc(111rem / 16);
-  margin-left: calc(-300rem / 16);
-  margin-top: calc(-280rem / 16);
+  width: calc(58rem / 16);
+  height: calc(49rem / 16);
+  margin-left: calc(-225rem / 16);
+  margin-top: calc(-240rem / 16);
 }
 
 .hero-butterfly-2 {
   width: calc(78rem / 16);
   height: calc(78rem / 16);
-  margin-left: calc(325rem / 16);
-  margin-top: calc(-30rem / 16);
+  margin-left: calc(335rem / 16);
+  margin-top: calc(-10rem / 16);
 }
 
 .hero-butterfly-3 {

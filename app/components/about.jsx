@@ -16,6 +16,8 @@ export function About() {
         srcSet="/images/backgrounds/about-large-bg.webp"
         alt="about section background"
         loading="lazy"
+        width={3840}
+        height={871}
         className="about-section-background-img"
       />
       <div className="about-container">
@@ -24,6 +26,8 @@ export function About() {
           srcSet="/images/graphics/about-large-fairy.webp"
           alt="about fairy"
           loading="lazy"
+          width={539}
+          height={801}
           whileHover={{
             scale: 1.005,
           }}
@@ -52,6 +56,9 @@ export function About() {
               <img
                 srcSet="/images/graphics/underline-design.svg"
                 alt="email underline"
+                loading="lazy"
+                width={247}
+                height={33}
               />
             </div>
           </a>

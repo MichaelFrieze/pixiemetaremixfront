@@ -27,7 +27,12 @@ export function Header() {
     <header className="header-container">
       <div className="header-logo-container">
         <Link to="/" prefetch="intent" className="header-logo">
-          <img srcSet="/images/logos/logo-header.svg" alt="header logo" />
+          <img
+            srcSet="/images/logos/logo-header.svg"
+            alt="header logo"
+            height={65}
+            width={283}
+          />
         </Link>
       </div>
       <div className="header-nav-container">

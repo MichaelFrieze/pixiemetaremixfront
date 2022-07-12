@@ -34,12 +34,15 @@ export function Hero() {
             className="hero-hat"
             srcSet="/images/graphics/hero-magic-hat.webp"
             alt="hero hat"
-            loading="lazy"
+            width={524}
+            height={352}
           />
           <motion.img
             className="hero-pot"
             srcSet="/images/graphics/hero-pot.webp"
             alt="hero pot"
+            width={404}
+            height={354}
             whileHover={{
               scale: 1.01,
             }}
@@ -48,6 +51,8 @@ export function Hero() {
             className="hero-green-bubble-1"
             srcSet="/images/graphics/hero-green-bubble-1.svg"
             alt="hero green bubble 1"
+            width={29}
+            height={29}
             whileHover={{
               scale: 1.05,
             }}
@@ -56,6 +61,8 @@ export function Hero() {
             className="hero-green-bubble-2"
             srcSet="/images/graphics/hero-green-bubble-2.svg"
             alt="hero green bubble 2"
+            width={29}
+            height={29}
             whileHover={{
               scale: 1.05,
             }}
@@ -64,6 +71,8 @@ export function Hero() {
             className="hero-butterfly-1"
             srcSet="/images/graphics/hero-butterfly-1.svg"
             alt="hero butterfly 1"
+            width={58}
+            height={49}
             whileHover={{
               scale: 1.05,
             }}
@@ -72,7 +81,8 @@ export function Hero() {
             className="hero-butterfly-2"
             srcSet="/images/graphics/hero-butterfly-2.svg"
             alt="hero butterfly 2"
-            loading="lazy"
+            width={78}
+            height={78}
             whileHover={{
               scale: 1.05,
             }}
@@ -81,7 +91,8 @@ export function Hero() {
             className="hero-butterfly-3"
             srcSet="/images/graphics/hero-butterfly-3.svg"
             alt="hero butterfly 3"
-            loading="lazy"
+            width={115}
+            height={115}
             whileHover={{
               scale: 1.05,
             }}
@@ -90,7 +101,8 @@ export function Hero() {
             className="hero-butterfly-4"
             srcSet="/images/graphics/hero-butterfly-4.svg"
             alt="hero butterfly 4"
-            loading="lazy"
+            width={112}
+            height={111}
             whileHover={{
               scale: 1.05,
             }}

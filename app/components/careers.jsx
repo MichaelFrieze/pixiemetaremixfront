@@ -45,6 +45,9 @@ export function Careers() {
               <img
                 srcSet="/images/graphics/underline-design.svg"
                 alt="email underline"
+                loading="lazy"
+                width={247}
+                height={33}
               />
             </div>
           </a>
@@ -56,12 +59,16 @@ export function Careers() {
             srcSet="/images/graphics/careers-space-ship.webp"
             alt="careers space ship"
             loading="lazy"
+            width={521}
+            height={806}
           />
           <motion.img
             className="careers-image-fairy"
             srcSet="/images/graphics/careers-fairy.webp"
             alt="careers fairy"
             loading="lazy"
+            width={244}
+            height={474}
             whileHover={{
               scale: 1.02,
             }}

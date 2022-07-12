@@ -158,6 +158,7 @@
 
 .values-carousel-nav-arrow img {
   width: calc(36rem / 16);
+  height: calc(36rem / 16);
 }
 
 .values-carousel-nav-arrow:hover {

@@ -46,14 +46,7 @@ export function About() {
               transition of sustainable jobs in the Metaverse.
             </p>
           </div>
-          <motion.a
-            href="mailto:hi@pixiemeta.com"
-            className="about-contact"
-            whileHover={{
-              scale: 1.02,
-              x: 3,
-            }}
-          >
+          <a href="mailto:hi@pixiemeta.com" className="about-contact">
             <p className="about-contact-email">hi@pixiemeta.com</p>
             <div className="about-contact-underline">
               <img
@@ -61,7 +54,7 @@ export function About() {
                 alt="email underline"
               />
             </div>
-          </motion.a>
+          </a>
         </div>
 
         <div className="about-images-container">

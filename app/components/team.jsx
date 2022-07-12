@@ -99,7 +99,7 @@ export function Team() {
       </div>
 
       <div className="team-images-fairy">
-        <motion.img
+        {/* <motion.img
           className="team-image-butterfly-1"
           srcSet="/images/graphics/team-butterfly-1.svg"
           alt="team butterfly 1"
@@ -107,8 +107,8 @@ export function Team() {
           whileHover={{
             scale: 1.05,
           }}
-        />
-        <motion.img
+        /> */}
+        {/* <motion.img
           className="team-image-butterfly-2"
           srcSet="/images/graphics/team-butterfly-2.svg"
           alt="team butterfly 2"
@@ -116,7 +116,7 @@ export function Team() {
           whileHover={{
             scale: 1.05,
           }}
-        />
+        /> */}
       </div>
     </section>
   );

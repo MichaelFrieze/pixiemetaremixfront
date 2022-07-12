@@ -6,7 +6,7 @@
   min-width: calc(3840rem / 16);
   min-height: calc(871rem / 16);
   position: absolute;
-  margin-left: calc(-1323rem / 16);
+  margin-left: calc(-1240rem / 16);
   z-index: -1;
 }
 
@@ -18,13 +18,13 @@
 .about-image-fairy {
   width: calc(539rem / 16);
   height: calc(801rem / 16);
-  margin-left: calc(25rem / 16);
+  margin-left: calc(110rem / 16);
   margin-top: calc(-95rem / 16);
 }
 
 .about-text-box {
   margin-top: calc(195rem / 16);
-  margin-left: calc(20rem / 16);
+  margin-left: calc(26rem / 16);
 }
 
 .about-section-title {

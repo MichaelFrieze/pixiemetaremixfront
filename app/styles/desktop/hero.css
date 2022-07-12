@@ -1,5 +1,8 @@
 .hero-section {
   margin-top: calc(50rem / 16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .hero-container {

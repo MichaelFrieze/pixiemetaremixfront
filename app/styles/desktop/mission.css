@@ -1,11 +1,14 @@
 .mission-section {
   margin-top: calc(731rem / 16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mission-container {
   position: relative;
   display: flex;
-  width: calc(1156rem / 16);
+  width: calc(1366rem / 16);
 }
 
 .mission-text-box {

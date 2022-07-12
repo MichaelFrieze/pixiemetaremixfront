@@ -37,14 +37,7 @@ export function Careers() {
             </p>
           </div>
 
-          <motion.a
-            href="mailto:hi@pixiemeta.com"
-            className="careers-contact"
-            whileHover={{
-              scale: 1.02,
-              x: 3,
-            }}
-          >
+          <a href="mailto:hi@pixiemeta.com" className="careers-contact">
             <p href="mailto:hi@pixiemeta.com" className="careers-contact-email">
               Work at Pixie Meta
             </p>
@@ -54,7 +47,7 @@ export function Careers() {
                 alt="email underline"
               />
             </div>
-          </motion.a>
+          </a>
         </div>
 
         <div className="careers-iamges-container">

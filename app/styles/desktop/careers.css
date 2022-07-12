@@ -1,5 +1,8 @@
 .careers-section {
   margin-top: calc(68rem / 16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .careers-container {
@@ -8,7 +11,7 @@
 }
 
 .careers-text-box {
-  margin-top: calc(150rem / 16);
+  margin-top: calc(195rem / 16);
 }
 
 .careers-section-title {
@@ -78,11 +81,11 @@
 }
 
 .careers-image-space-ship {
-  position: absolute;
+  /* position: absolute; */
   width: calc(521rem / 16);
   height: calc(806rem / 16);
   margin-left: calc(83rem / 16);
-  /* margin-top: calc(-180rem / 16); */
+  margin-top: calc(45rem / 16);
 }
 
 .careers-image-fairy {
@@ -90,6 +93,6 @@
   z-index: 1;
   width: calc(244rem / 16);
   height: calc(474rem / 16);
-  margin-top: calc(215rem / 16);
+  margin-top: calc(-590rem / 16);
   margin-left: calc(195rem / 16);
 }

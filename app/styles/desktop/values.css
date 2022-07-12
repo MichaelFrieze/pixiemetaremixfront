@@ -1,5 +1,8 @@
 .values-section {
   margin-top: calc(20rem / 16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .values-container {
